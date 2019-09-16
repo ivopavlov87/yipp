@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kmoonwright/yipp.git"
+    "url": "git+https://github.com/ivopavlov87/yipp.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kmoonwright/yipp/issues"
+    "url": "https://github.com/ivopavlov87/yipp/issues"
   },
-  "homepage": "https://github.com/kmoonwright/yipp#readme",
+  "homepage": "https://github.com/ivopavlov87/yipp#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
