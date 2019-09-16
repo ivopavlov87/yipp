@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
+const passport = require('passport');
 
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
@@ -17,7 +18,10 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello World! We're about to connec to MongooseDB!"));
+app.use(passport.initialize());
+//config for passport:
+require('./config/passport')(passport);
+
 // this is where we import the routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
