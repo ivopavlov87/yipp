@@ -4,7 +4,9 @@ import Posts from './posts';
 
 const mapStateToProps = (state) => {
   return {
-    posts: Object.values(state.posts.all)
+    posts: Object.values(state.posts.all).sort((a,b) => {
+      return a.date < b.date ? 1 : -1
+    })
   };
 };
 

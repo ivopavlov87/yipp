@@ -18,7 +18,7 @@ const PostSchema = new Schema({
     type: Number,
     min: 1, // 1 is very aggressive
     max: 10, // 10 is super friendly
-    required: "Your review must have a rating!"
+    required: true
   }
 });
 

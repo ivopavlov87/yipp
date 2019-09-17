@@ -12,12 +12,15 @@ class Post extends React.Component {
   }
 
   componentDidMount() {
+    console.log("component has mounted");
     this.props.fetchPosts();
   }
 
-  // static_getDerivedStateFromProps() {
-  //   // debugger;
-  //   this.setState({ posts: this.props.posts });
+  // componentDidUpdate(prevProps) {
+  //   console.log("component has updated");
+  //   if(this.props.posts.length !== prevProps.posts.length){
+  //     this.props.fetchPosts();
+  //   }
   // }
 
   render() {

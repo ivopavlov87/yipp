@@ -13,4 +13,17 @@ const formatPosts = (postsArr) => {
   return posts;
 }
 
-module.exports = { formatPosts }
+const formatPost = (post) => {
+  // const formattedPost = {};
+  const postData = {
+    id: post.id,
+    user_id: post.user,
+    text: post.text,
+    date: post.date
+  };
+  // formattedPost[post.id] = postData
+
+  return postData;
+}
+
+module.exports = { formatPosts, formatPost }
