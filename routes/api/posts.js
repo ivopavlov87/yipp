@@ -6,6 +6,8 @@ const passport = require('passport');
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
+//THIS IS A TEST IGNORE ME
+
 router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 })
