@@ -26,10 +26,10 @@ const DogSchema = new Schema({
     type: String,
     required: true
   },
-  temperament: {
-    type: Number,
-    required: true
-  },
+  // temperament: {
+  //   type: Number,
+  //   required: true
+  // },
   energy: {
     type: Number,
     required: true

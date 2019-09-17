@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateDogInput(req.body);
 
@@ -45,7 +45,7 @@ router.post('/',
         }
 
         const newDog = new Dog({
-            user: req.user.id,
+            user: req.body.user,
             name: req.body.name,
             breed: req.body.breed,
             dob: req.body.dob,
@@ -56,13 +56,12 @@ router.post('/',
             temperament: req.body.temperament,
             ratings: req.body.ratings,
         });
-
         newDog.save().then(dog => res.json(dog));
     }
 );
 
 router.patch('/:id',
-    passport.authenticate('jwt', { session: false }), 
+    // passport.authenticate('jwt', { session: false }), 
     (req, res) => {
 
     Dog.findById(req.params.id)
@@ -72,17 +71,28 @@ router.patch('/:id',
             if (!isValid) {
                 return res.status(400).json(errors);
             }
-            Dog.update(dog, {
-                name: req.body.name,
-                breed: req.body.breed,
-                dob: req.body.dob,
-                weight: req.body.weight,
-                energy: req.body.energy,
-                size: req.body.size,
-                vaccinations: req.body.vaccinations,
-                temperament: req.body.temperament,
-                ratings: req.body.ratings,
-            })
+
+            dog.name = req.body.name
+            dog.breed = req.body.breed
+            dog.dob = req.body.dob
+            dog.weight = req.body.weight
+            dog.energy = req.body.energy
+            dog.size = req.body.size
+            dog.vaccinations = req.body.vaccinations
+            dog.ratings = dog.ratings.concat(req.body.ratings)
+            // dog.temperament = req.body.temperament
+
+            // Dog.update(dog, {
+            //     name: req.body.name,
+            //     breed: req.body.breed,
+            //     dob: req.body.dob,
+            //     weight: req.body.weight,
+            //     energy: req.body.energy,
+            //     size: req.body.size,
+            //     vaccinations: req.body.vaccinations,
+            //     temperament: req.body.temperament,
+            //     ratings: req.body.ratings,
+            // })
 
             dog.save().then(dog => res.json(dog));
         })
@@ -92,11 +102,11 @@ router.patch('/:id',
 })
 
 router.delete('/:id', 
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Dog.findById(req.params.id)
         .then(dog => {
-            Dog.deleteOne({id: dog.id})
+            Dog.deleteOne({_id: dog.id})
         })
         .catch(err =>
             res.status(404).json({ nodogfound: 'No dog found with that ID' })
@@ -105,6 +115,10 @@ router.delete('/:id',
 
 module.exports = router;
 
-findOneAndUpdate()
-findOneAndRemove()
-findAndModify()
+// findOneAndUpdate()
+// findOneAndRemove()
+// findAndModify()
+
+
+
+
