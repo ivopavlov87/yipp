@@ -34,7 +34,7 @@ module.exports = function validateDogInput(data) {
     // VALIDATE BETWEENS
     if (!Validator.isLength(data.name, { min: 1, max: 20})) {
         errors.text = 'Dog name must be between 1 and 20 characters';
-    // }
+    }
     // if (!Validator.isLength(data.energy, { min: 0, max: 10 })) {
     //     errors.text = 'Dog energy must be between levels 0 and 10';
     // }
