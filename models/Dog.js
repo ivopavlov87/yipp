@@ -46,4 +46,4 @@ const DogSchema = new Schema({
 
 
 
-module.exports = Dog = mongoose.model('dogs', DogSchema);
+module.exports = Dog = mongoose.model('dog', DogSchema);
