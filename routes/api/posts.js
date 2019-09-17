@@ -6,6 +6,7 @@ const passport = require('passport');
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
+// Post Index
 router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 })
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 
+// User post index
 router.get('/user/:user_id', (req, res) => {
   Post.find({ user: req.params.user_id })
     .sort({ date: -1 })
@@ -25,6 +27,7 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
+// Post
 router.get('/:id', (req, res) => {
   Post.findById(req.params.id)
     .then(post => res.json(post))
@@ -33,6 +36,8 @@ router.get('/:id', (req, res) => {
     );
 });
 
+
+// Create POST
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
