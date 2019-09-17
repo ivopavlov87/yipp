@@ -61,4 +61,50 @@ router.post('/',
     }
 );
 
+router.patch('/:id',
+    passport.authenticate('jwt', { session: false }), 
+    (req, res) => {
+
+    Dog.findById(req.params.id)
+        .then( dog => {
+            const { errors, isValid } = validateDogInput(req.body);
+
+            if (!isValid) {
+                return res.status(400).json(errors);
+            }
+            Dog.update(dog, {
+                name: req.body.name,
+                breed: req.body.breed,
+                dob: req.body.dob,
+                weight: req.body.weight,
+                energy: req.body.energy,
+                size: req.body.size,
+                vaccinations: req.body.vaccinations,
+                temperament: req.body.temperament,
+                ratings: req.body.ratings,
+            })
+
+            dog.save().then(dog => res.json(dog));
+        })
+        .catch(err =>
+            res.status(404).json({ nodogfound: 'No dog found with that ID' })
+        );
+})
+
+router.delete('/:id', 
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        Dog.findById(req.params.id)
+        .then(dog => {
+            Dog.deleteOne({id: dog.id})
+        })
+        .catch(err =>
+            res.status(404).json({ nodogfound: 'No dog found with that ID' })
+        );
+})
+
 module.exports = router;
+
+findOneAndUpdate()
+findOneAndRemove()
+findAndModify()
