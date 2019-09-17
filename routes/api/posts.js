@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/user/:user_id', (req, res) => {
   Post.find({ user: req.params.user_id })
+    .sort({ date: -1 })
     .then(posts => res.json(posts))
     .catch(err =>
       res.status(404).json({ nopostsfound: 'No posts found from that user' }
