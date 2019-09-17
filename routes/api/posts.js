@@ -6,6 +6,7 @@ const passport = require('passport');
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
+// This is for all posts
 router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 })
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
 
+// This is for all of 1 users posts
 router.get('/user/:user_id', (req, res) => {
   Post.find({ user: req.params.user_id })
     .sort({ date: -1 })
