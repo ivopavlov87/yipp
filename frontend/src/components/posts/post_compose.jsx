@@ -13,10 +13,10 @@ class PostCompose extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    // debugger;
-    this.setState({ newPost: nextProps.newPost.text });
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   // debugger;
+  //   this.setState({ newPost: nextProps.newPost.text });
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -25,7 +25,8 @@ class PostCompose extends React.Component {
     };
 
     this.props.composePost(post);
-    this.setState({ text: '' })
+    this.setState({ text: '' });
+    this.props.history.push('/posts');
   }
 
   update() {

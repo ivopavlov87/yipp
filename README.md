@@ -13,12 +13,14 @@ FB / Yelp clone
 MVPs
 USER AUTH
 	Profiles
+		User Params
 		location, owner, dog info.
-		breed, size, weight, temperament, motivations
+		Dog Params
+		breed, size, weight, temperament, motivation, alteredStatus (snipped), age, energy, location
 OTHER MVPs
 	Friending: Friends List, Friends Show (Profile)
-	Posts (Review) CRUD
-	Rating Feature on Dogs
+	Posts (Review) CRUD, Rating Feature attached to Dogs
+	Comments
 	Searching
 
 Bonus
@@ -28,8 +30,16 @@ Bonus
 	Favorites
 	Renting a dog
 	Book a puppy playdate
-	Predatory business practices
-	Data collection algorithms
+
+
+STRUCTURE
+ Splash
+	login, signup
+ DogIndex
+	dog show pages
+		dog info., posts, 
+ UserIndex
+	user profile info.
 
 
 SCHEMA
@@ -37,7 +47,6 @@ users
 	username, password_digest, session_token, timestamps
 dogs (rating)
 	name, breed, age, weight, energy level, temperament, vaccinations, color, timestamps
-    
 posts (reviews)
 	title, body, timestamps
 ratings

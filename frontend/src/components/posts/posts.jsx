@@ -15,10 +15,10 @@ class Post extends React.Component {
     this.props.fetchPosts();
   }
 
-  static_getDerivedStateFromProps() {
-    // debugger;
-    this.setState({ posts: this.props.posts });
-  }
+  // static_getDerivedStateFromProps() {
+  //   // debugger;
+  //   this.setState({ posts: this.props.posts });
+  // }
 
   render() {
     if (this.props.posts.length === 0) {

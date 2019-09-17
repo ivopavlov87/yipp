@@ -16,14 +16,14 @@ class LoginForm extends React.Component {
   }
 
   // Once the user has been authenticated, redirect to the Tweets page
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/posts');
-    }
+  // static getDerivedStateFromProps(nextProps) {
+    // if (nextProps.currentUser === true) {
+      // this.props.history.push('/posts');
+    // }
 
     // Set or clear errors
-    this.setState({ errors: nextProps.errors })
-  }
+    // return ({ errors: nextProps.errors })
+  // }
 
   // Handle field updates (called in the render method)
   update(field) {
