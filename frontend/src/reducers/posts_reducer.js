@@ -20,6 +20,7 @@ const PostsReducer = (state = { all: {}, user: {}}, action) => {
       // return Object.assign({}, newState.user, action.post.data)
       debugger;
       // return newState;
+      break;
     default:
       return state;
   }

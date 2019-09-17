@@ -28,7 +28,7 @@ class Post extends React.Component {
         <div>
           <h2>All Posts</h2>
           {this.props.posts.map(post => (
-            <PostBox key={post._id} text={post.text} />
+            <PostBox key={post.id} text={post.text} />
           ))}
         </div>
       );

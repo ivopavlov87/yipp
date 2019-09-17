@@ -13,6 +13,12 @@ const PostSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  tempermentRating: {
+    type: Number,
+    min: 1, // 1 is very aggressive
+    max: 10, // 10 is super friendly
+    required: "Your review must have a rating!"
   }
 });
 

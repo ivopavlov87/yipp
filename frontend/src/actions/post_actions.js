@@ -21,7 +21,10 @@ export const receiveNewPost = post => ({
 
 export const fetchPosts = () => dispatch => (
   getPosts()
-    .then(posts => dispatch(receivePosts(posts)))
+    .then(posts => {
+      // debugger;
+      dispatch(receivePosts(posts))
+    })
     .catch(err => console.log(err))
 );
 
