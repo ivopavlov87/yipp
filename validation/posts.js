@@ -6,7 +6,8 @@ module.exports = function validatePostInput(data) {
   let errors = {};
 
   data.text = validText(data.text) ? data.text : '';
-  data.tempermentRating = validRate(data.tempermentRating) ? data.tempermentRating : '';
+  
+  data.temperamentRating = validRate(parseInt(data.temperamentRating)) ? data.temperamentRating : '';
 
   if (!Validator.isLength(data.text, { min: 3, max: 500 })) {
     errors.text = 'Post must be between 3 and 500 characters';
@@ -16,8 +17,8 @@ module.exports = function validatePostInput(data) {
     errors.text = 'Text field is required';
   }
 
-  if (Validator.isEmpty(data.tempermentRating)) {
-    errors.text = 'Temperment rating is required';
+  if (Validator.isEmpty(data.temperamentRating)) {
+    errors.text = 'Temperament rating is required';
   }
 
   return {

@@ -14,7 +14,7 @@ const PostSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  tempermentRating: {
+  temperamentRating: {
     type: Number,
     min: 1, // 1 is very aggressive
     max: 10, // 10 is super friendly

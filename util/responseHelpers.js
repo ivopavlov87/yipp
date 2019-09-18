@@ -4,6 +4,7 @@ const formatPosts = (postsArr) => {
     const postData = {
       id: post.id,
       user_id: post.user,
+      // authorName: post.author_name,
       text: post.text,
       date: post.date
     };
@@ -18,6 +19,7 @@ const formatPost = (post) => {
   const postData = {
     id: post.id,
     user_id: post.user,
+    // authorName: post.author_name,
     text: post.text,
     date: post.date
   };
