@@ -80,6 +80,8 @@ router.patch('/:id',
             dog.size = req.body.size
             dog.vaccinations = req.body.vaccinations
             dog.ratings = dog.ratings.concat(req.body.ratings)
+
+
             // dog.temperament = req.body.temperament
 
             // Dog.update(dog, {
@@ -106,7 +108,7 @@ router.delete('/:id',
     (req, res) => {
         Dog.findById(req.params.id)
         .then(dog => {
-            Dog.deleteOne({_id: dog.id})
+            Dog.deleteOne({ '_id': req.params.id})
         })
         .catch(err =>
             res.status(404).json({ nodogfound: 'No dog found with that ID' })
@@ -121,4 +123,9 @@ module.exports = router;
 
 
 
+// COAUTHOR A COMMIT
+// gcm "Test commit
+// 
+// 
+// Co - authored - by: long < 35038654 + uwgnol1612@users.noreply.github.com> "
 
