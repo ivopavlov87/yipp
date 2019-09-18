@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/',
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateDogInput(req.body);
 
@@ -61,7 +61,7 @@ router.post('/',
 );
 
 router.patch('/:id',
-    // passport.authenticate('jwt', { session: false }), 
+    passport.authenticate('jwt', { session: false }), 
     (req, res) => {
 
     Dog.findById(req.params.id)
@@ -88,7 +88,7 @@ router.patch('/:id',
 })
 
 router.delete('/:id', 
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Dog.findByIdAndRemove(req.params.id, (err, dog) => {
           if (err) return res.status(404).json({ nodogfound: 'No dog found with that ID' })
