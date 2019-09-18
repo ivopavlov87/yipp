@@ -3,9 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const { formatPosts, formatPost } = require('../../util/responseHelpers')
-const {
-  confirmOwner
-} = require("../../util/ownershipHelper");
+const { confirmOwner } = require("../../util/ownershipHelper");
 const User = require('../../models/User');
 
 const Post = require('../../models/Post');
@@ -62,79 +60,75 @@ router.post('/',
 );
 
 
-// if (!confirmOwner(store, req.user)) {
-//   return res.status(400).json({
-//     errors: [{ detail: "You must have created this store to edit it!" }]
-//   });
-// }
-
 // EDIT POST
-router.patch('/:postId',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-//     const { errors, isValid } = validatePostInput(req.body);
-
-//     if (!isValid) {
-//       return res.status(400).json(errors);
-//     }
-
-    // if (post.user.toString() !== req.user.id) {
-    //   return res.status(401).json({msg: 'User not authorized'});
-    // }
-
-    // Store.findOne({ _id: req.params.id })
-    //   .then(store => {
-    
-//     if (!confirmOwner(post, req.user)) {
-//       return res.status(400).json({
-//         errors: [{ detail: "You must have created this post to edit it!" }]
-//       });
-//     }
-    
-
-//     const newPost = new Post({
-//       text: req.body.text,
-//       user: req.user.id,
-//       authorName: req.user.name,
-//       temperamentRating: req.body.temperamentRating
-//     });
-
-//     newPost.save().then(post => res.json(post));
-  }
-);
-
-//DELETE POST
-router.delete('/:postId',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-
-      Post.findById(req.params.postId).then((post) => {
-
-        
-        if (!post) {
-          return res.status(404).json({msg: 'Post not found'});
-        }
-        // const userTest = User.find(post.user)
-        User.find(post.user).then((user) => {
-          if (!confirmOwner(req.user, user)) {
-            return res.status(400).json({ detail: "You must have created this post to delete it!" })
-          }
-          
-          post.remove().then(() => {
-            res.json({ msg: 'Post removed' })
-          })
-        }).catch(err => {
-          res.json(err)
+router.patch('/:id/edit',
+    passport.authenticate('jwt', { session: false }), 
+    (req, res) => {
+    Post.findById(req.params.id)
+        .then( post => {
+            const { errors, isValid } = validatePostInput(req.body);
+            if (!isValid) {
+                return res.status(400).json(errors);
+            }
+            post.text = req.body.text
+            post.temperamentRating = req.body.temperamentRating
+            post.save().then(post => res.json(post));
         })
-        
-        }).catch((err) => {
-          console.error(err.message);
-          if (err.kind === 'ObjectId') {
-            return res.status(404).json({msg: 'Post not found'});
-          }
-        res.status(500).send('Server Error');
-      })
-    });
+        .catch(err =>
+            res.status(404).json({ nopostfound: 'No post found with that ID' })
+        );
+})
 
+// DELETE POST
+router.delete('/:id', 
+passport.authenticate('jwt', { session: false }),
+(req, res) => {
+  Post.findByIdAndRemove(req.params.id, (err, post) => {
+          if (err) return res.status(404).json({ nopostfound: 'No post found with that ID' })
+        })
+        const response = {
+        message: "Post successfully deleted",
+        id: req.params.id
+    };
+    return res.status(200).send(response);
+  })
 
+  
 module.exports = router;
+
+
+
+// PIT OF SHAME
+
+  //DELETE POST
+  // router.delete('/:postId',
+  //   passport.authenticate('jwt', { session: false }),
+  //   (req, res) => {
+  
+  //       Post.findById(req.params.postId).then((post) => {
+  
+          
+  //         if (!post) {
+  //           return res.status(404).json({msg: 'Post not found'});
+  //         }
+  //         // const userTest = User.find(post.user)
+  //         User.find(post.user).then((user) => {
+  //           if (!confirmOwner(req.user, user)) {
+  //             return res.status(400).json({ detail: "You must have created this post to delete it!" })
+  //           }
+            
+  //           post.remove().then(() => {
+  //             res.json({ msg: 'Post removed' })
+  //           })
+  //         }).catch(err => {
+  //           res.json(err)
+  //         })
+          
+  //         }).catch((err) => {
+  //           console.error(err.message);
+  //           if (err.kind === 'ObjectId') {
+  //             return res.status(404).json({msg: 'Post not found'});
+  //           }
+  //         res.status(500).send('Server Error');
+  //       })
+  //     });

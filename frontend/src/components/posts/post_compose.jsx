@@ -1,5 +1,5 @@
 import React from 'react';
-import PostBox from './post_box';
+// import PostBox from './post_box';
 
 class PostCompose extends React.Component {
   constructor(props) {
@@ -7,7 +7,7 @@ class PostCompose extends React.Component {
 
     this.state = {
       text: "",
-      newPost: "",
+      // newPost: "",
       temperamentRating: 0,
       // authorName: this.props.currentUser.username
     }
@@ -67,7 +67,7 @@ class PostCompose extends React.Component {
           </div>
         </form>
         <br />
-        <PostBox text={this.state.newPost} />
+        {/* <PostBox text={this.state.newPost} /> */}
       </div>
     )
   }

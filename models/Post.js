@@ -19,6 +19,10 @@ const PostSchema = new Schema({
     min: 1, // 1 is very aggressive
     max: 10, // 10 is super friendly
     required: true
+  },
+  dog: {
+    type: Schema.Types.ObjectId,
+    ref: 'dogs'
   }
 });
 

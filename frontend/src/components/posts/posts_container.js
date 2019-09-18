@@ -4,6 +4,7 @@ import Posts from './posts';
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.session.user,
     posts: Object.values(state.posts.all).sort((a,b) => {
       return a.date < b.date ? 1 : -1
     })

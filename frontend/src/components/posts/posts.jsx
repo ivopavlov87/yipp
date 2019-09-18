@@ -31,7 +31,15 @@ class Post extends React.Component {
         <div>
           <h2>All Posts</h2>
           {this.props.posts.map(post => (
-            <PostBox key={post.id} text={post.text} />
+            <PostBox 
+            post={post}
+            key={post.id}
+            currentUser={this.props.currentUser}
+            // text={post.text} 
+            // temperamentRating={post.temperamentRating} 
+            // user={post.user}
+            // date={post.date}
+            />
           ))}
         </div>
       );
