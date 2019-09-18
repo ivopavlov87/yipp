@@ -38,10 +38,10 @@ const DogSchema = new Schema({
     type: Boolean,
     required: true
   },
-  ratings: {
-    type: Array
-    // required: true
-  },
+  // ratings: {
+  //   type: Array
+  //   // required: true
+  // },
   date: {
     type: Date,
     default: Date.now

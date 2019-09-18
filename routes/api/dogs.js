@@ -79,10 +79,7 @@ router.patch('/:id',
             dog.energy = req.body.energy
             dog.size = req.body.size
             dog.vaccinations = req.body.vaccinations
-            dog.ratings = dog.ratings.concat(req.body.ratings)
 
-
-            // dog.temperament = req.body.temperament
 
             // Dog.update(dog, {
             //     name: req.body.name,
@@ -106,13 +103,15 @@ router.patch('/:id',
 router.delete('/:id', 
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        Dog.findById(req.params.id)
-        .then(dog => {
-            Dog.deleteOne({ '_id': req.params.id})
+        Dog.findByIdAndRemove(req.params.id, (err, dog) => {
+          if (err) return res.status(404).json({ nodogfound: 'No dog found with that ID' })
         })
-        .catch(err =>
-            res.status(404).json({ nodogfound: 'No dog found with that ID' })
-        );
+
+        const response = {
+        message: "Dog successfully deleted",
+        id: req.params.id
+    };
+    return res.status(200).send(response);
 })
 
 module.exports = router;
@@ -122,10 +121,7 @@ module.exports = router;
 // findAndModify()
 
 
-
 // COAUTHOR A COMMIT
 // gcm "Test commit
-// 
-// 
 // Co - authored - by: long < 35038654 + uwgnol1612@users.noreply.github.com> "
 
