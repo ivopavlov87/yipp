@@ -110,5 +110,5 @@ module.exports = router;
 
 // COAUTHOR A COMMIT
 // gcm "Test commit
-// Co - authored - by: long < 35038654 + uwgnol1612@users.noreply.github.com> "
+// Co-authored-by: long <35038654+uwgnol1612@users.noreply.github.com>"
 

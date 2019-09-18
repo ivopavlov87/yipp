@@ -15,9 +15,9 @@ export const receiveOneDog = (dog) => ({
     dog
 })
 
-export const removeOneDog = (id) => ({
+export const removeOneDog = (dogId) => ({
     type: RECEIVE_ONE_DOG,
-    id
+    dogId
 })
 
 export const receiveDogErrors = (err) => ({
