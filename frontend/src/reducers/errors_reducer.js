@@ -5,5 +5,5 @@ import DogErrorsReducer from './dog_errors_reducer';
 
 export default combineReducers({
   session: SessionErrorsReducer,
-  dog: DogErrorsReducer
+  dog: DogErrorsReducer,
 });

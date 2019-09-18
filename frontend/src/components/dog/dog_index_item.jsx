@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 // import { selectPostsForDog } from '../../reducers/selectors';
 
 class DogIndexItem extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         // const postsForDog = selectPostsForDog(this.props.posts, this.props.dog)

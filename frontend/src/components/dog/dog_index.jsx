@@ -3,10 +3,6 @@ import DogIndexItem from './dog_index_item';
 
 class DogIndex extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     componentDidMount() {
         this.props.fetchDogs();
     }

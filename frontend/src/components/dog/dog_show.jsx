@@ -1,32 +1,53 @@
 import React from 'react';
-import dog_index_container from './dog_index_container';
 import { withRouter } from 'react-router-dom';
 
 class DogShow extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     componentDidMount() {
+        this.props.fetchUsers();
         this.props.fetchDog(this.props.match.params.dogId)
     }
 
     render() {
-        if (!this.props.dog) {
+
+       
+        if (!this.props.dog || Object.keys(this.props.users) === 0) {
             return null;
         }
+        const vaccinations = this.props.dog.vaccinations ? "Current" : "Not current"
+        // debugger
+
+        let owner;
+        Object.values(this.props.users).forEach(user => {
+            if (user._id === this.props.dog.user) {
+                owner = user;
+            }
+        })
+
         return (
             <div className="dog-show-container">
                 <div className="dog-show-details">
-                    {this.props.dog.name}
-                    {/* {this.props.dog.user.name} */}
-                    {this.props.dog.location}
-                    {this.props.dog.breed}
-                    {this.props.dog.dob}
-                    {this.props.dog.weight}
-                    {this.props.dog.size}
-                    {this.props.dog.energy}
-                    {this.props.dog.vaccinations}
+                    <li>
+                        {this.props.dog.name}
+                    </li>
+                    <li>
+                    {owner.username}
+                    </li>
+                    <li>{this.props.dog.location}
+                    </li>
+                    <li>{this.props.dog.breed}
+                    </li>
+                    <li>{this.props.dog.dob}
+                    </li>
+                    <li>{this.props.dog.weight}
+                    </li>
+                    <li>{this.props.dog.size}
+                    </li>
+                    <li>{this.props.dog.energy}
+                    </li>
+                    <li>
+                        {vaccinations}
+                    </li>
                 </div>
             </div>
         )

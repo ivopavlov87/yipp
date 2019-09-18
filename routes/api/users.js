@@ -8,6 +8,16 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
+
+
+router.get('/', (req, res) => {
+  User.find()
+    .sort({ date: -1 })
+    .then(users => res.json(users))
+    .catch(err => res.status(404).json({ noUserfound: 'No users found' }));
+});
+
+
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post('/register', (req, res) => {
