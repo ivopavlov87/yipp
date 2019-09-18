@@ -1,5 +1,6 @@
 import React from 'react';
 import dog_index_container from './dog_index_container';
+import { withRouter } from 'react-router-dom';
 
 class DogShow extends React.Component {
     constructor(props) {
@@ -11,11 +12,14 @@ class DogShow extends React.Component {
     }
 
     render() {
+        if (!this.props.dog) {
+            return null;
+        }
         return (
             <div className="dog-show-container">
                 <div className="dog-show-details">
                     {this.props.dog.name}
-                    {this.props.dog.user.name}
+                    {/* {this.props.dog.user.name} */}
                     {this.props.dog.location}
                     {this.props.dog.breed}
                     {this.props.dog.dob}
@@ -29,4 +33,4 @@ class DogShow extends React.Component {
     }
 }
 
-export default DogShow;
+export default withRouter(DogShow);

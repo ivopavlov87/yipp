@@ -11,6 +11,7 @@ import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
 import PostComposeContainer from './posts/post_compose_container';
 import DogsIndexContainer from './dog/dog_index_container';
+import DogShowContainer from './dog/dog_show_container'
 
 
 
@@ -20,6 +21,8 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/dogs" component={DogsIndexContainer} />
+      <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />
+
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // import { selectPostsForDog } from '../../reducers/selectors';
 
@@ -20,7 +21,7 @@ class DogIndexItem extends React.Component {
                 <div className="dog-index-item-details">
                     <ul>
                         <li>
-                        {this.props.dog.name}
+                            <Link to={`/dogs/${this.props.dog._id}`}>{this.props.dog.name}</Link>
                         </li>
                         <li>Ratings</li>
 
