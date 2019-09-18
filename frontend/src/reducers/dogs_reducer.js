@@ -10,6 +10,7 @@ const DogsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ALL_DOGS:
+
             return Object.assign({}, action.dogs.data)
         case RECEIVE_ONE_DOG:
             return Object.assign({}, state, {[action.dog.data._id]:action.dog.data});

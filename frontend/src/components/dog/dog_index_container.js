@@ -5,13 +5,14 @@ import DogIndex from './dog_index'
 
 const mapStateToProps = (state) => {
     return {
-        dogs: Object.values(state.entities.dogs)
+        dogs: Object.values(state.entities.dogs),
+        // posts: Object.values(state.entities.posts)
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchDogs: ()=> dispatch(fetchDogs())
+        fetchDogs: () => dispatch(fetchDogs())
     };
 };
 

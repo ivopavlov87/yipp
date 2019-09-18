@@ -38,6 +38,11 @@ const DogSchema = new Schema({
     type: Boolean,
     required: true
   },
+  
+  location: {
+    type: String,
+    required: true
+  },
   // ratings: {
   //   type: Array
   //   // required: true

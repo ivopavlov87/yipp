@@ -5,10 +5,12 @@ export const RECEIVE_ONE_DOG = "RECEIVE_ONE_DOG";
 export const REMOVE_ONE_DOG = "REMOVE_ONE_DOG";
 export const RECEIVE_DOG_ERRORS = "RECEIVE_DOG_ERRORS";
 
-export const receiveAllDogs = (dogs) => ({
-    type: RECEIVE_ALL_DOGS,
-    dogs
-})
+export const receiveAllDogs = (dogs) => {
+    return {
+        type: RECEIVE_ALL_DOGS,
+        dogs
+    }
+}
 
 export const receiveOneDog = (dog) => ({
     type: RECEIVE_ONE_DOG,
@@ -27,11 +29,13 @@ export const receiveDogErrors = (err) => ({
 
 
 
-export const fetchDogs = () => dispatch => (
+export const fetchDogs = () => dispatch => {
     DogApiUtil.getDogs()
-        .then(dogs => dispatch(receiveAllDogs(dogs)))
+        .then(dogs => {
+            dispatch(receiveAllDogs(dogs))
+        })
         .catch(err => dispatch(receiveDogErrors(err)))
-)
+}
 
 
 export const fetchOneDog = (id) => dispatch => (
