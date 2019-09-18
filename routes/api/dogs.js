@@ -80,19 +80,6 @@ router.patch('/:id',
             dog.size = req.body.size
             dog.vaccinations = req.body.vaccinations
 
-
-            // Dog.update(dog, {
-            //     name: req.body.name,
-            //     breed: req.body.breed,
-            //     dob: req.body.dob,
-            //     weight: req.body.weight,
-            //     energy: req.body.energy,
-            //     size: req.body.size,
-            //     vaccinations: req.body.vaccinations,
-            //     temperament: req.body.temperament,
-            //     ratings: req.body.ratings,
-            // })
-
             dog.save().then(dog => res.json(dog));
         })
         .catch(err =>
