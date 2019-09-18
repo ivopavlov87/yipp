@@ -1,7 +1,7 @@
 import {
   RECEIVE_POSTS,
   RECEIVE_USER_POSTS,
-  RECEIVE_NEW_POST
+  // RECEIVE_NEW_POST
 } from "../actions/post_actions";
 
 // const PostsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
@@ -15,10 +15,9 @@ const PostsReducer = (state = { all: {}, user: {}}, action) => {
     case RECEIVE_USER_POSTS:
       newState.user = action.posts.data;
       return newState;
-    case RECEIVE_NEW_POST:
+    // case RECEIVE_NEW_POST:
       // newState.new = action.post.data
       // return Object.assign({}, newState.user, action.post.data)
-      debugger;
       // return newState;
     default:
       return state;

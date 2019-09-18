@@ -49,13 +49,13 @@ export const createDog = (dog) => dispatch => (
 )
 
 
-export const updateDog = (dog) => (
+export const updateDog = (dog) => dispatch => (
     DogApiUtil.updateDog(dog)
         .then(dog => dispatch(receiveOneDog(dog)))
         .catch(err => dispatch(receiveDogErrors(err)))
 )
 
-export const removeOneDog = (id) => dispatch => (
+export const deleteDog = (id) => dispatch => (
     DogApiUtil.deleteDog(id)
         .then(res => dispatch(removeOneDog(res.id)))
         .catch(err => dispatch(receiveDogErrors(err))

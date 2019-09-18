@@ -1,4 +1,4 @@
-import { RECEIVE_DOG_ERRORS } from '../actions/dog_actions'
+import { RECEIVE_DOG_ERRORS, RECEIVE_ONE_DOG } from '../actions/dog_actions'
 
 const DogErrorsReducer = (state = [], action) => {
     Object.freeze(state)
