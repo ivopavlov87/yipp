@@ -8,6 +8,7 @@ const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
 
+
 router.get('/', (req, res) => {
     Dog.find()
         .sort({ date: -1 })
@@ -53,7 +54,6 @@ router.post('/',
             energy: req.body.energy,
             size: req.body.size,
             vaccinations: req.body.vaccinations,
-            temperament: req.body.temperament,
             ratings: req.body.ratings,
         });
         newDog.save().then(dog => res.json(dog));
