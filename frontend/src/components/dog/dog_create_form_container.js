@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createDog } from '../../actions/dog_actions';
 
-import DogForm from './dog_form';
+import DogForm from './dog_create_form';
 
 const mapStateToProps = state => {
     return {

@@ -5,7 +5,7 @@ import { selectDogsForUser } from '../../reducers/selectors'
 import DogIndex from './dog_index';
 
 const mapStateToProps = state => {
-    const currentUser = state.session.user
+    const currentUser = state.session.user.id
     return {
         dogs: selectDogsForUser(state.entities.dogs, currentUser)
     }

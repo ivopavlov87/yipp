@@ -22,31 +22,41 @@ class DogShow extends React.Component {
             }
         })
 
+        let dogLink;
+        if (this.props.currentUser && owner._id === this.props.currentUser) {
+            dogLink = <div className='dog-links'>
+                <Link to={`profile/dogs/${this.props.dog.id}/edit`}>Edit</Link>
+                <button onClick={() => this.props.deleteDog(this.props.dog.id)}>Delete</button>
+            </div>
+        } else {
+            dogLink = <div></div>
+        }
+
+
         return (
             <div className="dog-show-container">
                 <div className="dog-show-details">
-                    <li>
-                        {this.props.dog.name}
-                    </li>
-                    <li>
-                    {owner.username}
-                    </li>
+                    <li>{this.props.dog.name}
+                        </li>
+                    <li>{owner.username}
+                        </li>
                     <li>{this.props.dog.location}
-                    </li>
+                        </li>
                     <li>{this.props.dog.breed}
-                    </li>
+                        </li>
                     <li>{this.props.dog.dob}
-                    </li>
+                        </li>
                     <li>{this.props.dog.weight}
-                    </li>
+                        </li>
                     <li>{this.props.dog.size}
-                    </li>
+                        </li>
                     <li>{this.props.dog.energy}
-                    </li>
+                        </li>
                     <li>
                         {vaccinations}
                     </li>
                 </div>
+                {dogLink}
             </div>
         )
     }

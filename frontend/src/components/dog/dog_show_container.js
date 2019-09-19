@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { fetchOneDog } from '../../actions/dog_actions';
+import { fetchOneDog, deleteDog } from '../../actions/dog_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
 import DogShow from  './dog_show';
 
 const mapStateToProps = (state, ownProps) => {
     const dog = state.entities.dogs[ownProps.match.params.dogId]
+    const currentUser = state.session.user.id
     const users = state.entities.users
 
     return {
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchDog: (id) => dispatch(fetchOneDog(id)),
-        fetchUsers: () => dispatch(fetchUsers())
+        fetchUsers: () => dispatch(fetchUsers()),
+        deleteDog: (id) => dispatch(deleteDog(id))
     };
 };
 
