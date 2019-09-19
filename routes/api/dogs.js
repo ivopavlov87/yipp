@@ -7,12 +7,12 @@ const passport = require('passport');
 const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
-
+const { formatDogs } = require('../../util/responseHelpers')
 
 router.get('/', (req, res) => {
     Dog.find()
         .sort({ date: -1 })
-        .then(dogs => res.json(dogs))
+        .then(dogs => res.json(formatDogs(dogs)))
         // ANDY NOTES
         // instead of res.json(posts) -> (utilHelperFunc.post) to standardize backend response
         .catch(err => res.status(404).json({ nodogsfound: 'No dogs found' }));

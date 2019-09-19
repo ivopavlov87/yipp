@@ -18,7 +18,7 @@ class DogIndexItem extends React.Component {
                 <div className="dog-index-item-details">
                     <ul>
                         <li>
-                            <Link to={`/dogs/${this.props.dog._id}`}>{this.props.dog.name}</Link>
+                            <Link to={`/dogs/${this.props.dog.id}`}>{this.props.dog.name}</Link>
                         </li>
                         <li>Ratings</li>
 

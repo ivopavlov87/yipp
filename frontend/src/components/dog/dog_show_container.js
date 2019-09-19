@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         dog: dog,
-        users: users
+        users: users,
+        currentUser: currentUser
     }
 }
 

@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 
-import { updateDog } from '../../actions/dog_actions';
+import { updateDog, fetchOneDog } from '../../actions/dog_actions';
 import DogEditForm from './dog_edit_form';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        currentUserId: state.session.user.id
+        dog: state.entities.dogs[ownProps.match.params.dogId]
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateDog: (dog) => dispatch(updateDog(dog))
+        updateDog: (dog) => dispatch(updateDog(dog)),
+        fetchDog: (id) => dispatch(fetchOneDog(id))
     }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps)(DogEditForm);
+export default connect(mapStateToProps, mapDispatchToProps)(DogEditForm);

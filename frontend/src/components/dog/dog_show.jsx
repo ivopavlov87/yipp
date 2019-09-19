@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class DogShow extends React.Component {
 
@@ -25,8 +25,8 @@ class DogShow extends React.Component {
         let dogLink;
         if (this.props.currentUser && owner._id === this.props.currentUser) {
             dogLink = <div className='dog-links'>
-                <Link to={`profile/dogs/${this.props.dog.id}/edit`}>Edit</Link>
-                <button onClick={() => this.props.deleteDog(this.props.dog.id)}>Delete</button>
+                <Link to={`${this.props.dog._id}/edit`}>Edit</Link>
+                <button onClick={() => this.props.deleteDog(this.props.dog._id)}>Delete</button>
             </div>
         } else {
             dogLink = <div></div>
