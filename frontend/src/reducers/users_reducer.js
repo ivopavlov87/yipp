@@ -10,7 +10,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return Object.assign({}, state, { [action.user.id]: action.user });
     case RECEIVE_ALL_USERS:
-      return action.users;
+      return action.users; // possibly change to users.data????
     default:
       return state;
   }

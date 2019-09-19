@@ -27,6 +27,7 @@ class Post extends React.Component {
     if (this.props.posts.length === 0) {
       return (<div>There are no Posts</div>)
     } else {
+      // debugger;
       return (
         <div>
           <h2>All Posts</h2>
@@ -35,6 +36,7 @@ class Post extends React.Component {
             post={post}
             key={post.id}
             currentUser={this.props.currentUser}
+            // fetchUser={this.props.fetchUser}
             // text={post.text} 
             // temperamentRating={post.temperamentRating} 
             // user={post.user}

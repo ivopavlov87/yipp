@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class PostBox extends React.Component {
-  
+
   render() {
   // debugger;
   let postButtons;
@@ -18,6 +18,7 @@ class PostBox extends React.Component {
     } else {
     }
 
+    // let username = fetchUser(this.props.post.user_id).username + "a;lsdkfja;lskdfj"
 
     return (
       <div>
@@ -26,6 +27,7 @@ class PostBox extends React.Component {
         <div>Date posted: {this.props.post.date}</div>
         <div>Author: {this.props.post.user_id}</div>
         {postButtons}
+        {/* {this.props.postAuthor.username} - username??? */}
       </div>
     );
   }
