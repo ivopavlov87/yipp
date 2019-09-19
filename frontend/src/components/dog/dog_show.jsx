@@ -9,8 +9,6 @@ class DogShow extends React.Component {
     }
 
     render() {
-
-       
         if (!this.props.dog || Object.keys(this.props.users) === 0) {
             return null;
         }
