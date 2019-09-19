@@ -26,7 +26,8 @@ const PostsReducer = (state = { all: {}, user: {}}, action) => {
       newState.all[action.post.data.id] = action.post.data
       return newState;
     case REMOVE_POST:
-      delete newState[action.postId]
+      delete newState.all[action.postId];
+      delete newState.user[action.postId];
       return newState;
     default:
       return state;
