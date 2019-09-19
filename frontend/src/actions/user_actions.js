@@ -20,15 +20,15 @@ const updateUser = user => ({
 });
 
 export const fetchUsers = () => dispatch => {
-  return UserAPIUtil.getUsers().then(users => dispatch(receiveUsers(users)));
+  return UserAPIUtil.getUsers().then(users => dispatch(receiveUsers(users))).catch(err => console.log(err));
 };
 
 export const fetchUser = (id) => dispatch => {
-  return UserAPIUtil.getUser(id).then(user => dispatch(receiveUser(user)));
+  return UserAPIUtil.getUser(id).then(user => dispatch(receiveUser(user))).catch(err => console.log(err));
 }
 
 export const createUser = (formData) => dispatch => {
-  return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user)));
+  return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user))).catch(err => console.log(err));
 }
 
 // window.fetchUser = fetchUser;
