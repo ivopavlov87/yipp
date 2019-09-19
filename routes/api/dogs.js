@@ -8,7 +8,6 @@ const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
 
-
 router.get('/', (req, res) => {
     Dog.find()
         .sort({ date: -1 })

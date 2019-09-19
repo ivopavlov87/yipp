@@ -37,6 +37,7 @@ class Post extends React.Component {
             key={post.id}
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
+            destroyPost={this.props.destroyPost}
             // text={post.text} 
             // temperamentRating={post.temperamentRating} 
             // user={post.user}

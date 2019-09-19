@@ -12,7 +12,10 @@ class PostBox extends React.Component {
         <div>
           <Link to={`/posts/${this.props.post.id}/edit`}>Edit this post</Link>
           &nbsp;&nbsp;
-          <Link to={`/posts/${this.props.post.id}`}>Delete this post</Link>
+          {/* <Link to={`/posts/${this.props.post.id}`}>Delete this post</Link> */}
+          <Link to={`/posts`} onClick={() =>
+            this.props.destroyPost(`${this.props.post.id}`)
+          }>Delete this post</Link>
         </div>
       );
     } else {

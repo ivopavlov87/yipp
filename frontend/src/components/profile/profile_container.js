@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserPosts } from '../../actions/post_actions';
+import { fetchUserPosts, destroyPost } from '../../actions/post_actions';
 import Profile from './profile';
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserPosts: id => dispatch(fetchUserPosts(id))
+    fetchUserPosts: id => dispatch(fetchUserPosts(id)),
+    destroyPost: (postId) => dispatch(destroyPost(postId))
   };
 };
 
