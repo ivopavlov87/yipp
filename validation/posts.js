@@ -1,10 +1,13 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
+const validRate = require('./valid-rate');
 
 module.exports = function validatePostInput(data) {
   let errors = {};
 
   data.text = validText(data.text) ? data.text : '';
+  
+  data.temperamentRating = validRate(parseInt(data.temperamentRating)) ? data.temperamentRating : '';
 
   if (!Validator.isLength(data.text, { min: 3, max: 500 })) {
     errors.text = 'Post must be between 3 and 500 characters';
@@ -12,6 +15,10 @@ module.exports = function validatePostInput(data) {
 
   if (Validator.isEmpty(data.text)) {
     errors.text = 'Text field is required';
+  }
+
+  if (Validator.isEmpty(data.temperamentRating)) {
+    errors.text = 'Temperament rating is required';
   }
 
   return {
