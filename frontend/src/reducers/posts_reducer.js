@@ -1,7 +1,7 @@
 import {
   RECEIVE_POSTS,
   RECEIVE_USER_POSTS,
-  // RECEIVE_NEW_POST
+  RECEIVE_NEW_POST
 } from "../actions/post_actions";
 
 const PostsReducer = (state = { all: {}, user: {}}, action) => {
