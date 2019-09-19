@@ -1,6 +1,7 @@
 import React from 'react';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
+import "react-day-picker/lib/style.css"
 
 class DogForm extends React.Component {
     constructor(props) {
@@ -10,29 +11,30 @@ class DogForm extends React.Component {
             name: "",
             breed: "",
             dob: "",
-            size: "",
+            size: "Small",
             weight: "",
             energy: 5,
             vaccinations: false,
-            location: ""
+            location: "New York"
         }
         this.handleDOB = this.handleDOB.bind(this);
+        this.handleCheckBox = this.handleCheckBox.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = this.props.currentUserId
         const newState = Object.assign({}, this.state)
-        newState[user] = user
+        newState['user'] = user
         this.props.createDog(newState);
+        this.props.history.push('/profile');
     }
 
     handleCheckBox(e) {
-        return e => {
-            this.setState({
-                vaccinations: e.target.checked
-            })
-        }
+        this.setState({
+            vaccinations: e.currentTarget.checked
+        })
     }
 
     handleDOB(day) {
@@ -44,7 +46,7 @@ class DogForm extends React.Component {
     update(field) {
         return e => {
             this.setState({
-                [field]: e.currentTarget.value
+                [field]: e.target.value
             })
         }
     }
@@ -139,14 +141,14 @@ class DogForm extends React.Component {
                                 <input type="radio" name="energyLevel" onChange={this.update('energy')} value="10" checked={this.state.energy === '10'}/>10
                             </label>
                         <br />
-                        <label>Vaccinations:
+                        <label>Vaccinated? 
                             <input 
                                 type="checkbox" 
                                 name="vaccinations" 
                                 checked={this.state.vaccinations} 
                                 onChange={this.handleCheckBox}/>
                         </label>
-
+                        <br/>
                         <input type='submit' value='Submit'/>
 
                     </form>

@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nodogsfound: 'No dogs found' }));
 });
 
-router.get('/user/:user_id', (req, res) => {
-    Dog.find({ user: req.params.user_id })
+router.get('/user/:userId', (req, res) => {
+    Dog.find({ user: req.params.userId })
         .sort({ date: -1 })
         .then(dogs => res.json(dogs))
         .catch(err =>
@@ -27,6 +27,7 @@ router.get('/user/:user_id', (req, res) => {
             )
         );
 });
+
 
 router.get('/:id', (req, res) => {
     Dog.findById(req.params.id)
@@ -54,7 +55,7 @@ router.post('/',
             energy: req.body.energy,
             size: req.body.size,
             vaccinations: req.body.vaccinations,
-            ratings: req.body.ratings,
+            location: req.body.location
         });
         newDog.save().then(dog => res.json(dog));
     }
@@ -79,6 +80,7 @@ router.patch('/:id',
             dog.energy = req.body.energy
             dog.size = req.body.size
             dog.vaccinations = req.body.vaccinations
+            dog.location= req.body.location
 
             dog.save().then(dog => res.json(dog));
         })

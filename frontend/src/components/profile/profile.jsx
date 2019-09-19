@@ -23,15 +23,23 @@ class Profile extends React.Component {
 
   render() {
     if (this.props.posts.length === 0) {
-      return (<div>This user has no posts</div>)
+      return (<div>
+        <h3>This user has no posts</h3>
+        <Link to="/profile/dogs/new">Create a new dog</Link>
+        <br />
+        <Link to="/profile/dogs">All the dogs!</Link>
+      </div>
+        )
     } else {
       return (
         <div>
-          <Link to="/profile/dogs">Create a new dog</Link>
           <h2>All of this user's posts</h2>
           {this.props.posts.map(post => (
             <PostBox key={post.id} post={post} currentUser={this.props.currentUser} />
           ))}
+          <Link to="/profile/dogs/new">Create a new dog</Link>
+          <br />
+          <Link to="/profile/dogs">All the dogs!</Link>
         </div>
       );
     }

@@ -4,9 +4,9 @@ export const getDogs = () => {
     return axios.get('/api/dogs')
 };
 
-// export const getUserDogs = id => {
-//     return axios.get(`/api/dogs/user/${id}`)
-// };
+export const getUserDogs = userId => {
+    return axios.get(`/api/dogs/user/${userId}`)
+};
 
 export const getDog = id => {
     return axios.get(`/api/dogs/${id}`)
