@@ -8,25 +8,38 @@ class DogShow extends React.Component {
         this.props.fetchDog(this.props.match.params.dogId)
     }
 
+
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteDog(this.props.dog.id);
+        this.props.history.push('/profile/dogs');
+    }
+
     render() {
-        if (!this.props.dog || Object.keys(this.props.users) === 0) {
+
+        if (!this.props.dog) {
             return null;
         }
+
+        if (Object.keys(this.props.users).length === 0) {
+            return null;
+        }
+
         const vaccinations = this.props.dog.vaccinations ? "Current" : "Not current"
-        // debugger
 
         let owner;
         Object.values(this.props.users).forEach(user => {
-            if (user._id === this.props.dog.user) {
+
+            if (user._id === this.props.dog.user_id) {
                 owner = user;
             }
         })
 
         let dogLink;
-        if (this.props.currentUser && owner._id === this.props.currentUser) {
+        if (this.props.currentUserId && owner._id === this.props.currentUserId) {
             dogLink = <div className='dog-links'>
-                <Link to={`${this.props.dog._id}/edit`}>Edit</Link>
-                <button onClick={() => this.props.deleteDog(this.props.dog._id)}>Delete</button>
+                <Link to={`${this.props.dog.id}/edit`}>Edit</Link>
+                <button onClick={this.handleDelete.bind(this)}>Delete</button>
             </div>
         } else {
             dogLink = <div></div>

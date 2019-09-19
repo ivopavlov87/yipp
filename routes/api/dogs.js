@@ -7,7 +7,7 @@ const passport = require('passport');
 const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
-const { formatDogs } = require('../../util/responseHelpers')
+const { formatDogs, formatDog } = require('../../util/responseHelpers');
 
 router.get('/', (req, res) => {
     Dog.find()
@@ -18,20 +18,20 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nodogsfound: 'No dogs found' }));
 });
 
-router.get('/user/:userId', (req, res) => {
-    Dog.find({ user: req.params.userId })
-        .sort({ date: -1 })
-        .then(dogs => res.json(dogs))
-        .catch(err =>
-            res.status(404).json({ nodogsfound: 'No dogs found from that user' }
-            )
-        );
-});
+// router.get('/user/:userId', (req, res) => {
+//     Dog.find({ user: req.params.userId })
+//         .sort({ date: -1 })
+//         .then(dogs => res.json(dogs))
+//         .catch(err =>
+//             res.status(404).json({ nodogsfound: 'No dogs found from that user' }
+//             )
+//         );
+// });
 
 
 router.get('/:id', (req, res) => {
     Dog.findById(req.params.id)
-        .then(dog => res.json(dog))
+        .then(dog => res.json(formatDog(dog)))
         .catch(err =>
             res.status(404).json({ nodogfound: 'No dog found with that ID' })
         );
@@ -57,7 +57,7 @@ router.post('/',
             vaccinations: req.body.vaccinations,
             location: req.body.location
         });
-        newDog.save().then(dog => res.json(dog));
+        newDog.save().then(dog => res.json(formatDog(dog)));
     }
 );
 
@@ -82,7 +82,7 @@ router.patch('/:id',
             dog.vaccinations = req.body.vaccinations
             dog.location= req.body.location
 
-            dog.save().then(dog => res.json(dog));
+            dog.save().then(dog => res.json(formatDog(dog)));
         })
         .catch(err =>
             res.status(404).json({ nodogfound: 'No dog found with that ID' })
@@ -90,7 +90,7 @@ router.patch('/:id',
 })
 
 router.delete('/:id', 
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Dog.findByIdAndRemove(req.params.id, (err, dog) => {
           if (err) return res.status(404).json({ nodogfound: 'No dog found with that ID' })
@@ -100,7 +100,7 @@ router.delete('/:id',
         message: "Dog successfully deleted",
         id: req.params.id
     };
-    return res.status(200).send(response);
+    return res.status(200).json(response);
 })
 
 module.exports = router;

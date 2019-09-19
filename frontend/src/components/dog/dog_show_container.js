@@ -6,13 +6,13 @@ import DogShow from  './dog_show';
 
 const mapStateToProps = (state, ownProps) => {
     const dog = state.entities.dogs[ownProps.match.params.dogId]
-    const currentUser = state.session.user.id
+    const currentUserId = state.session.user.id
     const users = state.entities.users
 
     return {
         dog: dog,
         users: users,
-        currentUser: currentUser
+        currentUserId: currentUserId
     }
 }
 

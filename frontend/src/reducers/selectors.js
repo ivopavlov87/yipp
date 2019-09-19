@@ -23,7 +23,7 @@ export const selectDogsForUser = (props, user) => {
         return res;
     }
     Object.values(props).forEach(dog => {
-        if (dog.user === user) {
+        if (dog.user_id === user) {
             res.push(dog);
         }
     })

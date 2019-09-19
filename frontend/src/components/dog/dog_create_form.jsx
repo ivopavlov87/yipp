@@ -24,11 +24,11 @@ class DogForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = this.props.currentUserId
+        const userId = this.props.currentUserId
         const newState = Object.assign({}, this.state)
-        newState['user'] = user
+        newState['user'] = userId
         this.props.createDog(newState);
-        this.props.history.push('/profile');
+        this.props.history.push('/profile/dogs');
     }
 
     handleCheckBox(e) {

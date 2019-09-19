@@ -4,7 +4,7 @@ export const RECEIVE_ALL_DOGS = "RECEIVE_ALL_DOGS";
 export const RECEIVE_ONE_DOG = "RECEIVE_ONE_DOG";
 export const REMOVE_ONE_DOG = "REMOVE_ONE_DOG";
 export const RECEIVE_DOG_ERRORS = "RECEIVE_DOG_ERRORS";
-export const RECEIVE_USER_DOGS = "RECEIVE_USER_DOGS";
+// export const RECEIVE_USER_DOGS = "RECEIVE_USER_DOGS";
 
 export const receiveAllDogs = (dogs) => {
     return {
@@ -19,7 +19,7 @@ export const receiveOneDog = (dog) => ({
 })
 
 export const removeOneDog = (dogId) => ({
-    type: RECEIVE_ONE_DOG,
+    type: REMOVE_ONE_DOG,
     dogId
 })
 
@@ -28,10 +28,10 @@ export const receiveDogErrors = (err) => ({
     err
 })
 
-export const receiveUserDogs = dogs => ({
-    type: RECEIVE_USER_DOGS,
-    dogs
-});
+// export const receiveUserDogs = dogs => ({
+//     type: RECEIVE_USER_DOGS,
+//     dogs
+// });
 
 
 export const fetchDogs = () => dispatch => {
@@ -50,9 +50,9 @@ export const fetchOneDog = (id) => dispatch => (
 ))
 
 
-export const fetchUserDogs = userId => dispatch => (
-    DogApiUtil.getUserDogs(userId).then(dogs => dispatch(receiveUserDogs(dogs)))
-);
+// export const fetchUserDogs = userId => dispatch => (
+//     DogApiUtil.getUserDogs(userId).then(dogs => dispatch(receiveUserDogs(dogs)))
+// );
 
 
 export const createDog = (dog) => dispatch => (
@@ -68,8 +68,9 @@ export const updateDog = (dog) => dispatch => (
         .catch(err => dispatch(receiveDogErrors(err)))
 )
 
-export const deleteDog = (id) => dispatch => (
-    DogApiUtil.deleteDog(id)
+export const deleteDog = (id) => dispatch => {
+    debugger
+    return DogApiUtil.deleteDog(id)
         .then(res => dispatch(removeOneDog(res.id)))
-        .catch(err => dispatch(receiveDogErrors(err))
-))
+        .catch(err => dispatch(receiveDogErrors(err)))
+    }
