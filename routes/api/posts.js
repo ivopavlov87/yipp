@@ -30,6 +30,7 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
+// Post
 router.get('/:id', (req, res) => {
   Post.findById(req.params.id)
     .then(post => res.json(formatPost(post)))
