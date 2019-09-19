@@ -18,3 +18,4 @@ export const createUser = (formData) => {
   // data: formData
 };
 
+// window.getUser = getUser;

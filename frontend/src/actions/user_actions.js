@@ -30,3 +30,5 @@ export const fetchUser = (id) => dispatch => {
 export const createUser = (formData) => dispatch => {
   return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user)));
 }
+
+// window.fetchUser = fetchUser;

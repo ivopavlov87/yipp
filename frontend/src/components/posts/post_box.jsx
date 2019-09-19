@@ -18,7 +18,9 @@ class PostBox extends React.Component {
     } else {
     }
 
-    // let username = fetchUser(this.props.post.user_id).username + "a;lsdkfja;lskdfj"
+    // let theUser = this.props.fetchUser(this.props.post.user_id)
+    // console.log(theUser)
+    // let username = this.props.fetchUser(this.props.post.user_id).username ? this.props.fetchUser(this.props.post.user_id).username : "blank, it's not working"
 
     return (
       <div>
@@ -26,8 +28,9 @@ class PostBox extends React.Component {
         <h4>Temperament rating: {this.props.post.temperamentRating}</h4>
         <div>Date posted: {this.props.post.date}</div>
         <div>Author: {this.props.post.user_id}</div>
+        <div>PostId: {this.props.post.id}</div>
         {postButtons}
-        {/* {this.props.postAuthor.username} - username??? */}
+        {/* {username} - username??? */}
       </div>
     );
   }
