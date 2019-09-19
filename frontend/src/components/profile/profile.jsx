@@ -27,7 +27,7 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
-          <Link to="/user/:userId/dogs">Create a new dog</Link>
+          <Link to="/profile/dogs">Create a new dog</Link>
           <h2>All of this user's posts</h2>
           {this.props.posts.map(post => (
             <PostBox key={post.id} post={post} currentUser={this.props.currentUser} />

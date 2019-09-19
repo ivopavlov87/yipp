@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createDog } from '../actions/dog_actions';
+import { createDog } from '../../actions/dog_actions';
 
 import DogForm from './dog_form';
 

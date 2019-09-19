@@ -12,7 +12,7 @@ import ProfileContainer from './profile/profile_container';
 import PostComposeContainer from './posts/post_compose_container';
 import DogsIndexContainer from './dog/dog_index_container';
 import DogShowContainer from './dog/dog_show_container'
-
+import DogFormContainer from './dog/dog_form_container'
 
 
 const App = () => (
@@ -30,6 +30,7 @@ const App = () => (
       <ProtectedRoute exact path="/posts" component={PostsContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/new_post" component={PostComposeContainer} />
+      <ProtectedRoute exact path="/profile/dogs" component={DogFormContainer} />
     </Switch>
   </div>
 );
