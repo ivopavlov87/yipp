@@ -34,7 +34,6 @@ export const receiveUserDogs = dogs => ({
 });
 
 
-
 export const fetchDogs = () => dispatch => {
     DogApiUtil.getDogs()
         .then(dogs => {
