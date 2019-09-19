@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import PostBox from '../posts/post_box';
 
 class Profile extends React.Component {
@@ -25,6 +27,7 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
+          <Link to="/user/:userId/dogs">Create a new dog</Link>
           <h2>All of this user's posts</h2>
           {this.props.posts.map(post => (
             <PostBox key={post.id} post={post} currentUser={this.props.currentUser} />

@@ -5,14 +5,13 @@ import DogForm from './dog_form';
 
 const mapStateToProps = state => {
     return {
-        
-
+        currentUserId: state.session.user.id
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        createDog: (dog) => dispatch(createDog(dog)) 
     }
 }
 
