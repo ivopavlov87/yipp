@@ -4,10 +4,15 @@ const keys = require('../../config/keys');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
 const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
 const { formatDogs, formatDog } = require('../../util/responseHelpers');
+
+
 
 router.get('/', (req, res) => {
     Dog.find()
@@ -90,7 +95,7 @@ router.patch('/:id',
 })
 
 router.delete('/:id', 
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Dog.findByIdAndRemove(req.params.id, (err, dog) => {
           if (err) return res.status(404).json({ nodogfound: 'No dog found with that ID' })
@@ -102,6 +107,24 @@ router.delete('/:id',
     };
     return res.status(200).json(response);
 })
+
+
+//IMAGES ROUTES
+router.post('/upload', upload.single('picture'), (req, res) => {
+    const img = fs.readFileSync(req.file.path);
+    const encode_image = img.toString('base64');
+    // Define a JSONobject for the image attributes for saving to database
+    const finalImg = {
+        contentType: req.file.mimetype,
+        image: new Buffer(encode_image, 'base64')
+    };
+    Dog.collection("images").insertOne(finalImg, (err, result) => {
+        console.log(result)
+        if (err) return console.log(err)
+        console.log('saved to database')
+
+    })
+});
 
 module.exports = router;
 

@@ -152,7 +152,10 @@ class DogForm extends React.Component {
                         <input type='submit' value='Submit'/>
 
                     </form>
-
+                    {/* <form action="/upload/photo" encType="multipart/form-data" method="POST">
+                        <input type="file" name="myImage" accept="image/*" />
+                        <input type="submit" value="Upload Photo" />
+                    </form> */}
                 </div>
             </div>
         )
