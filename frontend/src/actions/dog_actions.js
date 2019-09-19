@@ -18,9 +18,9 @@ export const receiveOneDog = (dog) => ({
     dog
 })
 
-export const removeOneDog = (dogId) => ({
+export const removeOneDog = (res) => ({
     type: REMOVE_ONE_DOG,
-    dogId
+    res
 })
 
 export const receiveDogErrors = (err) => ({
@@ -69,8 +69,7 @@ export const updateDog = (dog) => dispatch => (
 )
 
 export const deleteDog = (id) => dispatch => {
-    debugger
     return DogApiUtil.deleteDog(id)
-        .then(res => dispatch(removeOneDog(res.id)))
+        .then(res => dispatch(removeOneDog(res)))
         .catch(err => dispatch(receiveDogErrors(err)))
     }

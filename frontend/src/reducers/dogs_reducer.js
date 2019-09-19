@@ -15,7 +15,7 @@ const DogsReducer = (state = {}, action) => {
             return Object.assign({}, state, {[action.dog.data.id]: action.dog.data});
         case REMOVE_ONE_DOG:
             let newState = Object.assign({}, state);
-            delete newState[action.dogId];
+            delete newState[action.res.data.id];
             return newState;
         default:
             return state;
