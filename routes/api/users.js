@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+// router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -114,16 +114,34 @@ User.findOne({ username })
     })
 })
 
+// GET FRIEND
 router.get('/:id', (req, res) => {
-
-  
-
   User.findById(req.params.id)
+    .select('friends')
+    .populate('friends')
+    .exec()
     .then(user => res.json(user))
     .catch(err =>
       res.status(404).json({ nouserfound: 'No user found with that ID' })
     );
 });
+
+// ADD FRIEND
+router.post('/:id/friend', passport.authenticate('jwt', { session: false }), (req, res) => {
+  const user = req.user.id;
+  const friendId = req.params.id
+  // console.log(user)
+  // console.log(friendId)
+  User.findById(user)
+  .then(user => {
+    user.friends.push(friendId)
+    user.save()
+    res.json(user)
+  })
+  .catch(err =>
+    res.status(404).json({nouserfound: 'No friend found with that ID'})
+    );
+})
 
 // this is the private auth route
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
