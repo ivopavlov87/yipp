@@ -7,6 +7,7 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
 const dogs = require("./routes/api/dogs");
+const images = require("./routes/api/images");
 
 const bodyParser = require('body-parser');
 // this is middleware for body-parser
@@ -27,6 +28,7 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/posts", posts);
 app.use("/api/dogs", dogs);
+app.use("/api/images", images)
 
 
 const port = process.env.PORT || 5000;

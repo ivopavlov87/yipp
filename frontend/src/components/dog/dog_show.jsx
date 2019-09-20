@@ -14,9 +14,8 @@ class DogShow extends React.Component {
         const imageObj = new FormData();
         imageObj.append('image', e.target.files[0]);
         imageObj.append('dogId', this.props.dog.id)
-        axios.post('/api/images/upload', imageObj);
+        axios.post('/api/images', imageObj);
     }
-
 
     handleDelete(e) {
         e.preventDefault();
