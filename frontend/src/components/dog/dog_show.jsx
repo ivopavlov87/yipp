@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-// import PostCompose from '../posts/post_compose';
+import PostCompose from '../posts/post_compose';
 
 class DogShow extends React.Component {
 
@@ -17,6 +17,15 @@ class DogShow extends React.Component {
     }
 
     render() {
+        
+        let postComposeThing;
+        if (this.props.currentUser) {
+            postComposeThing = (
+                <PostCompose
+                    currentUser={this.props.currentUser}
+                />
+            )
+        }
 
         if (!this.props.dog) {
             return null;
@@ -72,7 +81,9 @@ class DogShow extends React.Component {
                 </div>
                 {dogLink}
                 <br/>
-                {/* <PostCompose /> */}
+                {postComposeThing}
+                The dog's name is: {this.props.dog.name}
+                The dog's id is: {this.props.dog.id}
             </div>
         )
     }

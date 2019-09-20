@@ -5,14 +5,30 @@ import { fetchUsers } from '../../actions/user_actions';
 import DogShow from  './dog_show';
 
 const mapStateToProps = (state, ownProps) => {
-    const dog = state.entities.dogs[ownProps.match.params.dogId]
-    const currentUserId = state.session.user.id
-    const users = state.entities.users
+    if (state.session.user) {
+        const dog = state.entities.dogs[ownProps.match.params.dogId]
+        const currentUserId = state.session.user.id
+        const users = state.entities.users
+        const currentUser = state.session.user
 
-    return {
-        dog: dog,
-        users: users,
-        currentUserId: currentUserId
+        return {
+            dog: dog,
+            users: users,
+            currentUserId: currentUserId,
+            currentUser: currentUser
+        }
+    } else {
+        const dog = state.entities.dogs[ownProps.match.params.dogId]
+        // const currentUserId = state.session.user.id
+        const users = state.entities.users
+        // const currentUser = state.session.user
+
+        return {
+            dog: dog,
+            users: users,
+            // currentUserId: currentUserId,
+            // currentUser: currentUser
+        }
     }
 }
 
