@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class PostBox extends React.Component {
+class ProfilePostBox extends React.Component {
 
   render() {
-  // debugger;
-  console.log(window.location.pathname)
-  let postButtons;
+    // debugger;
+    let postButtons;
     if (this.props.currentUser.id === this.props.post.user_id) {
       //this.props.currentUser === this.props.post.user
       // if ()
@@ -15,7 +14,7 @@ class PostBox extends React.Component {
           <Link to={`/posts/${this.props.post.id}/edit`}>Edit this post</Link>
           &nbsp;&nbsp;
           {/* <Link to={`/posts/${this.props.post.id}`}>Delete this post</Link> */}
-          <Link to={`/posts`} onClick={() =>
+          <Link to={`/profile`} onClick={() =>
             this.props.destroyPost(`${this.props.post.id}`)
           }>Delete this post</Link>
         </div>
@@ -41,4 +40,4 @@ class PostBox extends React.Component {
   }
 }
 
-export default PostBox;
+export default ProfilePostBox;

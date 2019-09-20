@@ -18,7 +18,9 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }]
+  // followedAccounts: [],
 })
 
 module.exports = User = mongoose.model('users', UserSchema);

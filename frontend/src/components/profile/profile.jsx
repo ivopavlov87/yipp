@@ -1,7 +1,11 @@
 import React from 'react';
+
+import ProfilePostBox from './profile_post_box';
+
 import { Link } from 'react-router-dom';
 
 import PostBox from '../posts/post_box';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -35,7 +39,12 @@ class Profile extends React.Component {
         <div>
           <h2>All of this user's posts</h2>
           {this.props.posts.map(post => (
-            <PostBox key={post.id} post={post} currentUser={this.props.currentUser} />
+              <ProfilePostBox
+                key={post.id}
+                post={post}
+                currentUser={this.props.currentUser}
+                destroyPost={this.props.destroyPost}
+              />
           ))}
           <Link to="/profile/dogs/new">Create a new dog</Link>
           <br />

@@ -11,8 +11,7 @@ module.exports = function validateDogInput(data) {
     data.weight = validText(data.weight) ? data.weight : '';
     data.location = validText(data.location) ? data.location : '';
 
-    // dob is a string we will parse for age
-    // temperament, energy will be radio buttons
+    // dob is a string we will parse for age energy will be radio buttons
     // vaccinations will be a boolean, checkbox
     // size will be a dropdown, small/med/large
     
@@ -39,13 +38,6 @@ module.exports = function validateDogInput(data) {
     if (!Validator.isLength(data.name, { min: 1, max: 20})) {
         errors.text = 'Dog name must be between 1 and 20 characters';
     }
-    // if (!Validator.isLength(data.energy, { min: 0, max: 10 })) {
-    //     errors.text = 'Dog energy must be between levels 0 and 10';
-    // }
-    // if (!Validator.isLength(data.temperament, { min: 0, max: 10 })) {
-    //     errors.text = 'Dog temperament must be between levels 0 and 10';
-    // }
-    
     return {
         errors,
         isValid: Object.keys(errors).length === 0

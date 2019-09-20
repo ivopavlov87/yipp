@@ -65,15 +65,18 @@ router.post('/',
 router.patch('/:id/edit',
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
+    // console.log("patch route for posts")
+
     Post.findById(req.params.id)
         .then( post => {
-            const { errors, isValid } = validatePostInput(req.body);
-            if (!isValid) {
-                return res.status(400).json(errors);
-            }
+            // console.log("You should see this inside the patch post request");
             post.text = req.body.text
             post.temperamentRating = req.body.temperamentRating
-            post.save().then(post => res.json(post));
+            const { errors, isValid } = validatePostInput(post);
+            if (!isValid) {
+              return res.status(400).json(errors);
+            }
+            post.save().then(post => res.json(formatPost(post)));
         })
         .catch(err =>
             res.status(404).json({ nopostfound: 'No post found with that ID' })

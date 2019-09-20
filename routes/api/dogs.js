@@ -13,7 +13,6 @@ const validateDogInput = require('../../validation/dogs');
 const { formatDogs, formatDog } = require('../../util/responseHelpers');
 
 
-
 router.get('/', (req, res) => {
     Dog.find()
         .sort({ date: -1 })

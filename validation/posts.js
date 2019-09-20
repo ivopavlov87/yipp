@@ -17,7 +17,7 @@ module.exports = function validatePostInput(data) {
     errors.text = 'Text field is required';
   }
 
-  if (Validator.isEmpty(data.temperamentRating)) {
+  if (Validator.isEmpty(data.temperamentRating.toString())) {
     errors.text = 'Temperament rating is required';
   }
 
