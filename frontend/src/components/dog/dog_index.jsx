@@ -17,7 +17,7 @@ class DogIndex extends React.Component {
         } else {
             Alldogs = this.props.dogs.map(dog => {
                 return (<DogIndexItem
-                    key={dog._id}
+                    key={dog.id}
                     dog={dog}
                 // posts={this.props.posts} 
                 />)

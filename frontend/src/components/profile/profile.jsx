@@ -1,6 +1,11 @@
 import React from 'react';
+
 import ProfilePostBox from './profile_post_box';
-// import { Link } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
+
+import PostBox from '../posts/post_box';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -22,7 +27,13 @@ class Profile extends React.Component {
 
   render() {
     if (this.props.posts.length === 0) {
-      return (<div>This user has no posts</div>)
+      return (<div>
+        <h3>This user has no posts</h3>
+        <Link to="/profile/dogs/new">Create a new dog</Link>
+        <br />
+        <Link to="/profile/dogs">All the dogs!</Link>
+      </div>
+        )
     } else {
       return (
         <div>
@@ -35,6 +46,9 @@ class Profile extends React.Component {
                 destroyPost={this.props.destroyPost}
               />
           ))}
+          <Link to="/profile/dogs/new">Create a new dog</Link>
+          <br />
+          <Link to="/profile/dogs">All the dogs!</Link>
         </div>
       );
     }

@@ -16,3 +16,17 @@ export const selectPostsForDog = (props, dog) => {
     return res;
 }
 
+
+export const selectDogsForUser = (props, user) => {
+    let res = [];
+    if ((Object.keys(props).length === 0)) {
+        return res;
+    }
+    Object.values(props).forEach(dog => {
+        if (dog.user_id === user) {
+            res.push(dog);
+        }
+    })
+    return res;
+}
+
