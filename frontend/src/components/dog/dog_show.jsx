@@ -1,11 +1,20 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import axios from 'axios'
 
 class DogShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
         this.props.fetchDog(this.props.match.params.dogId)
+    }
+
+    uploadImage(e) {
+        e.preventDefault();
+        const imageObj = new FormData();
+        imageObj.append('image', e.target.files[0]);
+        imageObj.append('dogId', this.props.dog.id)
+        axios.post('/api/dogs/upload', imageObj);
     }
 
 
@@ -40,6 +49,7 @@ class DogShow extends React.Component {
             dogLink = <div className='dog-links'>
                 <Link to={`${this.props.dog.id}/edit`}>Edit</Link>
                 <button onClick={this.handleDelete.bind(this)}>Delete</button>
+                <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
             </div>
         } else {
             dogLink = <div></div>
