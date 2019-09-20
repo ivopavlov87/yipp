@@ -4,33 +4,39 @@ const keys = require('../../config/keys');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
 const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
+
+const { formatDogs, formatDog } = require('../../util/responseHelpers');
 
 
 
 router.get('/', (req, res) => {
     Dog.find()
         .sort({ date: -1 })
-        .then(dogs => res.json(dogs))
+        .then(dogs => res.json(formatDogs(dogs)))
         // ANDY NOTES
         // instead of res.json(posts) -> (utilHelperFunc.post) to standardize backend response
         .catch(err => res.status(404).json({ nodogsfound: 'No dogs found' }));
 });
 
-router.get('/user/:user_id', (req, res) => {
-    Dog.find({ user: req.params.user_id })
-        .sort({ date: -1 })
-        .then(dogs => res.json(dogs))
-        .catch(err =>
-            res.status(404).json({ nodogsfound: 'No dogs found from that user' }
-            )
-        );
-});
+// router.get('/user/:userId', (req, res) => {
+//     Dog.find({ user: req.params.userId })
+//         .sort({ date: -1 })
+//         .then(dogs => res.json(dogs))
+//         .catch(err =>
+//             res.status(404).json({ nodogsfound: 'No dogs found from that user' }
+//             )
+//         );
+// });
+
 
 router.get('/:id', (req, res) => {
     Dog.findById(req.params.id)
-        .then(dog => res.json(dog))
+        .then(dog => res.json(formatDog(dog)))
         .catch(err =>
             res.status(404).json({ nodogfound: 'No dog found with that ID' })
         );
@@ -54,9 +60,9 @@ router.post('/',
             energy: req.body.energy,
             size: req.body.size,
             vaccinations: req.body.vaccinations,
-            ratings: req.body.ratings,
+            location: req.body.location
         });
-        newDog.save().then(dog => res.json(dog));
+        newDog.save().then(dog => res.json(formatDog(dog)));
     }
 );
 
@@ -79,8 +85,9 @@ router.patch('/:id',
             dog.energy = req.body.energy
             dog.size = req.body.size
             dog.vaccinations = req.body.vaccinations
+            dog.location= req.body.location
 
-            dog.save().then(dog => res.json(dog));
+            dog.save().then(dog => res.json(formatDog(dog)));
         })
         .catch(err =>
             res.status(404).json({ nodogfound: 'No dog found with that ID' })
@@ -98,8 +105,26 @@ router.delete('/:id',
         message: "Dog successfully deleted",
         id: req.params.id
     };
-    return res.status(200).send(response);
+    return res.status(200).json(response);
 })
+
+
+//IMAGES ROUTES
+router.post('/upload', upload.single('picture'), (req, res) => {
+    const img = fs.readFileSync(req.file.path);
+    const encode_image = img.toString('base64');
+    // Define a JSONobject for the image attributes for saving to database
+    const finalImg = {
+        contentType: req.file.mimetype,
+        image: new Buffer(encode_image, 'base64')
+    };
+    Dog.collection("images").insertOne(finalImg, (err, result) => {
+        console.log(result)
+        if (err) return console.log(err)
+        console.log('saved to database')
+
+    })
+});
 
 module.exports = router;
 

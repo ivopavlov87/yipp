@@ -30,4 +30,48 @@ const formatPost = (post) => {
   return postData;
 }
 
-module.exports = { formatPosts, formatPost }
+
+const formatDogs = (dogsArr) => {
+  const dogs = {};
+  dogsArr.forEach(dog => {
+    const dogData = {
+      id: dog._id,
+      user_id: dog.user,
+      name: dog.name,
+      breed: dog.breed,
+      dob: dog.dob,
+      weight: dog.weight,
+      energy: dog.energy,
+      size: dog.size,
+      vaccinations: dog.vaccinations,
+      location: dog.location,
+      date: dog.date
+    };
+    dogs[dog.id] = dogData
+  })
+
+  return dogs;
+}
+
+const formatDog = (dog) => {
+  const dogData = {
+    id: dog._id,
+    user_id: dog.user,
+    name: dog.name,
+    breed: dog.breed,
+    dob: dog.dob,
+    weight: dog.weight,
+    energy: dog.energy,
+    size: dog.size,
+    vaccinations: dog.vaccinations,
+    location: dog.location,
+    date: dog.date
+  };
+  return dogData;
+}
+
+
+
+
+
+module.exports = { formatPosts, formatPost, formatDogs, formatDog }
