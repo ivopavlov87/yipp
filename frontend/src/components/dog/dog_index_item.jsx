@@ -12,11 +12,18 @@ class DogIndexItem extends React.Component {
         //     sum += post.temperamentRating
         // })
         // const ratings = sum / postsForDog.length;
-        return (
+        let imageUrl;
 
+        if (this.props.images.length === 0) {
+            imageUrl = ''
+        } else {
+            imageUrl = `/api/images/${this.props.images[0].filename}` 
+        }
+        return (
             <div className="dog-index-item-container">
                 <div className="dog-index-item-details">
                     <ul>
+                        <img src={imageUrl} alt=""/>
                         <li>
                             <Link to={`/dogs/${this.props.dog.id}`}>{this.props.dog.name}</Link>
                         </li>

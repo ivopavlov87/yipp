@@ -49,7 +49,6 @@ router.post('/', upload.single('image'), (req, res) => {
     //     if (err) return console.log(err)
     //     console.log('saved to database')
     // })
-    res.redirect('/')
 });
 
 

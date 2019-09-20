@@ -21,17 +21,6 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nodogsfound: 'No dogs found' }));
 });
 
-// router.get('/user/:userId', (req, res) => {
-//     Dog.find({ user: req.params.userId })
-//         .sort({ date: -1 })
-//         .then(dogs => res.json(dogs))
-//         .catch(err =>
-//             res.status(404).json({ nodogsfound: 'No dogs found from that user' }
-//             )
-//         );
-// });
-
-
 router.get('/:id', (req, res) => {
     Dog.findById(req.params.id)
         .then(dog => res.json(formatDog(dog)))
@@ -106,11 +95,25 @@ router.delete('/:id',
     return res.status(200).json(response);
 })
 
-module.exports = router;
 
-// findOneAndUpdate()
-// findOneAndRemove()
-// findAndModify()
+// SEARCH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports = router;
 
 
 // COAUTHOR A COMMIT
