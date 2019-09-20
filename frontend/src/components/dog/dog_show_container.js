@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchOneDog, deleteDog } from '../../actions/dog_actions';
 import { fetchUsers } from '../../actions/user_actions';
+import { composePost } from '../../actions/post_actions';
 
 import DogShow from  './dog_show';
 
@@ -36,7 +37,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchDog: (id) => dispatch(fetchOneDog(id)),
         fetchUsers: () => dispatch(fetchUsers()),
-        deleteDog: (id) => dispatch(deleteDog(id))
+        deleteDog: (id) => dispatch(deleteDog(id)),
+        composePost: data => dispatch(composePost(data))
     };
 };
 

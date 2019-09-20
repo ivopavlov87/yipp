@@ -1,4 +1,5 @@
 import React from 'react';
+// import { withRouter } from 'react-router-dom';
 
 class PostCompose extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class PostCompose extends React.Component {
       text: "",
       temperamentRating: 0,
       user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username
+      authorName: this.props.currentUser.username,
+      // dogName: this.props.dog.name,
+      // dogId: this.props.dog.id
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,11 +23,20 @@ class PostCompose extends React.Component {
       text: this.state.text,
       temperamentRating: this.state.temperamentRating,
       user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username
+      authorName: this.props.currentUser.username,
+      // dogName: this.props.dog.name,
+      // dogId: this.props.dog.id
     };
 
     this.props.composePost(post);
-    this.setState({ text: '', temperamentRating: 0, user_id: this.props.currentUser.id, authorName: this.props.currentUser.username });
+    this.setState({
+      text: "",
+      temperamentRating: 0,
+      user_id: this.props.currentUser.id,
+      authorName: this.props.currentUser.username,
+      // dogName: this.props.dog.name,
+      // dogId: this.props.dog.id
+    });
     this.props.history.push('/posts');
 
   }

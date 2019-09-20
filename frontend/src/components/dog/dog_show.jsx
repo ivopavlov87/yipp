@@ -19,10 +19,14 @@ class DogShow extends React.Component {
     render() {
         
         let postComposeThing;
-        if (this.props.currentUser) {
+        if (this.props.currentUser && this.props.dog) {
             postComposeThing = (
                 <PostCompose
                     currentUser={this.props.currentUser}
+                    dogId={this.props.dog.id}
+                    dogName={this.props.dog.name}
+                    composePost={this.props.composePost}
+                    history={this.props.history}
                 />
             )
         }
@@ -83,6 +87,7 @@ class DogShow extends React.Component {
                 <br/>
                 {postComposeThing}
                 The dog's name is: {this.props.dog.name}
+                <br />
                 The dog's id is: {this.props.dog.id}
             </div>
         )
