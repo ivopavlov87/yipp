@@ -6,9 +6,10 @@ class PostEdit extends React.Component {
     super(props);
 
     this.state = {
-        id: this.props.post.id,
-        text: this.props.post.text,
-        temperamentRating: 0
+      id: this.props.post.id,
+      text: this.props.post.text,
+      temperamentRating: 0,
+      authorName: this.props.currentUser.username
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.postId = this.props.match.params.id
@@ -24,10 +25,10 @@ class PostEdit extends React.Component {
       id: this.props.post.id,
       text: this.state.text,
       temperamentRating: this.state.temperamentRating,
-      // authorName: this.props.currentUser.username
+      authorName: this.props.currentUser.username
     };
     // debugger;
-    this.props.updatePost(post) // .then(() => this.props.history.push)('/posts');
+    this.props.updatePost(post);
     this.setState({ text: '', temperamentRating: 0 });
     this.props.history.push('/posts');
   }
@@ -55,7 +56,6 @@ class PostEdit extends React.Component {
               value={this.state.text}
               onChange={this.updateText()}
               placeholder="Write your post..."
-              // defaultValue={this.props.post.text}
             />
             <div className="temperament-rating-radio">
               <input type="radio" value="1" name="temperamentRating" onChange={this.updateRating()} />1
@@ -73,7 +73,6 @@ class PostEdit extends React.Component {
           </div>
         </form>
         <br />
-        {/* <PostBox text={this.state.newPost} /> */}
       </div>
     )
   }

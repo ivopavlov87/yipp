@@ -52,7 +52,7 @@ router.post('/',
     const newPost = new Post({
       text: req.body.text,
       user: req.user.id,
-      // authorName: req.user.username,
+      authorName: req.user.username,
       temperamentRating: req.body.temperamentRating
     });
 

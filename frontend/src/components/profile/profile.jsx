@@ -4,8 +4,6 @@ import ProfilePostBox from './profile_post_box';
 
 import { Link } from 'react-router-dom';
 
-import PostBox from '../posts/post_box';
-
 
 class Profile extends React.Component {
   constructor(props) {
@@ -21,10 +19,6 @@ class Profile extends React.Component {
     this.props.fetchUserPosts(this.props.currentUser.id);
   }
 
-  // static getDerivedStateFromProps(newState) {
-  //   return ({ posts: newState.posts });
-  // }
-
   render() {
     if (this.props.posts.length === 0) {
       return (<div>
@@ -37,18 +31,18 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
-          <h2>All of this user's posts</h2>
-          {this.props.posts.map(post => (
-              <ProfilePostBox
-                key={post.id}
-                post={post}
-                currentUser={this.props.currentUser}
-                destroyPost={this.props.destroyPost}
-              />
-          ))}
           <Link to="/profile/dogs/new">Create a new dog</Link>
           <br />
           <Link to="/profile/dogs">All the dogs!</Link>
+          <h2>All of this user's posts</h2>
+          {this.props.posts.map(post => (
+            <ProfilePostBox
+              key={post.id}
+              post={post}
+              currentUser={this.props.currentUser}
+              destroyPost={this.props.destroyPost}
+            />
+          ))}
         </div>
       );
     }

@@ -3,11 +3,11 @@ const formatPosts = (postsArr) => {
   postsArr.forEach(post => {
     const postData = {
       id: post.id,
-      user_id: post.user,
+      user: post.user,
       temperamentRating: post.temperamentRating,
-      // authorName: post.author_name,
       text: post.text,
-      date: post.date
+      date: post.date,
+      authorName: post.authorName
     };
     posts[post.id] = postData
   })
@@ -19,11 +19,11 @@ const formatPost = (post) => {
   // const formattedPost = {};
   const postData = {
     id: post.id,
-    user_id: post.user,
+    user: post.user,
     temperamentRating: post.temperamentRating,
-    // authorName: post.author_name,
     text: post.text,
-    date: post.date
+    date: post.date,
+    authorName: post.authorName
   };
   // formattedPost[post.id] = postData
 

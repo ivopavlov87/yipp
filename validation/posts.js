@@ -6,6 +6,7 @@ module.exports = function validatePostInput(data) {
   let errors = {};
 
   data.text = validText(data.text) ? data.text : '';
+  // data.authorName = validText(data.authorName) ? data.authorName : '';
   
   data.temperamentRating = validRate(parseInt(data.temperamentRating)) ? data.temperamentRating : '';
 

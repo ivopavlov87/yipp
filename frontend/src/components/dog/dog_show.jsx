@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+// import PostCompose from '../posts/post_compose';
 
 class DogShow extends React.Component {
 
@@ -70,6 +71,8 @@ class DogShow extends React.Component {
                     </li>
                 </div>
                 {dogLink}
+                <br/>
+                {/* <PostCompose /> */}
             </div>
         )
     }
