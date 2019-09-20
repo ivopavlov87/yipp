@@ -30,6 +30,17 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
+// All posts for 1 dog
+router.get('/dogs/:dogId', (req, res) => {
+  Post.find({ dog: req.params.dogId })
+    .sort({ date: -1 })
+    .then(posts => res.json(formatPosts(posts)))
+    .catch(err =>
+      res.status(404).json({ nopostsfound: 'No posts found from that dog' }
+      )
+    );
+});
+
 // Post
 router.get('/:id', (req, res) => {
   Post.findById(req.params.id)

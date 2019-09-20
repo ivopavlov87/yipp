@@ -116,30 +116,30 @@ User.findOne({ username })
 
 // GET FRIEND
 router.get('/:id', (req, res) => {
-  User.findById(req.params.id)
-    .select('friends')
-    .populate('friends')
+  Dog.findById(req.params.id)
+    .select('dogs')
+    .populate('dogs')
     .exec()
-    .then(user => res.json(user))
+    .then(dog => res.json(dog))
     .catch(err =>
-      res.status(404).json({ nouserfound: 'No user found with that ID' })
+      res.status(404).json({ nodogfound: 'No dog found with that ID' })
     );
 });
 
 // ADD FRIEND
-router.post('/:id/friend', passport.authenticate('jwt', { session: false }), (req, res) => {
-  const user = req.user.id;
-  const friendId = req.params.id
+router.post('/:id/favoriteDogs', passport.authenticate('jwt', { session: false }), (req, res) => {
+  const dog = req.dog.id;
+  const dogId = req.params.id
   // console.log(user)
   // console.log(friendId)
-  User.findById(user)
-  .then(user => {
-    user.friends.push(friendId)
+  Dog.findById(dog)
+  .then(dog => {
+    user.favoriteDogs.push(dogId)
     user.save()
-    res.json(user)
+    res.json(dog)
   })
   .catch(err =>
-    res.status(404).json({nouserfound: 'No friend found with that ID'})
+    res.status(404).json({nodogfound: 'No dog found with that ID'})
     );
 })
 

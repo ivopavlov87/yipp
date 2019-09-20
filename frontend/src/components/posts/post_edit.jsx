@@ -1,5 +1,6 @@
 import React from 'react';
 // import PostBox from './post_box';
+// import { withRouter } from 'react-router-dom';
 
 class PostEdit extends React.Component {
   constructor(props) {
@@ -10,13 +11,13 @@ class PostEdit extends React.Component {
       text: this.props.post.text,
       temperamentRating: 0,
       authorName: this.props.currentUser.username
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.postId = this.props.match.params.id
   }
 
-  // componentDidMount(){
-  //   this.props.fetchPost(this.postId)
+  // componentDidUpdate(){
+  //   this.props.fetchDogPosts(this.props.dogId)
   // }
 
   handleSubmit(e) {
@@ -28,11 +29,11 @@ class PostEdit extends React.Component {
       authorName: this.props.currentUser.username
     };
     // debugger;
-    this.props.updatePost(post);
+    this.props.updatePost(post) // .then(this.props.history.goBack());
     this.setState({ text: '', temperamentRating: 0 });
-    this.props.history.push('/posts');
+    this.props.history.push(`/posts`);
   }
-
+// `/dogs/${this.props.dogId}`
   updateText() {
     return e => this.setState({
       text: e.currentTarget.value
@@ -46,6 +47,7 @@ class PostEdit extends React.Component {
   }
 
   render() {
+    console.log("the props")
     console.log(this.props)
     return (
       <div>

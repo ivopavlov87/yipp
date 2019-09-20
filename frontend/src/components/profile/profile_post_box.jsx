@@ -22,6 +22,7 @@ class ProfilePostBox extends React.Component {
 
     return (
       <div>
+        <h2>Dog name: {this.props.post.dogName}</h2>
         <h3>{this.props.post.text}</h3>
         <h4>Temperament rating: {this.props.post.temperamentRating}</h4>
         <div>Date posted: {this.props.post.date}</div>

@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PostCompose from '../posts/post_compose';
+import DogShowPost from './dog_show_post_box';
 
 class DogShow extends React.Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            posts: []
+        }
+    }
+    
     componentDidMount() {
         this.props.fetchUsers();
-        this.props.fetchDog(this.props.match.params.dogId)
+        this.props.fetchDog(this.props.match.params.dogId);
+        this.props.fetchDogPosts(this.props.match.params.dogId)
     }
 
 
@@ -90,6 +99,15 @@ class DogShow extends React.Component {
                 The dog's name is: {this.props.dog.name}
                 <br />
                 The dog's id is: {this.props.dog.id}
+                <br/>
+                {this.props.posts.map(post => (
+                    <DogShowPost
+                        key={post.id}
+                        post={post}
+                        currentUser={this.props.currentUser}
+                        destroyPost={this.props.destroyPost}
+                    />
+                ))}
             </div>
         )
     }

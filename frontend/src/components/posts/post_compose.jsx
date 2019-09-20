@@ -59,6 +59,7 @@ class PostCompose extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             Hello User-{this.props.currentUser.id}, also known as {this.props.currentUser.username}, what do you have to say?
+            <br />
             <input type="textarea"
               value={this.state.text}
               onChange={this.updateText()}

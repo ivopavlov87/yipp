@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchPost, updatePost } from '../../actions/post_actions';
+import { fetchPost, updatePost, fetchDogPosts } from '../../actions/post_actions';
 import PostEdit from './post_edit';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
     fetchPost: id => dispatch(fetchPost(id)),
-    updatePost: post => dispatch(updatePost(post))
+    updatePost: post => dispatch(updatePost(post)),
+    // fetchDogPosts: dogId => dispatch(fetchDogPosts(dogId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostEdit)

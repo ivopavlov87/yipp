@@ -3,10 +3,11 @@ import {
   RECEIVE_POST,
   RECEIVE_USER_POSTS,
   RECEIVE_NEW_POST,
-  REMOVE_POST
+  REMOVE_POST,
+  RECEIVE_DOG_POSTS
 } from "../actions/post_actions";
 
-const PostsReducer = (state = { all: {}, user: {}}, action) => {
+const PostsReducer = (state = { all: {}, user: {}, dog: {}}, action) => {
 // const PostsReducer = (state = { all: {}, user: {}}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
@@ -20,6 +21,9 @@ const PostsReducer = (state = { all: {}, user: {}}, action) => {
       return newState;
     case RECEIVE_USER_POSTS:
       newState.user = action.posts.data;
+      return newState;
+    case RECEIVE_DOG_POSTS:
+      newState.dog = action.posts.data;
       return newState;
     case RECEIVE_NEW_POST:
       action.post.data.id = action.post.data._id
