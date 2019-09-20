@@ -10,6 +10,10 @@ class DogShow extends React.Component {
         this.props.fetchDog(this.props.match.params.dogId)
     }
 
+    componentDidUpdate() {
+        this.props.fetchImages();
+    }
+
     uploadImage(e) {
         e.preventDefault();
         const imageObj = new FormData();
