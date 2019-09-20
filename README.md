@@ -14,7 +14,7 @@ MVPs
 USER AUTH
 	Profiles
 		User Params
-		location, owner, dog info.
+		location, owner, dog- info.
 		Dog Params
 		breed, size, weight, temperament, motivation, alteredStatus (snipped), age, energy, location
 OTHER MVPs
