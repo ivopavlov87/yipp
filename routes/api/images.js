@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
+const fs = require('fs')
 
 // DB SETUP
 const mongoURI = keys.mongoURI;
@@ -34,20 +35,43 @@ conn.once('open', () => {
 
 //IMAGES ROUTES
 router.post('/', upload.single('image'), (req, res) => {
-    // const img = fs.readFileSync(req.file.path);
-    // const encode_image = img.toString('base64');
-    // // Define a JSONobject for the image attributes for saving to database
-    // const finalImg = {
-    //     contentType: req.file.mimetype,
-    //     image: new Buffer(encode_image, 'base64')
-    // };
+    
+    const img = fs.readFileSync(req.file.path);
+    const encode_image = img.toString('base64');
+    // Define a JSONobject for the image attributes for saving to database
+    const finalImg = {
+        contentType: req.file.mimetype,
+        image: Buffer.from(encode_image, 'base64')
+    };
 
-    // gfs.collection("images").insertOne(finalImg, (err, result) => {
-    //     console.log(result)
-    //     if (err) return console.log(err)
-    //     console.log('saved to database')
-    // })
+    gfs.collection("images").insert(finalImg, (err, result) => {
+        console.log(result)
+        if (err) return console.log(err)
+        console.log('saved to database')
+    })
 });
+
+
+router.get('/:filename', (req, res) => {
+    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+        // Check if file
+        if (!file || file.length === 0) {
+            return res.status(404).json({
+                err: 'No file exists',
+            })
+        }
+        // Check if image
+        if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+            // Read output to browser
+            const readstream = gfs.createReadStream(file.filename)
+            readstream.pipe(res)
+        } else {
+            res.status(404).json({
+                err: 'Not an image',
+            })
+        }
+    })
+})
 
 router.get('/', (req, res) => {
     gfs.files.find().toArray((err, files) => {
@@ -62,5 +86,69 @@ router.get('/', (req, res) => {
         return res.json(files);
     });
 });
+
+// router.get('/:id', (req, res) => {
+//     const fileName = req.params.id;
+//     const collection = gfs.collection("images.files");
+//     const collectionChunks = gfs.collection("images.chunks");
+//     gfs.files.find({ _id: fileName }).toArray((err, docs) => {
+//         console.log(docs)
+//         if (err) {
+//             return res.json({
+//                 title: 'File error',
+//                 message: 'Error finding file',
+//                 error: err.errMsg
+//             });
+//         }
+//         if (!docs || docs.length === 0) {
+//             return res.json({
+//                 title: 'Download Error',
+//                 message: 'No file found'
+//             });
+//         } else {
+//             //Retrieving the chunks from the db          
+//             collectionChunks.find({ files_id: docs[0]._id })
+//                 .sort({ n: 1 }).toArray(function (err, chunks) {
+//                     if (err) {
+//                         return res.json({
+//                             title: 'Download Error',
+//                             message: 'Error retrieving chunks',
+//                             error: err.errmsg
+//                         });
+//                     }
+//                     if (!chunks || chunks.length === 0) {
+//                         //No data found            
+//                         return res.json({
+//                             title: 'Download Error',
+//                             message: 'No data found'
+//                         });
+//                     }
+
+//                     let fileData = [];
+//                     for (let i = 0; i < chunks.length; i++) {
+//                         //This is in Binary JSON or BSON format, which is stored               
+//                         //in fileData array in base64 endocoded string format               
+//                         fileData.push(chunks[i].data.toString('base64'));
+//                     }
+//                     //Display the chunks using the data URI format          
+//                     let finalFile = 'data:' + docs[0].contentType + ';base64,' + fileData.join('');
+//                     res.json('imageView', {
+//                         title: 'Image File',
+//                         message: 'Image loaded from MongoDB GridFS',
+//                         imgurl: finalFile
+//                     });
+//                 }
+//             );
+//         }
+//     })
+// })
+
+router.get('/:id', (req, res) => {
+    gfs.collection('images.chunks').find({ files_id: req.params.id }).sort({ n: 1 }).toArray((err, chunks) => {
+        res.json(chunks);
+    });
+})
+
+
 
 module.exports = router;

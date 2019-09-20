@@ -55,10 +55,16 @@ class DogShow extends React.Component {
             dogLink = <div></div>
         }
 
+        const dogImages = this.props.images.map(image => {
+            return <img src={`/api/images/${image.filename}`} alt=""/>
+        })
 
         return (
             <div className="dog-show-container">
                 <div className="dog-show-details">
+                    <div>
+                        {dogImages}
+                    </div>
                     <li>{this.props.dog.name}
                         </li>
                     <li>{owner.username}
