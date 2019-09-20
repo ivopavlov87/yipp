@@ -6,6 +6,7 @@ class DogShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
+        this.props.fetchImages();
         this.props.fetchDog(this.props.match.params.dogId)
     }
 

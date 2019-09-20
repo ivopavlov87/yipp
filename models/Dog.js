@@ -51,10 +51,10 @@ const DogSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  images: {
-    type: Array,
-    required: false
-  }
+  // images: {
+  //   type: Array,
+  //   required: false
+  // }
 });
 
 
