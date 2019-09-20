@@ -7,9 +7,8 @@ export const receiveAllImages = (images) => ({
     images
 })
 
-
 export const fetchAllImages = () => dispatch => {
-    getImages().then(images => dispatch(receiveAllImages(images))
-    )
+    getImages().then(images => dispatch(receiveAllImages(images)))
 }
+
 
