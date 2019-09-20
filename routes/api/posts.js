@@ -54,8 +54,8 @@ router.post('/',
       user: req.user.id,
       authorName: req.user.username,
       temperamentRating: req.body.temperamentRating,
-      // dog: req.dog.id,
-      // dogName: req.dog.dogName
+      dog: req.body.dogId,
+      dogName: req.body.dogName
     });
 
     newPost.save().then(post => res.json(post));

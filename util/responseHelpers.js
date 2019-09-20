@@ -8,8 +8,8 @@ const formatPosts = (postsArr) => {
       text: post.text,
       date: post.date,
       authorName: post.authorName,
-      // dog: post.dog.id,
-      // dogName: post.dogName
+      dog: post.dog.id,
+      dogName: post.dogName
     };
     posts[post.id] = postData
   })
@@ -26,8 +26,8 @@ const formatPost = (post) => {
     text: post.text,
     date: post.date,
     authorName: post.authorName,
-    // dog: post.dog.id,
-    // dogName: post.dogName
+    dog: post.dog.id,
+    dogName: post.dogName
   };
   // formattedPost[post.id] = postData
 

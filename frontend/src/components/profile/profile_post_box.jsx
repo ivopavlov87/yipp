@@ -18,7 +18,6 @@ class ProfilePostBox extends React.Component {
           }>Delete this post</Link>
         </div>
       );
-    } else {
     }
 
     return (

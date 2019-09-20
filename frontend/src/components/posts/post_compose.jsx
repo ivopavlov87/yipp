@@ -10,8 +10,8 @@ class PostCompose extends React.Component {
       temperamentRating: 0,
       user_id: this.props.currentUser.id,
       authorName: this.props.currentUser.username,
-      // dogName: this.props.dog.name,
-      // dogId: this.props.dog.id
+      dogName: this.props.dog.name,
+      dogId: this.props.dog.id
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,8 +24,8 @@ class PostCompose extends React.Component {
       temperamentRating: this.state.temperamentRating,
       user_id: this.props.currentUser.id,
       authorName: this.props.currentUser.username,
-      // dogName: this.props.dog.name,
-      // dogId: this.props.dog.id
+      dogName: this.props.dog.name,
+      dogId: this.props.dog.id
     };
 
     this.props.composePost(post);
@@ -34,10 +34,10 @@ class PostCompose extends React.Component {
       temperamentRating: 0,
       user_id: this.props.currentUser.id,
       authorName: this.props.currentUser.username,
-      // dogName: this.props.dog.name,
-      // dogId: this.props.dog.id
+      dogName: this.props.dog.name,
+      dogId: this.props.dog.id
     });
-    this.props.history.push('/posts');
+    this.props.history.push(`/dogs/${this.props.dog.id}`);
 
   }
 

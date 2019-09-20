@@ -23,6 +23,7 @@ class DogShow extends React.Component {
             postComposeThing = (
                 <PostCompose
                     currentUser={this.props.currentUser}
+                    dog={this.props.dog}
                     dogId={this.props.dog.id}
                     dogName={this.props.dog.name}
                     composePost={this.props.composePost}

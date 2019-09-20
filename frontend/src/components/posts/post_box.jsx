@@ -32,10 +32,11 @@ class PostBox extends React.Component {
 
     return (
       <div>
+        <h2>Dog name: {this.props.post.dogName}</h2>
         <h3>{this.props.post.text}</h3>
         <h4>Temperament rating: {this.props.post.temperamentRating}</h4>
+        <div>Author name: {this.props.post.authorName}</div>
         <div>Date posted: {this.props.post.date}</div>
-        <div>AuthorName: {this.props.post.authorName}</div>
         <div>PostId: {this.props.post.id}</div>
         {postButtons}
       </div>
