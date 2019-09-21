@@ -4,9 +4,17 @@ export const getDogs = () => {
     return axios.get('/api/dogs')
 };
 
-// export const getUserDogs = userId => {
-//     return axios.get(`/api/dogs/user/${userId}`)
-// };
+export const getDogsByUsername = (username) => {
+    return axios.get(`/api/dogs/${username}`)
+}
+
+export const getDogsByDogname = (dogname) => {
+    return axios.get(`/api/dogs/${dogname}`);
+}
+
+export const getDogsByLocation = (location) => {
+    return axios.get(`/api/dogs/${location}`);
+}
 
 export const getDog = id => {
     return axios.get(`/api/dogs/${id}`)
