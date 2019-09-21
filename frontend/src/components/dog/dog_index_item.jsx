@@ -12,6 +12,7 @@ class DogIndexItem extends React.Component {
         //     sum += post.temperamentRating
         // })
         // const ratings = sum / postsForDog.length;
+        
         let imageUrl;
 
         if (this.props.images.length === 0) {
