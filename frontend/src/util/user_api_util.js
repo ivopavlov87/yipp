@@ -21,8 +21,8 @@ export const createUser = (formData) => {
 
 // SEARCH USERS 
 
-export const getUserByUsername = (username) => {
-  return axios.get(`/api/users/${username}`)
-};
+// export const getUserByUsername = (username) => {
+//   return axios.get(`/api/users/${username}`)
+// };
 
 // window.getUser = getUser;

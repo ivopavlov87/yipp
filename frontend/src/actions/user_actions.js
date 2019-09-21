@@ -34,10 +34,9 @@ export const createUser = (formData) => dispatch => {
 
 // SEARCH USER ACTIONS
 
-export const fetchUserByUsername = (username) => dispatch => {
-  return UserAPIUtil.getUserByUsername(username)
-    .then(user => dispatch(receiveUser(user)))
-    .catch(err => console.log(err));
-}
+// export const fetchUserByUsername = (username) => dispatch => {
+//   return UserAPIUtil.getUserByUsername(username)
+//     .then(user => dispatch(receiveUsers(user)))
+//     .catch(err => console.log(err));
+// }
 
-// window.fetchUser = fetchUser;

@@ -87,4 +87,10 @@ export const fetchDogsByLocation = (location) => dispatch => (
     DogApiUtil.getDogsByLocation(location)
         .then(dogs => dispatch(receiveAllDogs(dogs)))
         .catch(err => dispatch(receiveDogErrors(err)))
+)
+
+export const fetchDogsByBreed = (breed) => dispatch => (
+    DogApiUtil.getDogsByBreed(breed)
+        .then(dogs => dispatch(receiveAllDogs(dogs)))
+        .catch(err => dispatch(receiveDogErrors(err)))
 ) 

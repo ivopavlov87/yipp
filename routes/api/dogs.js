@@ -95,24 +95,6 @@ router.delete('/:id',
     return res.status(200).json(response);
 })
 
-
-// SEARCH
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router;
 
 

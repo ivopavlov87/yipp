@@ -23,14 +23,24 @@ const { formatDogs, formatDog } = require('../../util/responseHelpers');
 //         );
 // });
 
-router.get('/users/:username', (req, res) => {
-    User.findOne({ username: req.params.username })
-        .then(users => res.json(users))
+// router.get('/users/:username', (req, res) => {
+//     User.findOne({ username: req.params.username })
+//         .then(users => res.json(users))
+//         .catch(err =>
+//             res.status(404).json({ nousersfound: 'No users found with that name' }
+//             )
+//         );
+// });
+
+router.get('/dogs/:breed', (req, res) => {
+    Dog.find({ breed: req.params.breed })
+        .then(dogs => res.json(dogs))
         .catch(err =>
-            res.status(404).json({ nousersfound: 'No users found with that name' }
+            res.status(404).json({ nodogsfound: 'No dogs found with that breed' }
             )
         );
 });
+
 
 
 router.get('/dogs/:dogname', (req, res) => {

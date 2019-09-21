@@ -31,6 +31,10 @@ export const getDogsByLocation = (location) => {
     return axios.get(`/api/dogs/${location}`);
 };
 
+export const getDogsByBreed = (breed) => {
+    return axios.get(`/api/dogs/${breed}`);
+};
+
 // export const getDogsByUsername = (username) => {
 //     return axios.get(`/api/dogs/${username}`)
 // };
