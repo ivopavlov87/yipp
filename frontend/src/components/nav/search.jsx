@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Search extends React.Component {
     constructor(props){
@@ -15,7 +15,7 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+
         if (this.state.searchType === 'dogname') {
             this.props.searchByDogname(this.state.searchValue);
         } else if (this.state.searchType === 'location') {

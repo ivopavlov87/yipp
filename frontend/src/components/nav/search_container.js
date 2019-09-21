@@ -7,9 +7,9 @@ import {
 
 import Search from './search'
 
-const mapStateToProps = state => {
+// const mapStateToProps = state => {
 
-};
+// };
 
 const mapDispatchToProps = dispatch => {
     return {

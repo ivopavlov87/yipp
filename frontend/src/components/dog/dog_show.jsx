@@ -10,8 +10,11 @@ class DogShow extends React.Component {
         this.props.fetchDog(this.props.match.params.dogId)
     }
 
-    componentDidUpdate() {
-        this.props.fetchImages();
+    componentDidUpdate(prevProps) {
+
+        if (this.props.images !== prevProps.images) {
+            this.props.fetchImages();
+        }
     }
 
     uploadImage(e) {

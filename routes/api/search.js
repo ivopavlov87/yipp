@@ -32,9 +32,9 @@ const { formatDogs, formatDog } = require('../../util/responseHelpers');
 //         );
 // });
 
-router.get('/dogs/:breed', (req, res) => {
-    Dog.find({ breed: req.params.breed })
-        .then(dogs => res.json(dogs))
+router.get('/:breed', (req, res) => {
+    Dog.find({ 'breed': req.params.breed })
+        .then(dogs => res.json(formatDogs(dogs)))
         .catch(err =>
             res.status(404).json({ nodogsfound: 'No dogs found with that breed' }
             )
@@ -43,9 +43,10 @@ router.get('/dogs/:breed', (req, res) => {
 
 
 
-router.get('/dogs/:dogname', (req, res) => {
-    Dog.find({ name: req.params.dogname })
-        .then(dogs => res.json(dogs))
+router.get('/:dogname', (req, res) => {
+    
+    Dog.find({ 'name': req.params.dogname })
+        .then(dogs => res.json(formatDogs(dogs)))
         .catch(err =>
             res.status(404).json({ nodogsfound: 'No dogs found with that name' }
             )
@@ -53,9 +54,10 @@ router.get('/dogs/:dogname', (req, res) => {
 });
 
 
-router.get('/dogs/:location', (req, res) => {
-    Dog.find({ location: req.params.location })
-        .then(dogs => res.json(dogs))
+
+router.get('/:location', (req, res) => {
+    Dog.find({ 'location': req.params.location })
+        .then(dogs => res.json(formatDogs(dogs)))
         .catch(err =>
             res.status(404).json({ nodogsfound: 'No dogs found from that location' }
             )
