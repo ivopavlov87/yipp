@@ -4,20 +4,30 @@ const keys = require('../../config/keys');
 const mongoose = require('mongoose');
 
 const Dog = require('../../models/Dog');
+const User = require('../../models/User')
 const { formatDogs, formatDog } = require('../../util/responseHelpers');
 
 
-router.get('/dogs/:username', (req, res) => {
-    let username;
-    User.find({username: req.params.username})
-    .then(user => {
-        const userId = user._id
-    })
-    // Dog.findById(req.params.id)
-    Dog.find({ user: userId })
-        .then(dogs => res.json(dogs))
+// router.get('/dogs/:username', (req, res) => {
+//     let username;
+//     User.find({username: req.params.username})
+//     .then(user => {
+//         const userId = user._id
+//     })
+//     // Dog.findById(req.params.id)
+//     Dog.find({ user: userId })
+//         .then(dogs => res.json(dogs))
+//         .catch(err =>
+//             res.status(404).json({ nodogsfound: 'No dogs found from that user' }
+//             )
+//         );
+// });
+
+router.get('/users/:username', (req, res) => {
+    User.find({ username: req.params.username })
+        .then(users => res.json(users))
         .catch(err =>
-            res.status(404).json({ nodogsfound: 'No dogs found from that user' }
+            res.status(404).json({ nodogsfound: 'No users found with that name' }
             )
         );
 });
