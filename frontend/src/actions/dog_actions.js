@@ -72,4 +72,19 @@ export const deleteDog = (id) => dispatch => {
     return DogApiUtil.deleteDog(id)
         .then(res => dispatch(removeOneDog(res)))
         .catch(err => dispatch(receiveDogErrors(err)))
-    }
+}
+
+
+// SEARCH ACTIONS
+
+export const fetchDogsByDogname = (dogname) => dispatch => (
+    DogApiUtil.getDogsByDogname(dogname)
+        .then(dogs => dispatch(receiveAllDogs(dogs)))
+        .catch(err => dispatch(receiveDogErrors(err)))
+) 
+
+export const fetchDogsByLocation = (location) => dispatch => (
+    DogApiUtil.getDogsByLocation(location)
+        .then(dogs => dispatch(receiveAllDogs(dogs)))
+        .catch(err => dispatch(receiveDogErrors(err)))
+) 

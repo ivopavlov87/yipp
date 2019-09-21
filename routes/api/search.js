@@ -24,10 +24,10 @@ const { formatDogs, formatDog } = require('../../util/responseHelpers');
 // });
 
 router.get('/users/:username', (req, res) => {
-    User.find({ username: req.params.username })
+    User.findOne({ username: req.params.username })
         .then(users => res.json(users))
         .catch(err =>
-            res.status(404).json({ nodogsfound: 'No users found with that name' }
+            res.status(404).json({ nousersfound: 'No users found with that name' }
             )
         );
 });

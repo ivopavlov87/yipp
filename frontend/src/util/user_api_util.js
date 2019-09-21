@@ -20,6 +20,7 @@ export const createUser = (formData) => {
 
 
 // SEARCH USERS 
+
 export const getUserByUsername = (username) => {
   return axios.get(`/api/users/${username}`)
 };
