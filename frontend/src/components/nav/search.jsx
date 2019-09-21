@@ -15,6 +15,7 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         if (this.state.searchType === 'dogname') {
             this.props.searchByDogname(this.state.searchValue);
         } else if (this.state.searchType === 'location') {
@@ -26,17 +27,16 @@ class Search extends React.Component {
         this.props.history.push('/dogs')
     }
 
-    
     handleChange(e) {
-        return e => (
-            this.setState({ searchValue: e.target.value })
-        )   
+        this.setState({ 
+            searchValue: e.target.value 
+        })
     }
 
     handleSearchType(e) {
-        return (e) => {
-            this.setState({ searchType: e.target.value })
-        }
+        this.setState({ 
+            searchType: e.target.value 
+        })
     }
   
     render() {
@@ -45,6 +45,7 @@ class Search extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type='text'
+                        value={this.state.searchValue}
                         placeholder='Search all dog friends...'
                         onChange={this.handleChange}
                     />
