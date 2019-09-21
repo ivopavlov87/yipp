@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Search extends React.Component {
     constructor(props){
@@ -8,21 +8,29 @@ class Search extends React.Component {
             searchType: "dogname",
             searchValue: ""
         }
-        this.handleSubmit.bind(this);
-        this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSearchType = this.handleSearchType.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.searchByDogname(this.state.searchInput);
-        this.props.searchByLocation(this.state.searchInput);
+        if (this.state.searchType === 'dogname') {
+            this.props.searchByDogname(this.state.searchValue);
+        } else if (this.state.searchType === 'location') {
+            this.props.searchByLocation(this.state.searchValue);
+        } else if (this.state.searchType === 'breed') {
+            this.props.searchByBreed(this.state.searchValue);
+        }
+
+        this.props.history.push('/dogs')
     }
 
     
     handleChange(e) {
-        return (e) => {
-            this.setState({ value: e.target.value })
-        }    
+        return e => (
+            this.setState({ searchValue: e.target.value })
+        )   
     }
 
     handleSearchType(e) {
@@ -40,8 +48,7 @@ class Search extends React.Component {
                         placeholder='Search all dog friends...'
                         onChange={this.handleChange}
                     />
-
-                    <button type="submit" value="submit"/>
+                    <input type="submit" value="Search"/>
                 </form>
                 <select value={this.state.searchType} onChange={this.handleSearchType}>
                     <option value="dogname">Dog Name</option>
@@ -54,4 +61,4 @@ class Search extends React.Component {
     }
 }
 
-export default Search;
+export default withRouter(Search);
