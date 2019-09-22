@@ -19,7 +19,7 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  favoriteDogs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'dogs' }]
+  favoriteDogs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'dog' }]
   // followedAccounts: [],
 })
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { composePost } from '../../actions/post_actions';
+import { composePost, fetchDogPosts } from '../../actions/post_actions';
 import PostCompose from './post_compose';
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    composePost: data => dispatch(composePost(data))
+    composePost: data => dispatch(composePost(data)),
+    // fetchDogPosts: (dogId) => dispatch(fetchDogPosts(dogId))
   };
 };
 

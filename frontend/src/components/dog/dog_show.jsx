@@ -17,6 +17,10 @@ class DogShow extends React.Component {
         this.props.fetchDog(this.props.match.params.dogId);
         this.props.fetchDogPosts(this.props.match.params.dogId)
     }
+    
+    // componentDidUpdate() {
+    //     this.props.fetchDogPosts(this.props.match.params.dogId)
+    // }
 
 
     handleDelete(e) {
@@ -37,6 +41,7 @@ class DogShow extends React.Component {
                     dogName={this.props.dog.name}
                     composePost={this.props.composePost}
                     history={this.props.history}
+                    // match={this.props.match}
                 />
             )
         }

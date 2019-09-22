@@ -28,10 +28,13 @@ const PostsReducer = (state = { all: {}, user: {}, dog: {}}, action) => {
     case RECEIVE_NEW_POST:
       action.post.data.id = action.post.data._id
       newState.all[action.post.data.id] = action.post.data
+      // newState.dog[action.post.data.id] = action.post.data
+      // newState.user[action.post.data.id] = action.post.data
       return newState;
     case REMOVE_POST:
       delete newState.all[action.postId];
       delete newState.user[action.postId];
+      delete newState.dog[action.postId];
       return newState;
     default:
       return state;
