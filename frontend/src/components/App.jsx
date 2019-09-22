@@ -24,9 +24,14 @@ import SearchContainer from './nav/search_container'
 const App = () => (
   <div className="landing-page-container">
     <NavBarContainer />
-    <h1>Yipp</h1>
-    <h3>Find dog friends</h3>
-    <SearchContainer />
+    <div className="landing-page-logo">
+      <div className="landing-page-logo-items">
+        <h1>Yipp</h1>
+        <h3>Find dog friends</h3>
+        <div />
+      </div>
+      <SearchContainer />
+    </div>
     <Switch>
       <Route exact path="/dogs" component={DogsIndexContainer} />
       <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />

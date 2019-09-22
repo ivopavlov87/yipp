@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import './navbar.css';
+import './assets/navbar.css';
 // import SearchContainer from './search_container'
 
 class NavBar extends React.Component {

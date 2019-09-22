@@ -1,0 +1,31 @@
+.landing-page-container {
+    width: 100%;
+    height: 1200px;
+}
+
+.nav-bar-items {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.landing-page-logo {
+    height: 500px;
+    display:flex;
+    flex-direction: column;
+    background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_fill%2Cg_auto%2Ch_1248%2Cw_2220%2Ff_auto%2Cq_auto%2Cw_1100%2Fv1555439209%2Fshape%2Fmentalfloss%2F345eyrhfj.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.landing-page-logo-items {
+    display: flex;
+    justify-content: center;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* #d32323 */
