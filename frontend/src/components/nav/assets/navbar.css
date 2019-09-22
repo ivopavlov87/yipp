@@ -39,6 +39,10 @@
     justify-content: center;
 }
 
+.search-form {
+    display: flex;
+    flex-direction: row;
+}
 .search-form-textbox {
     width: 480px;
     height: 45px;
