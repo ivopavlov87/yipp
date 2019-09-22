@@ -3,10 +3,14 @@ const express = require("express");
 const app = express();
 const passport = require('passport');
 
+
+
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
 const dogs = require("./routes/api/dogs");
+const images = require("./routes/api/images");
+const search = require("./routes/api/search")
 
 const bodyParser = require('body-parser');
 // this is middleware for body-parser
@@ -15,7 +19,7 @@ app.use(bodyParser.json());
 
 
 mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
@@ -27,6 +31,8 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/posts", posts);
 app.use("/api/dogs", dogs);
+app.use("/api/images", images)
+app.use("/api/search", search)
 
 
 const port = process.env.PORT || 5000;

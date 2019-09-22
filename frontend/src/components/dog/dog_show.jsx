@@ -1,13 +1,31 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import { formatAge } from '../../util/time_util'
+
 class DogShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
+        this.props.fetchImages();
         this.props.fetchDog(this.props.match.params.dogId)
     }
 
+    componentDidUpdate(nextProps) {
+        // debugger
+
+        if (this.props.images.length !== nextProps.images.length) {
+            this.props.fetchImages();
+        }
+    }
+
+    uploadImage(e) {
+        e.preventDefault();
+        const imageObj = new FormData();
+        imageObj.append('image', e.target.files[0]);
+        imageObj.append('dogId', this.props.dog.id)
+        this.props.createImage(imageObj)
+    }
 
     handleDelete(e) {
         e.preventDefault();
@@ -26,6 +44,7 @@ class DogShow extends React.Component {
         }
 
         const vaccinations = this.props.dog.vaccinations ? "Current" : "Not current"
+        const dogAge = formatAge(this.props.dog.dob)
 
         let owner;
         Object.values(this.props.users).forEach(user => {
@@ -40,26 +59,37 @@ class DogShow extends React.Component {
             dogLink = <div className='dog-links'>
                 <Link to={`${this.props.dog.id}/edit`}>Edit</Link>
                 <button onClick={this.handleDelete.bind(this)}>Delete</button>
+                <br/>
+                <div>Upload a photo:</div>
+                <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
             </div>
         } else {
             dogLink = <div></div>
         }
 
+        const dogImages = this.props.images.map(image => {
+            return <img key={image._id} src={`/api/images/${image.filename}`} alt=""/>
+        })
 
         return (
             <div className="dog-show-container">
                 <div className="dog-show-details">
+                    <div>
+                        {dogImages}
+                    </div>
                     <li>{this.props.dog.name}
                         </li>
+                    <li>{this.props.dog.gender}
+                    </li>
                     <li>{owner.username}
                         </li>
                     <li>{this.props.dog.location}
                         </li>
                     <li>{this.props.dog.breed}
                         </li>
-                    <li>{this.props.dog.dob}
+                    <li>{dogAge}
                         </li>
-                    <li>{this.props.dog.weight}
+                    <li>{this.props.dog.weight} lb
                         </li>
                     <li>{this.props.dog.size}
                         </li>

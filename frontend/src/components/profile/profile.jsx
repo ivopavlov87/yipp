@@ -4,7 +4,7 @@ import ProfilePostBox from './profile_post_box';
 
 import { Link } from 'react-router-dom';
 
-import PostBox from '../posts/post_box';
+// import PostBox from '../posts/post_box';
 
 
 class Profile extends React.Component {

@@ -59,6 +59,13 @@ class DogEditForm extends React.Component {
                             />
                         </label>
                         <br />
+                        <label>Gender:
+                            <select value={this.state.gender} onChange={this.update('gender')}>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </label>
+                        <br />
                         <label>Location:
                             <select value={this.state.location} onChange={this.update('location')}>
                                 <option value="New York">New York</option>

@@ -30,3 +30,18 @@ export const selectDogsForUser = (props, user) => {
     return res;
 }
 
+export const selectImagesForDog = (props, dog) => {
+    if (!dog) return [];
+
+    let res = [];
+    if ((Object.keys(props).length === 0)) {
+        return res;
+    }
+
+    Object.values(props).forEach(image => {
+        if (image.metadata.dogId === dog.id) {
+            res.push(image);
+        }
+    })
+    return res;
+}
