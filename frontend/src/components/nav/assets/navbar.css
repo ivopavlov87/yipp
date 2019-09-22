@@ -7,6 +7,10 @@
     display: flex;
     justify-content: flex-end;
 }
+.nav-bar-items a {
+    color: white;
+    padding: 6px;
+}
 
 .landing-page-logo-container {
     height: 500px;

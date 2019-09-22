@@ -30,9 +30,9 @@ class NavBar extends React.Component {
     } else {
       return (
         <div>
-          <Link to={'/signup'}>Signup</Link>
-          &nbsp;
           <Link to={'/login'}>Login</Link>
+          &nbsp;
+          <Link to={'/signup'}>Signup</Link>
         </div>
       );
     }
@@ -42,8 +42,6 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar-container">
         <div className="nav-bar-items">
-          {/* <SearchContainer />
-          <br/> */}
           {this.getLinks()}
         </div>
       </div>

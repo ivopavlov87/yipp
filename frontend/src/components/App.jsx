@@ -23,8 +23,8 @@ import logo from './nav/assets/logo.png'
 
 const App = () => (
   <div className="landing-page-container">
-    <NavBarContainer />
     <div className="landing-page-logo-container">
+    <NavBarContainer />
       <div className="landing-page-logo-items">
         <img src={logo} alt="logo"/>
       </div>
