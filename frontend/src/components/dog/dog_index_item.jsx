@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { formatAge } from '../../util/time_util'
+
 // import { selectPostsForDog } from '../../reducers/selectors';
 
 class DogIndexItem extends React.Component {
@@ -12,6 +14,8 @@ class DogIndexItem extends React.Component {
         //     sum += post.temperamentRating
         // })
         // const ratings = sum / postsForDog.length;
+
+        const dogAge = formatAge(this.props.dog.dob)
         
         let imageUrl;
 
@@ -32,7 +36,7 @@ class DogIndexItem extends React.Component {
 
                         <li>{this.props.dog.breed}
                         </li>
-                        <li>{this.props.dog.dob}
+                        <li>{dogAge}
                         </li>
                         <li>
                         {this.props.dog.size}

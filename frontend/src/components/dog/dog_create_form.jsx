@@ -2,6 +2,8 @@ import React from 'react';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import "react-day-picker/lib/style.css"
+import { formatDate, parseDate } from 'react-day-picker/moment';
+import 'moment/locale/it';
 
 class DogForm extends React.Component {
     constructor(props) {
@@ -26,7 +28,7 @@ class DogForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+   
         const userId = this.props.currentUserId
         const newState = Object.assign({}, this.state)
         newState['user'] = userId
@@ -94,7 +96,14 @@ class DogForm extends React.Component {
                         <label>Date of Birth:
                             <DayPickerInput
                                 placeholder='Select date'
+                                inputProps={{ readOnly: true }} 
                                 onDayChange={day => this.handleDOB(day)}
+                                formatDate={formatDate}
+                                parseDate={parseDate}
+
+                                dayPickerProps={{
+                                    disabledDays: { after: new Date() },
+                                }}
                             />
                         </label>
                         <br />

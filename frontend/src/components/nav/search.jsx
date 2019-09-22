@@ -49,13 +49,16 @@ class Search extends React.Component {
                         placeholder='Search all dog friends...'
                         onChange={this.handleChange}
                     />
-                    <input type="submit" value="Search"/>
+                   
+                    <select value={this.state.searchType} onChange={this.handleSearchType}>
+                        <option value="dogname">Dog Name</option>
+                        <option value="breed">Breed</option>
+                        <option value="location">Location</option>
+                    </select>
+
+                    <input type="submit" value="Search" />
                 </form>
-                <select value={this.state.searchType} onChange={this.handleSearchType}>
-                    <option value="dogname">Dog Name</option>
-                    <option value="breed">Breed</option>
-                    <option value="location">Location</option>
-                </select>
+
                 
             </div>
         )
