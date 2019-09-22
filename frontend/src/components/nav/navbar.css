@@ -1,0 +1,4 @@
+.nav-bar-items {
+    display: flex;
+    justify-content: flex-end;
+}

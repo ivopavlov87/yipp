@@ -3,8 +3,6 @@ const express = require("express");
 const app = express();
 const passport = require('passport');
 
-
-
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
@@ -33,7 +31,6 @@ app.use("/api/posts", posts);
 app.use("/api/dogs", dogs);
 app.use("/api/images", images)
 app.use("/api/search", search)
-
 
 const port = process.env.PORT || 5000;
 

@@ -18,11 +18,15 @@ import DogCreateFormContainer from './dog/dog_create_form_container'
 import DogEditFormContainer from './dog/dog_edit_form_container'
 import DogListContainer from './dog/dog_list_container'
 
+import SearchContainer from './nav/search_container'
+
 
 const App = () => (
-  <div>
-    <h1>Hello World!</h1>
+  <div className="landing-page-container">
     <NavBarContainer />
+    <h1>Yipp</h1>
+    <h3>Find dog friends</h3>
+    <SearchContainer />
     <Switch>
       <Route exact path="/dogs" component={DogsIndexContainer} />
       <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />
