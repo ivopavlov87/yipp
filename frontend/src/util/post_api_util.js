@@ -12,6 +12,10 @@ export const getUserPosts = id => {
   return axios.get(`/api/posts/user/${id}`)
 };
 
+export const getDogPosts = id => {
+  return axios.get(`/api/posts/dogs/${id}`)
+};
+
 export const writePost = data => {
   return axios.post('/api/posts/', data)
 }

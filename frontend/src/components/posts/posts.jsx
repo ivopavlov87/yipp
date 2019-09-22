@@ -38,10 +38,6 @@ class Post extends React.Component {
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
             destroyPost={this.props.destroyPost}
-            // text={post.text} 
-            // temperamentRating={post.temperamentRating} 
-            // user={post.user}
-            // date={post.date}
             />
           ))}
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PostBox from './post_box';
+// import { withRouter } from 'react-router-dom';
 
 class PostCompose extends React.Component {
   constructor(props) {
@@ -7,9 +7,11 @@ class PostCompose extends React.Component {
 
     this.state = {
       text: "",
-      // newPost: "",
       temperamentRating: 0,
-      // authorName: this.props.currentUser.username
+      user_id: this.props.currentUser.id,
+      authorName: this.props.currentUser.username,
+      dogName: this.props.dog.name,
+      dogId: this.props.dog.id
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,12 +22,23 @@ class PostCompose extends React.Component {
     let post = {
       text: this.state.text,
       temperamentRating: this.state.temperamentRating,
-      // authorName: this.props.currentUser.username
+      user_id: this.props.currentUser.id,
+      authorName: this.props.currentUser.username,
+      dogName: this.props.dog.name,
+      dogId: this.props.dog.id
     };
 
-    this.props.composePost(post) // .then(() => this.props.history.push)('/posts');
-    this.setState({ text: '', temperamentRating: 0 });
-    this.props.history.push('/posts');
+    this.props.composePost(post);
+    this.setState({
+      text: "",
+      temperamentRating: 0,
+      user_id: this.props.currentUser.id,
+      authorName: this.props.currentUser.username,
+      dogName: this.props.dog.name,
+      dogId: this.props.dog.id
+    });
+    this.props.history.push(`/dogs/${this.props.dog.id}`);
+
   }
 
   updateText() {
@@ -45,7 +58,8 @@ class PostCompose extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            
+            Hello User-{this.props.currentUser.id}, also known as {this.props.currentUser.username}, what do you have to say?
+            <br />
             <input type="textarea"
               value={this.state.text}
               onChange={this.updateText()}
@@ -67,7 +81,6 @@ class PostCompose extends React.Component {
           </div>
         </form>
         <br />
-        {/* <PostBox text={this.state.newPost} /> */}
       </div>
     )
   }

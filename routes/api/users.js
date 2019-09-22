@@ -94,7 +94,7 @@ User.findOne({ username })
       bcrypt.compare(password, user.password)
         .then(isMatch => {
             if (isMatch) {
-            const payload = { id: user.id, name: user.name };
+            const payload = { id: user.id, username: user.username };
             
             jwt.sign(
                 payload,
@@ -117,29 +117,35 @@ User.findOne({ username })
 // GET FRIEND
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
-    .select('friends')
-    .populate('friends')
+    .select('favoriteDogs')
+    .populate('favoriteDogs')
     .exec()
-    .then(user => res.json(user))
+    .then(dog => res.json(dog))
     .catch(err =>
-      res.status(404).json({ nouserfound: 'No user found with that ID' })
+      res.status(404).json({ nodogfound: 'No dog found with that ID' })
     );
 });
 
-// ADD FRIEND
-router.post('/:id/friend', passport.authenticate('jwt', { session: false }), (req, res) => {
+// ADD FAVORITE DOG
+router.post('/:id/favoriteDogs', passport.authenticate('jwt', { session: false }), (req, res) => {
   const user = req.user.id;
-  const friendId = req.params.id
-  // console.log(user)
+  const dogId = req.body.id
+  console.log(dogId)
   // console.log(friendId)
-  User.findById(user)
-  .then(user => {
-    user.friends.push(friendId)
-    user.save()
-    res.json(user)
+  Dog.findById(dogId)
+  .then(dog => {
+    User.findById(user)
+    .then(user => {
+      user.favoriteDogs.push(dogId)
+      user.save()
+      res.json(user)
+    })
+    .catch(err =>
+      res.status(404).json({nouserfound: 'No user found with that ID'})
+      );
   })
   .catch(err =>
-    res.status(404).json({nouserfound: 'No friend found with that ID'})
+    res.status(404).json({nodogfound: 'No dog found with that ID'})
     );
 })
 
