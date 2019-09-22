@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import { formatAge } from '../../util/time_util'
+
 class DogShow extends React.Component {
 
     componentDidMount() {
@@ -42,6 +44,7 @@ class DogShow extends React.Component {
         }
 
         const vaccinations = this.props.dog.vaccinations ? "Current" : "Not current"
+        const dogAge = formatAge(this.props.dog.dob)
 
         let owner;
         Object.values(this.props.users).forEach(user => {
@@ -84,9 +87,9 @@ class DogShow extends React.Component {
                         </li>
                     <li>{this.props.dog.breed}
                         </li>
-                    <li>{this.props.dog.dob}
+                    <li>{dogAge}
                         </li>
-                    <li>{this.props.dog.weight}
+                    <li>{this.props.dog.weight} lb
                         </li>
                     <li>{this.props.dog.size}
                         </li>
