@@ -8,11 +8,11 @@
     justify-content: flex-end;
 }
 
-.landing-page-logo {
+.landing-page-logo-container {
     height: 500px;
     display:flex;
     flex-direction: column;
-    background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages2.minutemediacdn.com%2Fimage%2Fupload%2Fc_fill%2Cg_auto%2Ch_1248%2Cw_2220%2Ff_auto%2Cq_auto%2Cw_1100%2Fv1555439209%2Fshape%2Fmentalfloss%2F345eyrhfj.png);
+    background-image: url('./dog-poker.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -21,11 +21,50 @@
 .landing-page-logo-items {
     display: flex;
     justify-content: center;
+    padding-top: 95px;
+}
+.landing-page-logo-items img {
+    height: 80px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+}
+
+.landing-page-logo {
+    /* background:  */
 }
 
 .search-container {
     display: flex;
     justify-content: center;
+}
+
+.search-form-textbox {
+    width: 480px;
+    height: 45px;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 11px;
+    border-radius: 10px 10px 10px 10px; 
+}
+.search-form-dropdown {
+    height: 45px;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 11px;
+    border-radius: 10px 10px 10px 10px; 
+}
+.search-form-submit {
+    height: 45px;
+    width: 50px;
+    background-color: #d32323;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 11px;
+    border-radius: 10px 10px 10px 10px;
+    background-image: url('./magnifying-glass-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* #d32323 */

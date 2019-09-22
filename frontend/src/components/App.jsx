@@ -19,16 +19,14 @@ import DogEditFormContainer from './dog/dog_edit_form_container'
 import DogListContainer from './dog/dog_list_container'
 
 import SearchContainer from './nav/search_container'
-
+import logo from './nav/assets/logo.png'
 
 const App = () => (
   <div className="landing-page-container">
     <NavBarContainer />
-    <div className="landing-page-logo">
+    <div className="landing-page-logo-container">
       <div className="landing-page-logo-items">
-        <h1>Yipp</h1>
-        <h3>Find dog friends</h3>
-        <div />
+        <img src={logo} alt="logo"/>
       </div>
       <SearchContainer />
     </div>
