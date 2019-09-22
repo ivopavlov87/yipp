@@ -31,4 +31,12 @@ export const createUser = (formData) => dispatch => {
   return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user))).catch(err => console.log(err));
 }
 
-// window.fetchUser = fetchUser;
+
+// SEARCH USER ACTIONS
+
+// export const fetchUserByUsername = (username) => dispatch => {
+//   return UserAPIUtil.getUserByUsername(username)
+//     .then(user => dispatch(receiveUsers(user)))
+//     .catch(err => console.log(err));
+// }
+

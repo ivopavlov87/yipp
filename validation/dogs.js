@@ -9,7 +9,7 @@ module.exports = function validateDogInput(data) {
     data.breed = validText(data.breed) ? data.breed : '';
     data.dob = validText(data.dob) ? data.dob : '';
     data.weight = validText(data.weight) ? data.weight : '';
-    data.location = validText(data.location) ? data.location : '';
+
 
     // dob is a string we will parse for age energy will be radio buttons
     // vaccinations will be a boolean, checkbox
@@ -28,9 +28,6 @@ module.exports = function validateDogInput(data) {
     }
     if (Validator.isEmpty(data.weight)) {
         errors.text = 'Weight field is required';
-    }
-    if (Validator.isEmpty(data.location)) {
-        errors.text = 'Location field is required';
     }
 
 

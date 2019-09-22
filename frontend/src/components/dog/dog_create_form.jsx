@@ -2,6 +2,8 @@ import React from 'react';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import "react-day-picker/lib/style.css"
+import { formatDate, parseDate } from 'react-day-picker/moment';
+import 'moment/locale/it';
 
 
 class DogForm extends React.Component {
@@ -16,8 +18,10 @@ class DogForm extends React.Component {
             weight: "",
             energy: 5,
             vaccinations: false,
-            location: "New York"
+            location: "New York",
+            gender: "Male"
         }
+
         this.handleDOB = this.handleDOB.bind(this);
         this.handleCheckBox = this.handleCheckBox.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,6 +29,7 @@ class DogForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+   
         const userId = this.props.currentUserId
         const newState = Object.assign({}, this.state)
         newState['user'] = userId
@@ -64,6 +69,13 @@ class DogForm extends React.Component {
                                 onChange={this.update('name')}
                             />
                         </label>
+                        <br/>
+                        <label>Gender:
+                            <select value={this.state.gender} onChange={this.update('gender')}>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </label>
                         <br />
                         <label>Location:
                             <select value={this.state.location} onChange={this.update('location')}>
@@ -85,7 +97,14 @@ class DogForm extends React.Component {
                         <label>Date of Birth:
                             <DayPickerInput
                                 placeholder='Select date'
+                                inputProps={{ readOnly: true }} 
                                 onDayChange={day => this.handleDOB(day)}
+                                formatDate={formatDate}
+                                parseDate={parseDate}
+
+                                dayPickerProps={{
+                                    disabledDays: { after: new Date() },
+                                }}
                             />
                         </label>
                         <br />
@@ -153,10 +172,6 @@ class DogForm extends React.Component {
                         <input type='submit' value='Submit'/>
 
                     </form>
-                    {/* <form action="/upload/photo" encType="multipart/form-data" method="POST">
-                        <input type="file" name="myImage" accept="image/*" />
-                        <input type="submit" value="Upload Photo" />
-                    </form> */}
                 </div>
             </div>
         )

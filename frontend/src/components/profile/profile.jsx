@@ -5,6 +5,8 @@ import ProfilePostBox from './profile_post_box';
 import { Link } from 'react-router-dom';
 
 
+
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);

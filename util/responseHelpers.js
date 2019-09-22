@@ -49,7 +49,8 @@ const formatDogs = (dogsArr) => {
       size: dog.size,
       vaccinations: dog.vaccinations,
       location: dog.location,
-      date: dog.date
+      date: dog.date,
+      gender: dog.gender
     };
     dogs[dog.id] = dogData
   })
@@ -69,7 +70,8 @@ const formatDog = (dog) => {
     size: dog.size,
     vaccinations: dog.vaccinations,
     location: dog.location,
-    date: dog.date
+    date: dog.date,
+    gender: dog.gender
   };
   return dogData;
 }
