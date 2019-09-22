@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
-const fs = require('fs')
+
 
 // DB SETUP
 const mongoURI = keys.mongoURI;
@@ -49,6 +49,7 @@ router.post('/', upload.single('image'), (req, res) => {
     //     if (err) return console.log(err)
     //     console.log('saved to database')
     // })
+    res.redirect('/')
 });
 
 

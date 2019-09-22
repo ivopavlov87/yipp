@@ -15,8 +15,10 @@ class DogForm extends React.Component {
             weight: "",
             energy: 5,
             vaccinations: false,
-            location: "New York"
+            location: "New York",
+            gender: "Male"
         }
+
         this.handleDOB = this.handleDOB.bind(this);
         this.handleCheckBox = this.handleCheckBox.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,6 +26,7 @@ class DogForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         const userId = this.props.currentUserId
         const newState = Object.assign({}, this.state)
         newState['user'] = userId
@@ -62,6 +65,13 @@ class DogForm extends React.Component {
                                 value={this.state.name}
                                 onChange={this.update('name')}
                             />
+                        </label>
+                        <br/>
+                        <label>Gender:
+                            <select value={this.state.gender} onChange={this.update('gender')}>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </label>
                         <br />
                         <label>Location:

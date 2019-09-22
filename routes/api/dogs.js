@@ -4,10 +4,6 @@ const keys = require('../../config/keys');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-
 const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
@@ -47,7 +43,8 @@ router.post('/',
             energy: req.body.energy,
             size: req.body.size,
             vaccinations: req.body.vaccinations,
-            location: req.body.location
+            location: req.body.location,
+            gender: req.body.gender
         });
         newDog.save().then(dog => res.json(formatDog(dog)));
     }
@@ -73,6 +70,7 @@ router.patch('/:id',
             dog.size = req.body.size
             dog.vaccinations = req.body.vaccinations
             dog.location= req.body.location
+            dog.gender = req.body.gender
 
             dog.save().then(dog => res.json(formatDog(dog)));
         })

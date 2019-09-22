@@ -26,10 +26,6 @@ const DogSchema = new Schema({
     type: String,
     required: true
   },
-  // temperament: {
-  //   type: Number,
-  //   required: true
-  // },
   energy: {
     type: Number,
     required: true
@@ -38,23 +34,18 @@ const DogSchema = new Schema({
     type: Boolean,
     required: true
   },
-  
   location: {
     type: String,
     required: true
   },
-  // ratings: {
-  //   type: Array
-  //   // required: true
-  // },
   date: {
     type: Date,
     default: Date.now
   },
-  // images: {
-  //   type: Array,
-  //   required: false
-  // }
+  gender: {
+    type: String,
+    required: true
+  }
 });
 
 

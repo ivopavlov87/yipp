@@ -4,7 +4,6 @@ const keys = require('../../config/keys');
 const mongoose = require('mongoose');
 
 const Dog = require('../../models/Dog');
-const User = require('../../models/User')
 const { formatDogs, formatDog } = require('../../util/responseHelpers');
 
 
@@ -32,8 +31,8 @@ const { formatDogs, formatDog } = require('../../util/responseHelpers');
 //         );
 // });
 
-router.get('/:breed', (req, res) => {
-    Dog.find({ 'breed': req.params.breed })
+router.get('/breeds/:breed', (req, res) => {
+    Dog.find({ breed: req.params.breed })
         .then(dogs => res.json(formatDogs(dogs)))
         .catch(err =>
             res.status(404).json({ nodogsfound: 'No dogs found with that breed' }
@@ -43,9 +42,9 @@ router.get('/:breed', (req, res) => {
 
 
 
-router.get('/:dogname', (req, res) => {
-    
-    Dog.find({ 'name': req.params.dogname })
+router.get('/dognames/:dogname', (req, res) => {
+
+    Dog.find({ name: req.params.dogname })
         .then(dogs => res.json(formatDogs(dogs)))
         .catch(err =>
             res.status(404).json({ nodogsfound: 'No dogs found with that name' }
@@ -54,12 +53,19 @@ router.get('/:dogname', (req, res) => {
 });
 
 
+router.get('/locations/:location', (req, res) => {
+    // let searchStr
+    // if (req.params.location.includes('%20')) {
+    //     searchStr = req.params.location.replace('%20', ' ')
+    // }
 
-router.get('/:location', (req, res) => {
-    Dog.find({ 'location': req.params.location })
+    Dog.find({ location: req.params.location })
         .then(dogs => res.json(formatDogs(dogs)))
         .catch(err =>
             res.status(404).json({ nodogsfound: 'No dogs found from that location' }
             )
         );
 });
+
+
+module.exports = router;

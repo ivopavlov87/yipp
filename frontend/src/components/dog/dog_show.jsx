@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import axios from 'axios'
 
 class DogShow extends React.Component {
 
@@ -10,9 +9,10 @@ class DogShow extends React.Component {
         this.props.fetchDog(this.props.match.params.dogId)
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(nextProps) {
+        // debugger
 
-        if (this.props.images !== prevProps.images) {
+        if (this.props.images.length !== nextProps.images.length) {
             this.props.fetchImages();
         }
     }
@@ -22,7 +22,7 @@ class DogShow extends React.Component {
         const imageObj = new FormData();
         imageObj.append('image', e.target.files[0]);
         imageObj.append('dogId', this.props.dog.id)
-        axios.post('/api/images', imageObj);
+        this.props.createImage(imageObj)
     }
 
     handleDelete(e) {
@@ -56,6 +56,8 @@ class DogShow extends React.Component {
             dogLink = <div className='dog-links'>
                 <Link to={`${this.props.dog.id}/edit`}>Edit</Link>
                 <button onClick={this.handleDelete.bind(this)}>Delete</button>
+                <br/>
+                <div>Upload a photo:</div>
                 <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
             </div>
         } else {
@@ -63,7 +65,7 @@ class DogShow extends React.Component {
         }
 
         const dogImages = this.props.images.map(image => {
-            return <img src={`/api/images/${image.filename}`} alt=""/>
+            return <img key={image._id} src={`/api/images/${image.filename}`} alt=""/>
         })
 
         return (
@@ -74,6 +76,8 @@ class DogShow extends React.Component {
                     </div>
                     <li>{this.props.dog.name}
                         </li>
+                    <li>{this.props.dog.gender}
+                    </li>
                     <li>{owner.username}
                         </li>
                     <li>{this.props.dog.location}
