@@ -7,13 +7,24 @@ import { formatAge } from '../../util/time_util'
 
 class DogIndexItem extends React.Component {
 
+    // componentDidMount() {
+    //     this.props.fetchDogPosts(this.props.dog);
+    // }
+
     render() {
-        // const postsForDog = selectPostsForDog(this.props.posts, this.props.dog)
+        // const postsForDog = this.props.fetchDogPosts(this.props.dog.id);
+        // console.log(postsForDog);
         // const sum = 0 
         // postsForDog.forEach(post => {
         //     sum += post.temperamentRating
         // })
         // const ratings = sum / postsForDog.length;
+
+        let dogRatingTotal = 0
+        this.props.posts.map(post => {
+            return dogRatingTotal += post.temperamentRating
+        })
+        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length)} paws` : "This dog has no reviews"
 
         const dogAge = formatAge(this.props.dog.dob)
         
@@ -32,7 +43,8 @@ class DogIndexItem extends React.Component {
                         <li>
                             <Link to={`/dogs/${this.props.dog.id}`}>{this.props.dog.name}</Link>
                         </li>
-                        <li>Ratings</li>
+                        {/* <li>Ratings: </li> */}
+                        <li>Ratings: {dogRatingAvg}</li>
 
                         <li>{this.props.dog.breed}
                         </li>

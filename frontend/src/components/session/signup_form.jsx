@@ -41,23 +41,34 @@ class SignupForm extends React.Component {
 
     // const sleep = ms => new Promise(res => setTimeout(res, ms));
 
-    this.props.signup(user).then(this.props.closeModal);
+    this.props.signup(user)
+    .then((arg) => {
+      // debugger;
+      if (Object.keys(this.props.errors).length === 0) {
+        this.props.closeModal()
+      }
+    });
+  };
     // await sleep(250)
     // this.props.login(user);
-    this.props.history.push('/profile'); //, this.props.history);
     // this.props.history.push('/profile');
-  }
+    // this.props.history.push('/profile');
+
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
     );
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   render() {

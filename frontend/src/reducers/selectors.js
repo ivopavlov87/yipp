@@ -4,12 +4,14 @@ export const selectPostsForDog = (props, dog) => {
 
     let res = [];
     // props = this.entities.posts
-    if ((Object.keys(props).length === 0)) {
-        return res;
-    }
+    // if ((Object.keys(props).length === 0)) {
+    //     // debugger;
+    //     return res;
+    // }
     
-    Object.values(props).forEach(post => {
-        if (post.dog_id === dog.id) {
+    props.forEach(post => {
+        // debugger;
+        if (post.dog === dog.id) {
             res.push(post);
         }
     })

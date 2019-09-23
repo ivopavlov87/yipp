@@ -8,7 +8,7 @@ const formatPosts = (postsArr) => {
       text: post.text,
       date: post.date,
       authorName: post.authorName,
-      dog: post.dog.id,
+      dog: post.dog,
       dogName: post.dogName
     };
     posts[post.id] = postData

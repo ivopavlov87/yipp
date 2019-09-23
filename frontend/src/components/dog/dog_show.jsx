@@ -100,40 +100,39 @@ class DogShow extends React.Component {
             return <img key={image._id} src={`/api/images/${image.filename}`} alt=""/>
         })
 
+        let dogRatingTotal = 0
+        this.props.posts.map(post => {
+            return dogRatingTotal += post.temperamentRating
+        })
+
+        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length)} paws`: "This dog has no reviews"
+
         return (
             <div className="dog-show-container">
                 <div className="dog-show-details">
                     <div>
                         {dogImages}
                     </div>
-                    <li>{this.props.dog.name}
-                        </li>
-                    <li>{this.props.dog.gender}
-                    </li>
-                    <li>{owner.username}
-                        </li>
-                    <li>{this.props.dog.location}
-                        </li>
-                    <li>{this.props.dog.breed}
-                        </li>
-                    <li>{dogAge}
-                        </li>
-                    <li>{this.props.dog.weight} lb
-                        </li>
-                    <li>{this.props.dog.size}
-                        </li>
-                    <li>{this.props.dog.energy}
-                        </li>
-                    <li>
-                        {vaccinations}
-                    </li>
+                    <li>{this.props.dog.name}</li>
+                    <li>Rating: {dogRatingAvg}</li>
+                    <li>{this.props.dog.gender}</li>
+                    <li>{owner.username}</li>
+                    <li>{this.props.dog.location}</li>
+                    <li>{this.props.dog.breed}</li>
+                    <li>{dogAge}</li>
+                    <li>{this.props.dog.weight} lb</li>
+                    <li>{this.props.dog.size}</li>
+                    <li>{this.props.dog.energy}</li>
+                    <li>{vaccinations}</li>
                 </div>
                 {dogLink}
                 <br/>
                 {postComposeThing}
-                The dog's name is: {this.props.dog.name}
+                {/* The dog's name is: {this.props.dog.name}
                 <br />
                 The dog's id is: {this.props.dog.id}
+                <br/>
+                Rating: {dogRatingAvg} */}
                 <br/>
                 {this.props.posts.map(post => (
                     <DogShowPost

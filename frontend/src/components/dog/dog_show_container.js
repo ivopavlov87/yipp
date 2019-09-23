@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
         // const currentUserId = state.session.user.id
         const users = state.entities.users
         // const currentUser = state.session.user
-        const posts = Object.values(state.entities.posts.user)
+        const posts = Object.values(state.entities.posts.dog)
         const images = selectImagesForDog(state.entities.images, dog)
 
         return {

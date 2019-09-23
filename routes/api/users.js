@@ -149,6 +149,29 @@ router.post('/:id/favoriteDogs', passport.authenticate('jwt', { session: false }
     );
 })
 
+// REMOVE FAVORITE DOG
+// router.post('/:id/unfavoriteDogs', passport.authenticate('jwt', { session: false }), (req, res) => {
+//   const user = req.user.id;
+//   const dogId = req.body.id
+//   console.log(dogId)
+//   // console.log(friendId)
+//   Dog.findById(dogId)
+//   .then(dog => {
+//     User.findById(user)
+//     .then(user => {
+//       user.favoriteDogs.push(dogId)
+//       user.save()
+//       res.json(user)
+//     })
+//     .catch(err =>
+//       res.status(404).json({nouserfound: 'No user found with that ID'})
+//       );
+//   })
+//   .catch(err =>
+//     res.status(404).json({nodogfound: 'No dog found with that ID'})
+//     );
+// })
+
 // this is the private auth route
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({

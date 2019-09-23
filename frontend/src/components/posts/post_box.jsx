@@ -32,12 +32,12 @@ class PostBox extends React.Component {
 
     return (
       <div>
-        <h2>Dog name: {this.props.post.dogName}</h2>
+        <h2>Dog name: <Link to={`/dogs/${this.props.post.dog}`}>{this.props.post.dogName}</Link></h2>
         <h3>{this.props.post.text}</h3>
         <h4>Temperament rating: {this.props.post.temperamentRating}</h4>
         <div>Author name: {this.props.post.authorName}</div>
         <div>Date posted: {this.props.post.date}</div>
-        <div>PostId: {this.props.post.id}</div>
+        {/* <div>PostId: {this.props.post.id}</div> */}
         {postButtons}
       </div>
     );
