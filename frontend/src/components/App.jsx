@@ -26,7 +26,7 @@ import DogListContainer from './dog/dog_list_container'
 const App = () => (
   <div>
     <Modal />
-    <NavBarContainer />
+    {/* <NavBarContainer /> */}
     <Switch>
       <Route exact path="/" component={MainPage} />
       <Route exact path="/dogs" component={DogsIndexContainer} />

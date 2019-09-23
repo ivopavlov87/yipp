@@ -53,6 +53,7 @@ code {
     background-color: #d32323;
     height: 70px;
     margin: 0 auto;
+    align-items: center;
 }
 .nav-bar-logged-in img {
     height: 60px;
@@ -61,11 +62,29 @@ code {
 .nav-bar-logged-out {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin:0 auto;
+    background-color: #d32323;
+    height: 70px;
+    margin: 0 auto;
+    align-items: center;
+}
+#logged-out {
+
+}
+#logged-out img {
+    height: 60px;
+    width: 100px;
+}
+/* .nav-bar-logged-out {
+    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     position: fixed;
     right: 20px;
     top: 20px;
-}
+} */
 .nav-bar-logged-out button {
     height: 25px;
     width: 80px;

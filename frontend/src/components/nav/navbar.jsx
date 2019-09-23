@@ -35,17 +35,27 @@ class NavBar extends React.Component {
           </div>
           <div>
             {/* <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp; */}
-            <Link to={"/profile"}>Profile</Link>&nbsp;&nbsp;
+            <button><Link to={"/profile"}>Profile</Link></button>&nbsp;&nbsp;
             <button onClick={this.logoutUser}>Logout</button>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="nav-bar-logged-out">
+        <div className="nav-bar-logged-out" id="logged-out">
           <Modal />
-          <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign up</button>
-          <button className="navbutton" onClick={() => this.props.openModal('login')}>Login</button>
+          <div>
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
+          </div>
+
+          <SearchContainer />
+
+          <div>
+            <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign up</button>
+            <button className="navbutton" onClick={() => this.props.openModal('login')}>Login</button>
+          </div>
         </div>
       );
     }

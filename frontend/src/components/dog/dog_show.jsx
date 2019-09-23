@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PostCompose from '../posts/post_compose';
 import DogShowPost from './dog_show_post_box';
+import NavBarContainer from '../nav/navbar_container';
 
 import { formatAge } from '../../util/time_util'
 
@@ -102,49 +103,53 @@ class DogShow extends React.Component {
         })
 
         return (
-            <div className="dog-show-container">
-                <div className="dog-show-details">
-                    <div>
-                        {dogImages}
+            <div>
+                <NavBarContainer />            
+                <div className="dog-show-container">
+                    <div className="dog-show-details">
+                        <div>
+                            {dogImages}
+                        </div>
+                        <li>{this.props.dog.name}
+                            </li>
+                        <li>{this.props.dog.gender}
+                        </li>
+                        <li>{owner.username}
+                            </li>
+                        <li>{this.props.dog.location}
+                            </li>
+                        <li>{this.props.dog.breed}
+                            </li>
+                        <li>{dogAge}
+                            </li>
+                        <li>{this.props.dog.weight}
+                            </li>
+                        <li>{this.props.dog.size}
+                            </li>
+                        <li>{this.props.dog.energy}
+                            </li>
+                        <li>
+                            {vaccinations}
+                        </li>
                     </div>
-                    <li>{this.props.dog.name}
-                        </li>
-                    <li>{this.props.dog.gender}
-                    </li>
-                    <li>{owner.username}
-                        </li>
-                    <li>{this.props.dog.location}
-                        </li>
-                    <li>{this.props.dog.breed}
-                        </li>
-                    <li>{dogAge}
-                        </li>
-                    <li>{this.props.dog.weight}
-                        </li>
-                    <li>{this.props.dog.size}
-                        </li>
-                    <li>{this.props.dog.energy}
-                        </li>
-                    <li>
-                        {vaccinations}
-                    </li>
+                    {dogLink}
+                    <br/>
+                    {postComposeThing}
+                    The dog's name is: {this.props.dog.name}
+                    <br />
+                    The dog's id is: {this.props.dog.id}
+                    <br/>
+                    {this.props.posts.map(post => (
+                        <DogShowPost
+                            key={post.id}
+                            post={post}
+                            currentUser={this.props.currentUser}
+                            destroyPost={this.props.destroyPost}
+                        />
+                    ))}
                 </div>
-                {dogLink}
-                <br/>
-                {postComposeThing}
-                The dog's name is: {this.props.dog.name}
-                <br />
-                The dog's id is: {this.props.dog.id}
-                <br/>
-                {this.props.posts.map(post => (
-                    <DogShowPost
-                        key={post.id}
-                        post={post}
-                        currentUser={this.props.currentUser}
-                        destroyPost={this.props.destroyPost}
-                    />
-                ))}
             </div>
+           
         )
     }
 }

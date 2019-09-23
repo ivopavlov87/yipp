@@ -5,6 +5,8 @@ import "react-day-picker/lib/style.css"
 import { formatDate, parseDate } from 'react-day-picker/moment';
 import 'moment/locale/it';
 
+import NavBarContainer from '../nav/navbar_container';
+
 
 class DogForm extends React.Component {
     constructor(props) {
@@ -59,6 +61,8 @@ class DogForm extends React.Component {
 
     render() {
         return (
+            <div>
+            <NavBarContainer /> 
             <div className="dog-form-container">
                 <div className="dog-form">
                     <form onSubmit={this.handleSubmit}>
@@ -175,6 +179,7 @@ class DogForm extends React.Component {
                     </form>
                 </div>
             </div>
+        </div>
         )
     }
 }

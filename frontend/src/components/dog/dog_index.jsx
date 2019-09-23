@@ -2,6 +2,8 @@ import React from 'react';
 import DogIndexItem from './dog_index_item';
 import { selectImagesForDog } from '../../reducers/selectors';
 
+import NavBarContainer from '../nav/navbar_container';
+
 class DogIndex extends React.Component {
 
     componentDidMount() {
@@ -33,14 +35,18 @@ class DogIndex extends React.Component {
         }
 
         return (
-            <div className="dog-index-container">
-                <div className="filter-section">
-                </div>
-                <h3>My Dogs:</h3>
-                <div className="dog-index-item-list">
-                    {Alldogs}
+            <div>
+                <NavBarContainer />
+                <div className="dog-index-container">
+                    <div className="filter-section">
+                    </div>
+                    <h3>My Dogs:</h3>
+                    <div className="dog-index-item-list">
+                        {Alldogs}
+                    </div>
                 </div>
             </div>
+
         )
     }
 }
