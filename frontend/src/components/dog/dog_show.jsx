@@ -3,9 +3,12 @@ import { Link, withRouter } from 'react-router-dom';
 import PostCompose from '../posts/post_compose';
 import DogShowPost from './dog_show_post_box';
 import NavBarContainer from '../nav/navbar_container';
+import DogSlider from './dog_slider';
 
 import { formatAge } from '../../util/time_util';
 import './assets/dog-show.css';
+import './assets/dog_slider.css';
+
 
 class DogShow extends React.Component {
     constructor(props) {
@@ -51,9 +54,9 @@ class DogShow extends React.Component {
 
     render() {
         
-        let postComposeThing;
+        let postComposeForm;
         if (this.props.currentUser && this.props.dog) {
-            postComposeThing = (
+            postComposeForm = (
                 <PostCompose
                     currentUser={this.props.currentUser}
                     dog={this.props.dog}
@@ -96,21 +99,30 @@ class DogShow extends React.Component {
                 <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
             </div>
         } else {
-            dogLink = <div></div>
+            dogLink = <div className='dog-show-edit-links'></div>
         }
 
-        const dogImages = this.props.images.map(image => {
-            return <img key={image._id} src={`/api/images/${image.filename}`} alt=""/>
+        // const dogImages = this.props.images.map(image => {
+        //     return <img key={image._id} src={`/api/images/${image.filename}`} alt=""/>
+        // })
+
+        const dogImgUrls = [];
+        this.props.images.map(image => {
+            let url; 
+            url = `/api/images/${image.filename}`
+            dogImgUrls.push(url)
         })
+        
 
         return (
             <div>
-                <NavBarContainer />            
+                <NavBarContainer /> 
+          
                 <div className="dog-show-container">
+                    <div className='dog-show-slideshow-container'>
+                        <DogSlider imgUrls={dogImgUrls} />
+                    </div>  
                     <div className="dog-show-details">
-                        <div className="dog-show-details-image">
-                            {dogImages}
-                        </div>
                         <div className="dog-show-details-stats">
                             <p>Name: {this.props.dog.name}
                                 </p>
@@ -137,7 +149,7 @@ class DogShow extends React.Component {
 
                     <div className="dog-show-edit-section">
                         {dogLink}
-                        {postComposeThing}
+                        {postComposeForm}
                         {this.props.posts.map(post => (
                             <DogShowPost
                                 key={post.id}

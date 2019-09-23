@@ -19,14 +19,16 @@ class DogProfilePostBox extends React.Component {
         }
 
         return (
-            <div>
-                <h2>Dog name: {this.props.post.dogName}</h2>
-                <h3>{this.props.post.text}</h3>
-                <h4>Temperament rating: {this.props.post.temperamentRating}</h4>
-                <div>Date posted: {this.props.post.date}</div>
-                <div>AuthorName: {this.props.post.authorName}</div>
-                <div>PostId: {this.props.post.id}</div>
-                {postButtons}
+            <div className="dog-show-post-index">
+                <div className="dog-show-post-index-items">
+                    <p>Dog name: {this.props.post.dogName}</p>
+                    <p>{this.props.post.text}</p>
+                    <p>Temperament rating: {this.props.post.temperamentRating}</p>
+                    <p>Date posted: {this.props.post.date}</p>
+                    <p>AuthorName: {this.props.post.authorName}</p>
+                    <p>PostId: {this.props.post.id}</p>
+                    {postButtons}
+                </div>
             </div>
         );
     }

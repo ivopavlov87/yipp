@@ -43,9 +43,6 @@ class DogIndex extends React.Component {
             <div>
                 <NavBarContainer />
                 <div className="dog-index-container">
-                    <div className="dog-index-title">
-                        <p>My Dogs:</p>
-                    </div>
                     <div className="dog-index-item-container">
                         {Alldogs}
                     </div>

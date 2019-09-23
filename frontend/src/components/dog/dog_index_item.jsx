@@ -26,21 +26,14 @@ class DogIndexItem extends React.Component {
         }
         return (
             <div className="dog-index-item">
-                <div className="dog-index-item-details">
+                <div className="dog-index-item-container">
                     <Link to={`/dogs/${this.props.dog.id}`}><img src={imageUrl} alt="" /></Link>
-                    <div className="dog-index-item-details-stats">
-                        <p>
-                            <Link to={`/dogs/${this.props.dog.id}`}>{this.props.dog.name}</Link>
-                        </p>
-                        <p>Ratings</p>
-
-                        <p>{this.props.dog.breed}
-                        </p>
-                        <p>{dogAge}
-                        </p>
-                        <p>
-                        {this.props.dog.size}
-                        </p>
+                    <div className="dog-index-item-details">
+                        <li><Link to={`/dogs/${this.props.dog.id}`}>{this.props.dog.name}</Link></li>
+                        <li>Ratings</li>
+                        <li>{this.props.dog.breed}</li>
+                        <li>{dogAge}</li>
+                        <li>{this.props.dog.size}</li>
                     </div>
                 </div>
             </div>
