@@ -1,0 +1,25 @@
+.dog-index-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.dog-index-title {
+    font-size: 30px;
+    margin-right: 25px;
+}
+
+.dog-index-item-details {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+.dog-index-item-details img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50px;
+}
+.dog-index-item-details-stats {
+    padding-left: 20px;
+}

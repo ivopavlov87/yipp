@@ -25,23 +25,23 @@ class DogIndexItem extends React.Component {
             imageUrl = `/api/images/${this.props.images[0].filename}` 
         }
         return (
-            <div className="dog-index-item-container">
+            <div className="dog-index-item">
                 <div className="dog-index-item-details">
-                    <ul>
-                        <img src={imageUrl} alt=""/>
-                        <li>
+                    <Link to={`/dogs/${this.props.dog.id}`}><img src={imageUrl} alt="" /></Link>
+                    <div className="dog-index-item-details-stats">
+                        <p>
                             <Link to={`/dogs/${this.props.dog.id}`}>{this.props.dog.name}</Link>
-                        </li>
-                        <li>Ratings</li>
+                        </p>
+                        <p>Ratings</p>
 
-                        <li>{this.props.dog.breed}
-                        </li>
-                        <li>{dogAge}
-                        </li>
-                        <li>
+                        <p>{this.props.dog.breed}
+                        </p>
+                        <p>{dogAge}
+                        </p>
+                        <p>
                         {this.props.dog.size}
-                        </li>
-                    </ul>
+                        </p>
+                    </div>
                 </div>
             </div>
         )

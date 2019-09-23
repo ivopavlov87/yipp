@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import NavBarContainer from './nav/navbar_container';
+// import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { Switch, Route } from 'react-router-dom';
+// import NavBarContainer from './nav/navbar_container';
 import Modal from './modal/modal';
 
 import PostsContainer from './posts/posts_container';

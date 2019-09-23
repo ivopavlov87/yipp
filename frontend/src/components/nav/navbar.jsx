@@ -53,8 +53,8 @@ class NavBar extends React.Component {
           <SearchContainer />
 
           <div>
-            <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign up</button>
-            <button className="navbutton" onClick={() => this.props.openModal('login')}>Login</button>
+            <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign Up</button>
+            <button className="navbutton" onClick={() => this.props.openModal('login')}>Log In</button>
           </div>
         </div>
       );

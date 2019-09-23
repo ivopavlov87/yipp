@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
-import SearchContainer from '../nav/search_container'
-import logo from '../nav/assets/logo.png'
-import Modal from '../modal/modal';
+// import SearchContainer from '../nav/search_container'
+// import logo from '../nav/assets/logo.png'
+// import Modal from '../modal/modal';
 
-// import '../nav/assets/navbar.css'
+import '../nav/assets/navbar.css'
 // import './assets/navbar.css';
 // import SearchContainer from './search_container'
 
@@ -37,8 +37,8 @@ class NavBarMain extends React.Component {
             return (
                 <div className="nav-bar-main-logged-out">
                     <div>
-                        <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign up</button>
-                        <button className="navbutton" onClick={() => this.props.openModal('login')}>Login</button>
+                        <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign Up</button>
+                        <button className="navbutton" onClick={() => this.props.openModal('login')}>Log In</button>
                     </div>
                 </div>
             );
