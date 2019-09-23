@@ -3,6 +3,8 @@ import * as UserAPIUtil from '../util/user_api_util';
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const UPDATE_USER = "UPDATE_USER";
+export const ADD_FAVORITE_DOGS = "ADD_FAVORITE_DOGS"
+
 
 const receiveUsers = users => ({
   type: RECEIVE_ALL_USERS,
@@ -18,6 +20,10 @@ const updateUser = user => ({
   type: UPDATE_USER,
   user
 });
+
+// const addFavoriteDogs = id => ({
+//   type: ADD_FAVORITE_DOGS
+// }) 
 
 export const fetchUsers = () => dispatch => {
   return UserAPIUtil.getUsers().then(users => dispatch(receiveUsers(users))).catch(err => console.log(err));

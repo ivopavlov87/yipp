@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import glasslogo from './assets/magnifying-glass-icon.png'
 
 class Search extends React.Component {
     constructor(props){
