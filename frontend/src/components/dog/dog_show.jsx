@@ -60,6 +60,7 @@ class DogShow extends React.Component {
                     composePost={this.props.composePost}
                     history={this.props.history}
                     // match={this.props.match}
+                    openModal={this.props.openModal}
                 />
             )
         }
@@ -118,7 +119,7 @@ class DogShow extends React.Component {
                         </li>
                     <li>{dogAge}
                         </li>
-                    <li>{this.props.dog.weight} lb
+                    <li>{this.props.dog.weight}
                         </li>
                     <li>{this.props.dog.size}
                         </li>

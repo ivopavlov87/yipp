@@ -5,7 +5,8 @@ import SearchContainer from './search_container'
 import logo from '../nav/assets/logo.png'
 import Modal from '../modal/modal';
 
-import './assets/navbar.css';
+import './assets/navbar.css'
+// import './assets/navbar.css';
 // import SearchContainer from './search_container'
 
 class NavBar extends React.Component {
@@ -33,7 +34,7 @@ class NavBar extends React.Component {
             <SearchContainer />
           </div>
           <div>
-            <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp;
+            {/* <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp; */}
             <Link to={"/profile"}>Profile</Link>&nbsp;&nbsp;
             <button onClick={this.logoutUser}>Logout</button>
           </div>

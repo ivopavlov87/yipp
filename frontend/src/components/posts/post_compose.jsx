@@ -19,26 +19,30 @@ class PostCompose extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let post = {
-      text: this.state.text,
-      temperamentRating: this.state.temperamentRating,
-      user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username,
-      dogName: this.props.dog.name,
-      dogId: this.props.dog.id
-    };
-
-    this.props.composePost(post);
-    this.setState({
-      text: "",
-      temperamentRating: 0,
-      user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username,
-      dogName: this.props.dog.name,
-      dogId: this.props.dog.id
-    });
-    this.props.history.push(`/dogs/${this.props.dog.id}`);
-
+    debugger
+    if (!this.props.currentUser.id) {
+      this.props.openModal('login');
+    } else {
+      let post = {
+        text: this.state.text,
+        temperamentRating: this.state.temperamentRating,
+        user_id: this.props.currentUser.id,
+        authorName: this.props.currentUser.username,
+        dogName: this.props.dog.name,
+        dogId: this.props.dog.id
+      };
+  
+      this.props.composePost(post);
+      this.setState({
+        text: "",
+        temperamentRating: 0,
+        user_id: this.props.currentUser.id,
+        authorName: this.props.currentUser.username,
+        dogName: this.props.dog.name,
+        dogId: this.props.dog.id
+      });
+      this.props.history.push(`/dogs/${this.props.dog.id}`);
+    }
   }
 
   updateText() {
