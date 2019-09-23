@@ -92,6 +92,18 @@ code {
     margin-right: 8px;
 }
 
+.nav-bar-main-logged-out {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+.nav-bar-main-logged-out button {
+    height: 25px;
+    width: 80px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 8px;
+}
+
 .nav-bar-items {
     display: flex;
     justify-content: center;
