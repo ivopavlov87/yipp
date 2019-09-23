@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import SearchContainer from './search_container'
 import logo from '../nav/assets/logo.png'
@@ -18,6 +18,7 @@ class NavBar extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
+    this.props.history.push('/');
   }
 
   // Selectively render links dependent on whether the user is logged in
@@ -31,14 +32,16 @@ class NavBar extends React.Component {
           <div>
             <SearchContainer />
           </div>
-          <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp;
-          <Link to={"/profile"}>Profile</Link>&nbsp;&nbsp;
-          <button onClick={this.logoutUser}>Logout</button>
+          <div>
+            <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp;
+            <Link to={"/profile"}>Profile</Link>&nbsp;&nbsp;
+            <button onClick={this.logoutUser}>Logout</button>
+          </div>
         </div>
       );
     } else {
       return (
-        <div>
+        <div className="nav-bar-logged-out">
           <Modal />
           <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign up</button>
           <button className="navbutton" onClick={() => this.props.openModal('login')}>Login</button>
@@ -50,13 +53,13 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="nav-bar-container">
-        <div className="nav-bar-items">
+        {/* <div className="nav-bar-items"> */}
           {this.getLinks()}
-        </div>
+        {/* </div> */}
       </div>
     );
   }
 
 }
 
-export default NavBar;
+export default withRouter(NavBar);

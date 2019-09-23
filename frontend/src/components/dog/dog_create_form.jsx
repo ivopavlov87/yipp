@@ -170,6 +170,7 @@ class DogForm extends React.Component {
                         </label>
                         <br/>
                         <input type='submit' value='Submit'/>
+                        
 
                     </form>
                 </div>

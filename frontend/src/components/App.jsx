@@ -33,13 +33,14 @@ const App = () => (
       <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />
 
       <Route exact path="/posts" component={PostsContainer} />
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <Route exact path="/profile" component={ProfileContainer} />
 
-      <ProtectedRoute exact path="/posts/:id/edit" component={PostEditContainer} />
-      <ProtectedRoute exact path="/profile/dogs/new" component={DogCreateFormContainer} />
-      <ProtectedRoute exact path={`/dogs/:dogId/edit`} component={DogEditFormContainer} />
-      <ProtectedRoute exact path="/profile/dogs" component={DogListContainer} />
-      <Redirect to="/" />
+      <Route exact path="/posts/:id/edit" component={PostEditContainer} />
+      <Route exact path="/profile/dogs/new" component={DogCreateFormContainer} />
+      <Route exact path={`/dogs/:dogId/edit`} component={DogEditFormContainer} />
+      <Route exact path="/profile/dogs" component={DogListContainer} />
+
+      {/* <Redirect to="/" /> */}
     </Switch>
   </div>
 );
