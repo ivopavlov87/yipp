@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+
 class Search extends React.Component {
     constructor(props){
         super(props)
@@ -42,21 +43,24 @@ class Search extends React.Component {
     render() {
         return (
             <div className="search-container">
-                <form onSubmit={this.handleSubmit}>
+                <form className="search-form" onSubmit={this.handleSubmit}>
                     <input 
+                        className="search-form-textbox"
                         type='text'
                         value={this.state.searchValue}
                         placeholder='Search all dog friends...'
                         onChange={this.handleChange}
                     />
                    
-                    <select value={this.state.searchType} onChange={this.handleSearchType}>
+                    <select 
+                        className="search-form-dropdown"
+                        value={this.state.searchType} 
+                        onChange={this.handleSearchType}>
                         <option value="dogname">Dog Name</option>
                         <option value="breed">Breed</option>
                         <option value="location">Location</option>
                     </select>
-
-                    <input type="submit" value="Search" />
+                    <input className="search-form-submit" type="submit" value="" />
                 </form>
 
                 

@@ -21,9 +21,9 @@ const updateUser = user => ({
   user
 });
 
-const addFavoriteDogs = id => ({
-  type: ADD_FAVORITE_DOGS
-}) 
+// const addFavoriteDogs = id => ({
+//   type: ADD_FAVORITE_DOGS
+// }) 
 
 export const fetchUsers = () => dispatch => {
   return UserAPIUtil.getUsers().then(users => dispatch(receiveUsers(users))).catch(err => console.log(err));

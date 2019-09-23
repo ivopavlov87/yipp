@@ -19,12 +19,20 @@ import DogCreateFormContainer from './dog/dog_create_form_container'
 import DogEditFormContainer from './dog/dog_edit_form_container'
 import DogListContainer from './dog/dog_list_container'
 
+import SearchContainer from './nav/search_container'
+import logo from './nav/assets/logo.png'
 
 const App = () => (
-  <div>
+  <div className="landing-page-container">
+    <div className="landing-page-logo-container">
     {/* <h1>Hello World!</h1> */}
-    <Modal />
-    <NavBarContainer />
+      <Modal />
+      <NavBarContainer />
+        <div className="landing-page-logo-items">
+          <img src={logo} alt="logo"/>
+        </div>
+        <SearchContainer />
+    </div>
     <Switch>
       <Route exact path="/dogs" component={DogsIndexContainer} />
       <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />
