@@ -1,0 +1,31 @@
+.dog-show-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dog-show-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+}
+.dog-show-details-stats {
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.dog-show-details-image img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50px;
+}
+
+.dog-show-edit-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dog-show-edit-links {
+
+}

@@ -4,7 +4,8 @@ import PostCompose from '../posts/post_compose';
 import DogShowPost from './dog_show_post_box';
 import NavBarContainer from '../nav/navbar_container';
 
-import { formatAge } from '../../util/time_util'
+import { formatAge } from '../../util/time_util';
+import './assets/dog-show.css';
 
 class DogShow extends React.Component {
     constructor(props) {
@@ -87,8 +88,8 @@ class DogShow extends React.Component {
 
         let dogLink;
         if (this.props.currentUserId && owner._id === this.props.currentUserId) {
-            dogLink = <div className='dog-links'>
-                <Link to={`${this.props.dog.id}/edit`}>Edit</Link>
+            dogLink = <div className='dog-show-edit-links'>
+                <button><Link to={`${this.props.dog.id}/edit`}>Edit</Link></button>
                 <button onClick={this.handleDelete.bind(this)}>Delete</button>
                 <br/>
                 <div>Upload a photo:</div>
@@ -107,46 +108,46 @@ class DogShow extends React.Component {
                 <NavBarContainer />            
                 <div className="dog-show-container">
                     <div className="dog-show-details">
-                        <div>
+                        <div className="dog-show-details-image">
                             {dogImages}
                         </div>
-                        <li>{this.props.dog.name}
-                            </li>
-                        <li>{this.props.dog.gender}
-                        </li>
-                        <li>{owner.username}
-                            </li>
-                        <li>{this.props.dog.location}
-                            </li>
-                        <li>{this.props.dog.breed}
-                            </li>
-                        <li>{dogAge}
-                            </li>
-                        <li>{this.props.dog.weight}
-                            </li>
-                        <li>{this.props.dog.size}
-                            </li>
-                        <li>{this.props.dog.energy}
-                            </li>
-                        <li>
-                            {vaccinations}
-                        </li>
+                        <div className="dog-show-details-stats">
+                            <p>Name: {this.props.dog.name}
+                                </p>
+                            <p>Gender: {this.props.dog.gender}
+                                </p>
+                            <p>Owner: {owner.username}
+                                </p>
+                            <p>Location: {this.props.dog.location}
+                                </p>
+                            <p>Breed: {this.props.dog.breed}
+                                </p>
+                            <p>Age: {dogAge}
+                                </p>
+                            <p>{this.props.dog.weight}
+                                </p>
+                            <p>Size: {this.props.dog.size}
+                                </p>
+                            <p>Energy: {this.props.dog.energy}
+                                </p>
+                            <p>Vaccinations: {vaccinations}
+                                </p>
+                        </div>
                     </div>
-                    {dogLink}
-                    <br/>
-                    {postComposeThing}
-                    The dog's name is: {this.props.dog.name}
-                    <br />
-                    The dog's id is: {this.props.dog.id}
-                    <br/>
-                    {this.props.posts.map(post => (
-                        <DogShowPost
-                            key={post.id}
-                            post={post}
-                            currentUser={this.props.currentUser}
-                            destroyPost={this.props.destroyPost}
-                        />
-                    ))}
+
+                    <div className="dog-show-edit-section">
+                        {dogLink}
+                        {postComposeThing}
+                        {this.props.posts.map(post => (
+                            <DogShowPost
+                                key={post.id}
+                                post={post}
+                                currentUser={this.props.currentUser}
+                                destroyPost={this.props.destroyPost}
+                            />
+                        ))}
+                    </div>
+
                 </div>
             </div>
            

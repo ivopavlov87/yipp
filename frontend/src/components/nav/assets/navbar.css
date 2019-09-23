@@ -99,16 +99,36 @@ code {
     top: 20px;
 }
 .nav-bar-main-logged-out button {
-    height: 30px;
-    width: 80px;
-    margin-right: 8px;
-    padding: 5px;
+
+    margin-right: 10px;
+    padding: 10px;
     background: transparent;
     border:none;
     color: white;
-    font-size: 16px;
-    font-weight: 700
- 
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+#signup {
+    height: 40px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#signup:hover {
+    background: white;
+    color:black
+}
+
+#login {
+    height: 40px;
+    width: 70px;
+}
+
+#login:hover {
+    border-bottom: 2px solid white;
 }
 
 .nav-bar-items {

@@ -30,7 +30,7 @@ class Profile extends React.Component {
             <h3>This user has no posts</h3>
             <Link to="/profile/dogs/new">Create a new dog</Link>
             <br />
-            <Link to="/profile/dogs">All the dogs!</Link>
+            <Link to="/profile/dogs">All my dogs!</Link>
           </div>
         </div>
         )

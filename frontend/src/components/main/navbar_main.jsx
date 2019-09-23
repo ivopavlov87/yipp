@@ -37,8 +37,8 @@ class NavBarMain extends React.Component {
             return (
                 <div className="nav-bar-main-logged-out">
                     <div>
-                        <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign Up</button>
-                        <button className="navbutton" onClick={() => this.props.openModal('login')}>Log In</button>
+                        <button id="signup" onClick={() => this.props.openModal('signup')}>Sign Up</button>
+                        <button id="login" onClick={() => this.props.openModal('login')}>Log In</button>
                     </div>
                 </div>
             );

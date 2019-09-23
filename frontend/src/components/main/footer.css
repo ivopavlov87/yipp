@@ -1,0 +1,41 @@
+.footer {
+    width: 100%;
+    height: 500px;
+    background: whitesmoke;
+}
+
+.footer-container {
+    padding-top: 100px;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.footer-container img {
+    padding:50px 100px;
+}
+
+.footer-section li:first-child {
+    padding-bottom: 10px;
+    font-weight: 700;
+    color:#d32323
+}
+
+.footer-section li {
+    line-height: 1.5;
+    color:#0073bb
+}
+
+.copyright {
+    text-align: center;
+    color:#0073bb;
+    font-size:13px;
+
+}

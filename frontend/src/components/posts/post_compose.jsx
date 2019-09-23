@@ -19,7 +19,6 @@ class PostCompose extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     if (!this.props.currentUser.id) {
       this.props.openModal('login');
     } else {

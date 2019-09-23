@@ -28,7 +28,9 @@ class NavBar extends React.Component {
       return (
         <div className="nav-bar-logged-in">
           <div>
-            <img src={logo} alt="logo" />
+            <Link to="/profile">
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div>
             <SearchContainer />
