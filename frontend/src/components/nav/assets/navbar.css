@@ -3,17 +3,29 @@
     height: 1200px;
 }
 
+.nav-bar-container {
+    background-color: #d32323;
+    height: 70px;
+}
+.nav-bar-logged-in {
+    display: flex;
+    flex-direction: row;
+}
+.nav-bar-logged-in img {
+    height: 60px;
+    width: 100px;
+}
 .nav-bar-items {
     display: flex;
     justify-content: flex-end;
 }
 .nav-bar-items a {
-    color: white;
+    color: black;
     padding: 6px;
 }
 
 .landing-page-logo-container {
-    height: 500px;
+    min-height: 700px;
     display:flex;
     flex-direction: column;
     background-image: url('./dog-poker.jpg');

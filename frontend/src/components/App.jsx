@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import Modal from './modal/modal';
 
@@ -19,37 +19,27 @@ import DogCreateFormContainer from './dog/dog_create_form_container'
 import DogEditFormContainer from './dog/dog_edit_form_container'
 import DogListContainer from './dog/dog_list_container'
 
-import SearchContainer from './nav/search_container'
-import logo from './nav/assets/logo.png'
+// import SearchContainer from './nav/search_container'
+// import logo from './nav/assets/logo.png'
+
 
 const App = () => (
-  <div className="landing-page-container">
-    <div className="landing-page-logo-container">
-    {/* <h1>Hello World!</h1> */}
-      <Modal />
-      <NavBarContainer />
-        <div className="landing-page-logo-items">
-          <img src={logo} alt="logo"/>
-        </div>
-        <SearchContainer />
-    </div>
+  <div>
+    <Modal />
+    <NavBarContainer />
     <Switch>
+      <Route exact path="/" component={MainPage} />
       <Route exact path="/dogs" component={DogsIndexContainer} />
       <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />
 
-      <AuthRoute exact path="/" component={MainPage} />
-      {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
-      {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
-
-      <ProtectedRoute exact path="/posts" component={PostsContainer} />
+      <Route exact path="/posts" component={PostsContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      {/* <ProtectedRoute exact path="/new_post" component={PostComposeContainer} /> */}
 
       <ProtectedRoute exact path="/posts/:id/edit" component={PostEditContainer} />
       <ProtectedRoute exact path="/profile/dogs/new" component={DogCreateFormContainer} />
       <ProtectedRoute exact path={`/dogs/:dogId/edit`} component={DogEditFormContainer} />
       <ProtectedRoute exact path="/profile/dogs" component={DogListContainer} />
-
+      <Redirect to="/" />
     </Switch>
   </div>
 );
