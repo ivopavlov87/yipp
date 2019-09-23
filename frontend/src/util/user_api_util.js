@@ -18,6 +18,10 @@ export const createUser = (formData) => {
   // data: formData
 };
 
+export const addFavorite = (id) => {
+  return axios.post(`/api/users/${id}/favoriteDogs`)
+}
+
 
 // SEARCH USERS 
 
