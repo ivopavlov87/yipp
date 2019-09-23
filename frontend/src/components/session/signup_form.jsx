@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
 
     // const sleep = ms => new Promise(res => setTimeout(res, ms));
 
-    this.props.signup(user);
+    this.props.signup(user).then(this.props.closeModal);
     // await sleep(250)
     // this.props.login(user);
     this.props.history.push('/profile'); //, this.props.history);
@@ -91,6 +91,7 @@ class SignupForm extends React.Component {
             />
             <br />
             <input type="submit" value="Submit" />
+            <button onClick={() => this.props.openModal('login')}>Login</button>
             {this.renderErrors()}
           </div>
         </form>

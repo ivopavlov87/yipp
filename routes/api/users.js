@@ -114,7 +114,7 @@ User.findOne({ username })
     })
 })
 
-// GET FRIEND
+// GET FAVORITE DOGS
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
     .select('favoriteDogs')
