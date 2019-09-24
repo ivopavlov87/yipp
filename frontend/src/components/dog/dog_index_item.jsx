@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { formatAge } from '../../util/time_util'
 import noImage from './assets/no-image.png'
 
+
 // import { selectPostsForDog } from '../../reducers/selectors';
 
 class DogIndexItem extends React.Component {

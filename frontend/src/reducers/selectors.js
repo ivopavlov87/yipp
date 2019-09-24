@@ -47,3 +47,19 @@ export const selectImagesForDog = (props, dog) => {
     })
     return res;
 }
+
+export const selectOneImagesForDog = (props, dog) => {
+    if (!dog) return [];
+
+    let res = [];
+    if ((Object.keys(props).length === 0)) {
+        return res;
+    }
+
+    Object.values(props).forEach(image => {
+        if (image.metadata.dogId === dog._id) {
+            res.push(image);
+        }
+    })
+    return res;
+}
