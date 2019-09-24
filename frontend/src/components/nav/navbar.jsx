@@ -37,26 +37,25 @@ class NavBar extends React.Component {
           </div>
           <div>
             {/* <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp; */}
-            <button><Link to={"/profile"}>Profile</Link></button>&nbsp;&nbsp;
-            <button onClick={this.logoutUser}>Log Out</button>
+            <Link to={"/profile"}><button className="navbutton"><p>Profile</p></button></Link>&nbsp;&nbsp;
+            <button className="navbutton" onClick={this.logoutUser}><p>Log Out</p></button>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="nav-bar-logged-out" id="logged-out">
+        <div className="nav-bar-logged-out">
           <Modal />
-          <div>
+          <div className="modal-form-logo-icon">
             <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
           </div>
 
           <SearchContainer />
-
           <div>
-            <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign Up</button>
-            <button className="navbutton" onClick={() => this.props.openModal('login')}>Log In</button>
+            <button className="navbutton" onClick={() => this.props.openModal('signup')}><p>Sign Up</p></button>
+            <button className="navbutton" onClick={() => this.props.openModal('login')}><p>Log In</p></button>
           </div>
         </div>
       );

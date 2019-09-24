@@ -92,7 +92,7 @@ class DogShow extends React.Component {
         let favoriteButton = "";
         if (this.props.currentUser) {
             favoriteButton = <div>
-                <button onClick={() => this.props.createFavorite(this.props.dog.id)}>Add Favorite</button>
+                <button className='dog-show-favorite-btn' onClick={() => this.props.createFavorite(this.props.dog.id)}><p>Add Favorite</p></button>
             </div>
         }
 
@@ -134,7 +134,7 @@ class DogShow extends React.Component {
             return dogRatingTotal += post.temperamentRating
         })
 
-        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length)} paws`: "This dog has no reviews"
+        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} paws`: "This dog has no reviews"
 
         return (
             <div>
@@ -145,39 +145,43 @@ class DogShow extends React.Component {
                     </div>  
 
                     <div className="dog-show-details">
-                        <div className="dog-show-details-stats">
-                            <p>Name: {this.props.dog.name}</p>
-                            <p>Rating: {dogRatingAvg}</p>
-                            <p>{favoriteButton}</p>
-                            <p>Gender: {this.props.dog.gender}
-                                </p>
-                            <p>Owner: {owner.username}
-                                </p>
-                            <p>Location: {this.props.dog.location}
-                                </p>
-                            <p>Breed: {this.props.dog.breed}
-                                </p>
-                        </div>
-                        <div className="dog-show-details-stats">
-                            <p>Age: {dogAge}
-                                </p>
-                            <p>Weight: {this.props.dog.weight}
-                                </p>
-                            <p>Size: {this.props.dog.size}
-                                </p>
-                            <p>Energy: {this.props.dog.energy}
-                                </p>
-                            <p>Vaccinations: {vaccinations}
-                                </p>
-                        </div>
+                            <div className='dog-show-details-section'>
+                                <div className='dog-show-info'>
+                                    <p id='dog-show-dog-name'>{this.props.dog.name}</p>
+                                    <p id='dog-show-dog-ratings'>{dogRatingAvg}</p>
+                                    {favoriteButton}
+                                </div>
+                                <div className="dog-show-details-stats">
+                                    <p>Gender: {this.props.dog.gender}
+                                        </p>
+                                    <p>Owner: {owner.username}
+                                        </p>
+                                    <p>Location: {this.props.dog.location}
+                                        </p>
+                                    <p>Breed: {this.props.dog.breed}
+                                    </p>
+                                </div>
+                                <div className="dog-show-details-stats">
+                                    <p>Age: {dogAge}
+                                        </p>
+                                    <p>Weight: {this.props.dog.weight}
+                                        </p>
+                                    <p>Size: {this.props.dog.size}
+                                        </p>
+                                    <p>Energy: {this.props.dog.energy}
+                                        </p>
+                                    <p>Vaccinations: {vaccinations}
+                                        </p>
+                                </div>
+                            </div>
                     </div>
 
                     <div className="dog-show-edit-section">
                         {dogLink}
+                        <div className="dog-show-review-section-title">
+                            <p>All reviews:</p>
+                        </div>
                         <div className="dog-show-review-section">
-                            <div className="dog-show-review-section-title">
-                                <p>All reviews:</p>
-                            </div>
                             <div className="dog-show-review-index">
                                 {this.props.posts.map(post => (
                                     <DogShowPost

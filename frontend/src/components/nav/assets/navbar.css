@@ -17,32 +17,26 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: 'Indie Flower', cursive;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 
 .landing-page-container {
     width: 100%;
-    height: 1200px;
+    height: 2000px;
 }
 
 .nav-bar-container {
-    /* background-color: #d32323;
-    height: 70px;
-    margin: 0 auto; */
+    align-items: center;
 }
 .nav-bar-logged-in {
     display: flex;
@@ -70,10 +64,7 @@ code {
     margin: 0 auto;
     align-items: center;
 }
-#logged-out {
-
-}
-#logged-out img {
+.nav-bar-logged-out img {
     height: 60px;
     width: 100px;
 }
@@ -86,11 +77,8 @@ code {
     top: 20px;
 } */
 .nav-bar-logged-out button {
-    height: 25px;
-    width: 80px;
     border-radius: 5px 5px 5px 5px;
     margin-right: 8px;
-
 }
 
 .nav-bar-main-logged-out {
@@ -112,11 +100,11 @@ code {
 
 .nav-bar-main-logged-in button {
     margin-right: 10px;
-    padding: 10px;
+
     background: transparent;
     border:none;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     cursor: pointer;
     height: 40px;
@@ -131,7 +119,7 @@ code {
     background: transparent;
     border:none;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     height: 40px;
@@ -150,13 +138,30 @@ code {
 .nav-bar-main-logged-out button {
 
     margin-right: 10px;
-    padding: 10px;
+  
     background: transparent;
     border:none;
     color: white;
-    font-size: 15px;
+    font-size: 19px;
     font-weight: 700;
     cursor: pointer
+}
+.navbutton {
+    height: 25px;
+    width: 80px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 10px;
+
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    
+    border-radius: 5px;
 }
 
 #signup {
@@ -196,6 +201,7 @@ code {
     background-image: url('./dog-poker.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    height: 30%
 }
 
 .landing-page-logo-items {
@@ -204,8 +210,8 @@ code {
     padding-top: 130px;
 }
 .landing-page-logo-items img {
-    height: 80px;
-    width: 160px;
+    height: 100px;
+    width: 180px;
     display: flex;
     justify-content: center;
 }

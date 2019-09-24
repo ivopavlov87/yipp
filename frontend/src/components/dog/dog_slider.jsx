@@ -6,7 +6,8 @@ class DogSlider extends React.Component {
         const settings = {
             infinite: true,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 3,
+            slidesToScroll: 3,
             // variableWidth: true
         }
         const photos = this.props.imgUrls.map(url =>

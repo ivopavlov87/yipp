@@ -80,7 +80,7 @@ class PostCompose extends React.Component {
               <input type="radio" value="9" name="temperamentRating" onChange={this.updateRating()} />9
               <input type="radio" value="10" name="temperamentRating" onChange={this.updateRating()} />10
             </div>
-            <input type="submit" value="Submit" />
+            <input className='post-compose-sumit-btn' type="submit" value="Submit" />
           </div>
         </form>
         <br />
