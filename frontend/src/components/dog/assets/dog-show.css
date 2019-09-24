@@ -14,7 +14,6 @@
 	height: 100%;
 }
 
-
 .slick-prev {
     visibility: hidden;
   	display: block;
@@ -137,11 +136,46 @@
     flex-direction: column;
     justify-content: center;
 }
-
-.dog-show-edit-links {
+.dog-show-edit-title p {
     display: flex;
     justify-content: center;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.dog-show-edit-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px;
+}
+.dog-show-edit-links-1 {
+    display: flex;
+    justify-content: center;
+}
+.dog-show-edit-links-2 {
+    display: flex;
+    justify-content: center;
+}
+.dog-show-edit-links-2 input {
+    width: 160px;
+}
+
+.dog-show-review-section {
+    display: flex;
+    justify-content: center;
+}
+.dog-show-review-section-title {
+    font-size: 25px;
+}
+.dog-show-review-index {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.dog-show-review-index-item {
+    padding-bottom: 40px;
 }
 
 .dog-show-post-compose-container {
@@ -155,10 +189,3 @@
     justify-content: center;
 }
 
-.dog-show-post-index {
-    display: flex;
-    justify-content: center;
-}
-.dog-show-post-index-items {
-    padding: 20px;
-}

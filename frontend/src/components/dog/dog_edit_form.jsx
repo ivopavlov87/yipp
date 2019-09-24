@@ -4,6 +4,7 @@ import "react-day-picker/lib/style.css"
 
 import { withRouter } from 'react-router-dom'
 
+import './assets/dog-form.css';
 import NavBarContainer from '../nav/navbar_container';
 
 class DogEditForm extends React.Component {
@@ -55,6 +56,7 @@ class DogEditForm extends React.Component {
 
                 <div className="dog-form-container">
                     <div className="dog-form">
+                        Add a new dog:
                         <form onSubmit={this.handleSubmit}>
                             <label>Name:
                                 <input
