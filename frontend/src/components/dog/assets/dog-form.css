@@ -1,0 +1,17 @@
+.dog-form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dog-form {
+    display: flex;
+}
+.dog-form-fields {
+    margin: 6px;
+}
+
+.dog-form-title {
+    padding-right: 20px;
+    font-size: 25px;
+}

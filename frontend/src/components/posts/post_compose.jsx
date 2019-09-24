@@ -63,7 +63,7 @@ class PostCompose extends React.Component {
           <div>
             Review this Dog:
             <br />
-            <input type="textarea"
+            <textarea rows="6" cols="60"
               value={this.state.text}
               onChange={this.updateText()}
               placeholder="Write your post..."

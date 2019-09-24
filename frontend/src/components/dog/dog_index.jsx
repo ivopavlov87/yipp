@@ -4,7 +4,7 @@ import { selectImagesForDog } from '../../reducers/selectors';
 
 import NavBarContainer from '../nav/navbar_container';
 
-import './assets/dog_index.css';
+import './assets/dog-index.css';
 
 
 class DogIndex extends React.Component {

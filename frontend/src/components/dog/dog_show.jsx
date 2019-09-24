@@ -93,12 +93,14 @@ class DogShow extends React.Component {
         if (this.props.currentUserId && owner._id === this.props.currentUserId) {
 
             dogLink = <div className='dog-show-edit-links'>
-                <div>Edit this dog's profile:
+                <div className="dog-show-edit-title">
+                    <p>You are {this.props.dog.name}'s owner</p>
+                </div>
+                <div className="dog-show-edit-links-1">Edit this dog's profile:
                     <button><Link to={`${this.props.dog.id}/edit`}>Edit</Link></button>
                     <button onClick={this.handleDelete.bind(this)}>Delete</button>
                 </div>
-                <br/>
-                <div>
+                <div className="dog-show-edit-links-2">
                     <div>Upload a photo:</div>
                     <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
                 </div>
@@ -143,7 +145,7 @@ class DogShow extends React.Component {
                         <div className="dog-show-details-stats">
                             <p>Age: {dogAge}
                                 </p>
-                            <p>{this.props.dog.weight}
+                            <p>Weight: {this.props.dog.weight}
                                 </p>
                             <p>Size: {this.props.dog.size}
                                 </p>
@@ -156,16 +158,22 @@ class DogShow extends React.Component {
 
                     <div className="dog-show-edit-section">
                         {dogLink}
-                        {postComposeForm}
-
-                        {this.props.posts.map(post => (
-                            <DogShowPost
-                                key={post.id}
-                                post={post}
-                                currentUser={this.props.currentUser}
-                                destroyPost={this.props.destroyPost}
-                            />
-                        ))}
+                        <div className="dog-show-review-section">
+                            <div className="dog-show-review-section-title">
+                                <p>All reviews:</p>
+                            </div>
+                            <div className="dog-show-review-index">
+                                {this.props.posts.map(post => (
+                                    <DogShowPost
+                                        key={post.id}
+                                        post={post}
+                                        currentUser={this.props.currentUser}
+                                        destroyPost={this.props.destroyPost}
+                                    />
+                                ))}
+                            {postComposeForm}
+                            </div>
+                        </div>
                     </div>
 
                 </div>
