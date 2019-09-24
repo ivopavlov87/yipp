@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PostBox from './post_box';
+import NavBarContainer from '../nav/navbar_container'; 
 
 class Post extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Post extends React.Component {
       // debugger;
       return (
         <div>
+          <div><NavBarContainer /></div>
           <h2>All Posts</h2>
           {this.props.posts.map(post => (
             <PostBox 

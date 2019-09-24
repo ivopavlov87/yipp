@@ -21,7 +21,7 @@ const usersReducer = (state = {}, action) => {
     //  return Object.assign({}, action.users.data); LONG VERSION OF RECEIVE_ALL_USERS
     case ADD_FAVORITE_DOG:
     // debugger;
-      return Object.assign({}, state, state.favoriteDogs.push(action.dog) )
+      return Object.assign({}, state) //, state.favoriteDogs.push(action.dog) )
         // { [action.currentUser.id]: action.currentUser.favoriteDogs.push(action.data.dog) })
     default:
       return state;
