@@ -1,0 +1,40 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-left-container {
+    width: 30%;
+}
+
+.profile-right-container {
+    width: 60%;
+}
+
+.profile-left {
+    margin-left: auto;
+    margin-right: auto;
+    width: inherit;
+    margin-top: 20%;
+}
+
+.default-image {
+
+}
+
+.profile-btn-container {
+    margin-top: 35%;
+}
+
+.profile-buttons {
+    white-space: nowrap;
+}
+
+.profile-right {
+
+}
+
+.profile-right-header {
+
+}

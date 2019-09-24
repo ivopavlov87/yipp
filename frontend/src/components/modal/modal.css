@@ -41,7 +41,7 @@
 
 .modal-fields {
   display: flex;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 15px;
   box-sizing: border-box;
   color: #FFFFFF;
@@ -71,7 +71,8 @@
 .modal-header {
   color: #FFFFFF;
   text-align: center;
-  margin: 25px 0px;
+  margin: 10px 0px;
+  font-size: 30px;
 }
 
 .modal-errors {
@@ -87,4 +88,15 @@
 .modal-li {
   color: white;
   text-align: left;
+}
+
+.modal-logo {
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-logo-container {
+  width: 100%;
+  display: flex;
 }

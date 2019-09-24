@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import "../modal/modal.css";
+import favicon from "../nav/assets/yipp-favicon.png";
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -85,36 +87,39 @@ class LoginForm extends React.Component {
       <div className="modal-container">
         <form className="modal-form" onSubmit={this.handleSubmit}>
           <h1 className="modal-header">Welcome Back</h1>
-            <h3 className="modal-fields">Username</h3>
-            <input
-              className="modal-input"
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              placeholder="Username"
-            />
-            <h3 className="modal-fields">Password</h3>
-            <input
-              className="modal-input"
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <span className="modal-errors">{this.renderErrors()}</span>
-            {/* <br /> */}
-            <input className="modal-button" type="submit" value="Submit" />
-            <br />
-            <button className="modal-button" onClick={this.handleDemo}>
-              Demo Login
-            </button>
-            <br />
-            <button
-              className="modal-button"
-              onClick={() => this.props.openModal("signup")}
-            >
-              Signup Instead
-            </button>
+          <div className="modal-logo-container">
+          <img className="modal-logo" src={favicon} alt="yipp logo" />
+          </div>
+          <h3 className="modal-fields">Username</h3>
+          <input
+            className="modal-input"
+            type="text"
+            value={this.state.username}
+            onChange={this.update("username")}
+            placeholder="Username"
+          />
+          <h3 className="modal-fields">Password</h3>
+          <input
+            className="modal-input"
+            type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            placeholder="Password"
+          />
+          <span className="modal-errors">{this.renderErrors()}</span>
+          {/* <br /> */}
+          <input className="modal-button" type="submit" value="Submit" />
+          <br />
+          <button className="modal-button" onClick={this.handleDemo}>
+            Demo Login
+          </button>
+          <br />
+          <button
+            className="modal-button"
+            onClick={() => this.props.openModal("signup")}
+          >
+            Signup Instead
+          </button>
         </form>
       </div>
     );
