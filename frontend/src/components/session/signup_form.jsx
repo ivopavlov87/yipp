@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import "../modal/modal.css";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -57,10 +58,10 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="modal-ul">
         {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.props.errors[error]}
+          <li className= "modal-li" key={`error-${i}`}>
+          {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -73,38 +74,52 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
+      <div className="modal-container">
+        <form className="modal-form" onSubmit={this.handleSubmit}>
+          <h1 className="modal-header">Welcome To Yippy</h1>
             <br />
-            <input type="email"
+            <h3 className="modal-fields">Email</h3>
+            <input
+              className="modal-input"
+              type="email"
               value={this.state.email}
-              onChange={this.update('email')}
+              onChange={this.update("email")}
               placeholder="Email"
             />
-            <br />
-            <input type="text"
+            <h3 className="modal-fields">Username</h3>
+            <input
+              className="modal-input"
+              type="text"
               value={this.state.username}
-              onChange={this.update('username')}
+              onChange={this.update("username")}
               placeholder="Username"
             />
-            <br />
-            <input type="password"
+            <h3 className="modal-fields">Password</h3>
+            <input
+              className="modal-input"
+              type="password"
               value={this.state.password}
-              onChange={this.update('password')}
+              onChange={this.update("password")}
               placeholder="Password"
             />
-            <br />
-            <input type="password"
+            <h3 className="modal-fields">Repeat Password</h3>
+            <input
+              className="modal-input"
+              type="password"
               value={this.state.password2}
-              onChange={this.update('password2')}
+              onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
+            <span className="modal-errors">{this.renderErrors()}</span>
+            {/* <br /> */}
+            <input className="modal-button" type="submit" value="Submit" />
             <br />
-            <input type="submit" value="Submit" />
-            <button onClick={() => this.props.openModal('login')}>Login</button>
-            {this.renderErrors()}
-          </div>
+            <button
+              className="modal-button"
+              onClick={() => this.props.openModal("login")}
+            >
+              Login Instead
+            </button>
         </form>
       </div>
     );

@@ -12,7 +12,7 @@ class Post extends React.Component {
   }
 
   componentDidMount() {
-    console.log("component has mounted");
+    // console.log("component has mounted");
     this.props.fetchPosts();
   }
 

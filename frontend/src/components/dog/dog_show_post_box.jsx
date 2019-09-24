@@ -6,7 +6,7 @@ class DogProfilePostBox extends React.Component {
     render() {
         // debugger;
         let postButtons;
-        if (this.props.currentUser.id === this.props.post.user) {
+        if (this.props.currentUser && this.props.currentUser.id === this.props.post.user) {
             postButtons = (
                 <div>
                     <Link to={`/posts/${this.props.post.id}/edit`}>Edit this post</Link>

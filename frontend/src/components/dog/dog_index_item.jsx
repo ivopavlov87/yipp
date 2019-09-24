@@ -19,6 +19,37 @@ class DogIndexItem extends React.Component {
         //     sum += post.temperamentRating
         // })
         // const ratings = sum / postsForDog.length;
+        let firstPostText;
+        let firstPostAuthor;
+        let firstPostRate;
+        let firstPostDate;
+        if (this.props.firstPost && this.props.firstPost.text){
+            firstPostText  = this.props.firstPost.text;
+            firstPostRate  = this.props.firstPost.temperamentRating;
+            firstPostAuthor  = this.props.firstPost.authorName;
+            firstPostDate  = this.props.firstPost.date;
+        }
+
+        let sampleReview;
+        if (this.props.posts.length !== 0){
+            sampleReview = <li>
+                Sample Review:
+                        <ul>
+                    <li>
+                        Post: {firstPostText}
+                    </li>
+                    <li>
+                        Rating: {firstPostRate}/10 paws
+                        </li>
+                    <li>
+                        Author: {firstPostAuthor}
+                    </li>
+                    <li>
+                        Date: {firstPostDate}
+                    </li>
+                </ul>
+            </li>
+        }
 
         let dogRatingTotal = 0
         this.props.posts.map(post => {
@@ -51,8 +82,8 @@ class DogIndexItem extends React.Component {
                         <li>{dogAge}
                         </li>
                         <li>
-                        {this.props.dog.size}
-                        </li>
+                        {this.props.dog.size}</li>
+                        {sampleReview}
                     </ul>
                 </div>
             </div>

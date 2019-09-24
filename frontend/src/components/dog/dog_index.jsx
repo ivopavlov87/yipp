@@ -32,6 +32,7 @@ class DogIndex extends React.Component {
                     images={images}
                     // fetchDogPosts={this.props.fetchDogPosts}
                     posts={posts}
+                    firstPost={posts[0]}
                 // posts={this.props.posts} 
                 />)
             }

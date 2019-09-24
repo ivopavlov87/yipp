@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import PostsReducer from './posts_reducer'
 import DogsReducer from './dogs_reducer'
-import UserReducer from './user_reducer'
+import UserReducer from './users_reducer'
 import ImagesReducer from './images_reducer';
 
 const EntitiesReducer = combineReducers({

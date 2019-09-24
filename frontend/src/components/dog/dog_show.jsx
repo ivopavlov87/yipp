@@ -76,12 +76,21 @@ class DogShow extends React.Component {
         const dogAge = formatAge(this.props.dog.dob)
 
         let owner;
+        // debugger;
         Object.values(this.props.users).forEach(user => {
 
             if (user._id === this.props.dog.user_id) {
                 owner = user;
             }
         })
+
+        let favoriteButton = "";
+        if (this.props.currentUser) {
+            favoriteButton = <div>
+                <button onClick={() => this.props.createFavorite(this.props.dog.id)}>Add Favorite</button>
+            </div>
+        }
+
 
         let dogLink;
         if (this.props.currentUserId && owner._id === this.props.currentUserId) {
@@ -114,6 +123,7 @@ class DogShow extends React.Component {
                         {dogImages}
                     </div>
                     <li>{this.props.dog.name}</li>
+                    <li>{favoriteButton}</li>
                     <li>Rating: {dogRatingAvg}</li>
                     <li>{this.props.dog.gender}</li>
                     <li>{owner.username}</li>

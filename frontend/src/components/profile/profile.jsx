@@ -19,11 +19,22 @@ class Profile extends React.Component {
   componentDidMount() {
     // console.log(this.props.currentUser.id)
     this.props.fetchUserPosts(this.props.currentUser.id);
+    this.props.fetchUser(this.props.currentUser.id);
   }
 
   render() {
-    if (this.props.posts.length === 0) {
+    // makes a aray of dogs that the current user has liked
+    // debugger
+    const favoriteDogs = this.props.favoriteDogs.map((dog) => {
+      return <li key={dog._id}>{dog.name}</li>
+    })
+
+
+    if (this.props.posts.length === 0 || favoriteDogs.length ) {
       return (<div>
+        <ul>
+          {favoriteDogs}
+        </ul>
         <h3>This user has no posts</h3>
         <Link to="/profile/dogs/new">Create a new dog</Link>
         <br />

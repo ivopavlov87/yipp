@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import "../modal/modal.css";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -40,9 +41,9 @@ class LoginForm extends React.Component {
   renderErrors() {
     // console.log(this.props.errors);
     return (
-      <ul>
+      <ul className="modal-ul">
         {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="modal-li" key={`error-${i}`}>
             {this.props.errors[error]}
           </li>
         ))}
@@ -81,31 +82,39 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className="modal-container">
+        <form className="modal-form" onSubmit={this.handleSubmit}>
+          <h1 className="modal-header">Welcome Back</h1>
+            <h3 className="modal-fields">Username</h3>
             <input
+              className="modal-input"
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
             />
-            <br />
+            <h3 className="modal-fields">Password</h3>
             <input
+              className="modal-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
+            <span className="modal-errors">{this.renderErrors()}</span>
+            {/* <br /> */}
+            <input className="modal-button" type="submit" value="Submit" />
             <br />
-            <input type="submit" value="Submit" />
-            <button onClick={() => this.props.openModal("signup")}>
-              Sign up
+            <button className="modal-button" onClick={this.handleDemo}>
+              Demo Login
             </button>
             <br />
-            <button className="modal-button" onClick={this.handleDemo}>Demo Login</button>
-            {this.renderErrors()}
-          </div>
+            <button
+              className="modal-button"
+              onClick={() => this.props.openModal("signup")}
+            >
+              Signup Instead
+            </button>
         </form>
       </div>
     );

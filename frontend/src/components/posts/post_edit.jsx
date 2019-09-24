@@ -47,8 +47,8 @@ class PostEdit extends React.Component {
   }
 
   render() {
-    console.log("the props")
-    console.log(this.props)
+    // console.log("the props")
+    // console.log(this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
