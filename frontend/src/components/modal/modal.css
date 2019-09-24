@@ -24,6 +24,15 @@
   background-color: black;
 }
 
+.modal-form-logo {
+  display: flex;
+  justify-content: center;
+}
+.modal-form-logo img {
+  width: 50px;
+  height: 50px;
+}
+
 .modal-form {
   flex-direction: column;
   font-size: 13px;
@@ -37,6 +46,7 @@
   border: 1px solid #C7C7C7;
   width: 94.5%;
   margin-bottom: 8px;
+  border-radius:5px;
 }
 
 .modal-fields {
@@ -50,9 +60,9 @@
 }
 
 .modal-button {
-  background-color: rgb(173, 14, 14);
+  background-color: #d32323;
   color: #FFFFFF;
-  border: 1px solid rgb(173, 14, 14);
+  border: 1px solid #d32323;
   position: relative;
   width: 100%;
   height: 45px;
@@ -61,17 +71,24 @@
   cursor: pointer;
   transition-duration: 0.4s;
   margin-bottom: 5px;
+  margin-top:10px;
+  border-radius: 5px;
+  font-family: 'Indie Flower', cursive;
+  font-weight:700;
+
 }
 
 .modal-button:hover {
-  background-color: rgb(128, 10, 10);
-  border: 1px solid rgb(128, 10, 10);
+  background-color: #d32323;
+  border: 1px solid #d32323;
 }
 
 .modal-header {
   color: #FFFFFF;
   text-align: center;
-  margin: 25px 0px;
+
+  font-size: 23px;
+  font-weight: 700
 }
 
 .modal-errors {

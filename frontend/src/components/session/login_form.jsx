@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import "../modal/modal.css";
+import logo from './assets/icon.png';
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -84,6 +86,9 @@ class LoginForm extends React.Component {
     return (
       <div className="modal-container">
         <form className="modal-form" onSubmit={this.handleSubmit}>
+          <div className="modal-form-logo">
+            <img src={logo} alt="logo" />
+          </div>
           <h1 className="modal-header">Welcome Back</h1>
             <h3 className="modal-fields">Username</h3>
             <input
@@ -113,7 +118,7 @@ class LoginForm extends React.Component {
               className="modal-button"
               onClick={() => this.props.openModal("signup")}
             >
-              Signup Instead
+              Go to Signup
             </button>
         </form>
       </div>

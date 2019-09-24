@@ -1,6 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 import "../modal/modal.css";
+import logo from './assets/icon.png';
+ 
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -76,7 +79,10 @@ class SignupForm extends React.Component {
     return (
       <div className="modal-container">
         <form className="modal-form" onSubmit={this.handleSubmit}>
-          <h1 className="modal-header">Welcome To Yippy</h1>
+            <div className="modal-form-logo">
+              <img src={logo} alt="logo" />
+            </div>
+            <h1 className="modal-header">Welcome to Yipp</h1>
             <br />
             <h3 className="modal-fields">Email</h3>
             <input
@@ -102,7 +108,7 @@ class SignupForm extends React.Component {
               onChange={this.update("password")}
               placeholder="Password"
             />
-            <h3 className="modal-fields">Repeat Password</h3>
+            <h3 className="modal-fields">Confirm Password</h3>
             <input
               className="modal-input"
               type="password"
@@ -118,7 +124,7 @@ class SignupForm extends React.Component {
               className="modal-button"
               onClick={() => this.props.openModal("login")}
             >
-              Login Instead
+              Go to Login
             </button>
         </form>
       </div>
