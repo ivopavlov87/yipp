@@ -9,7 +9,6 @@ import { formatAge } from '../../util/time_util';
 import './assets/dog-show.css';
 
 
-
 class DogShow extends React.Component {
     constructor(props) {
         super(props);
@@ -89,8 +88,10 @@ class DogShow extends React.Component {
             }
         })
 
+       
         let dogLink;
         if (this.props.currentUserId && owner._id === this.props.currentUserId) {
+
             dogLink = <div className='dog-show-edit-links'>
                 <div>Edit this dog's profile:
                     <button><Link to={`${this.props.dog.id}/edit`}>Edit</Link></button>
@@ -111,21 +112,21 @@ class DogShow extends React.Component {
         // })
 
         const dogImgUrls = [];
+        // eslint-disable-next-line
         this.props.images.map(image => {
-            let url; 
-            url = `/api/images/${image.filename}`
+            const url = `/api/images/${image.filename}`
             dogImgUrls.push(url)
         })
         
 
         return (
             <div>
-                <NavBarContainer /> 
-          
+                <NavBarContainer />
                 <div className="dog-show-container">
                     <div className='dog-show-slideshow-container'>
                         <DogSlider imgUrls={dogImgUrls} />
                     </div>  
+
                     <div className="dog-show-details">
                         <div className="dog-show-details-stats">
                             <p>Name: {this.props.dog.name}

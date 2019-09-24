@@ -6,6 +6,7 @@ import NavBarContainer from '../nav/navbar_container';
 
 import './assets/dog_index.css';
 
+
 class DogIndex extends React.Component {
 
     componentDidMount() {
@@ -42,8 +43,9 @@ class DogIndex extends React.Component {
         return (
             <div>
                 <NavBarContainer />
-                <div className="dog-index-container">
-                    <div className="dog-index-item-container">
+                <div className="dog-index">
+                    <div className='all-dogs'>All Dogs</div>
+                    <div className="dog-index-container">
                         {Alldogs}
                     </div>
                 </div>

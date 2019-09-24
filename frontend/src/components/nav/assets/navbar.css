@@ -94,10 +94,59 @@ code {
 }
 
 .nav-bar-main-logged-out {
-    position: fixed;
+    position: absolute;
     right: 20px;
     top: 20px;
 }
+
+.nav-bar-main-logged-in {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display:flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.nav-bar-main-logged-in button {
+    margin-right: 10px;
+    padding: 10px;
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.nav-bar-main-logged-in a {
+    margin-right: 20px;
+    padding: 10px;
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    color: white;
+    text-decoration: none;
+}
+
+
+.nav-bar-main-logged-in button:hover {
+    background: white;
+    color:black
+}
+
+
 .nav-bar-main-logged-out button {
 
     margin-right: 10px;

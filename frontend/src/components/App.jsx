@@ -26,21 +26,18 @@ import DogListContainer from './dog/dog_list_container'
 const App = () => (
   <div>
     <Modal />
-    {/* <NavBarContainer /> */}
     <Switch>
       <Route exact path="/" component={MainPage} />
       <Route exact path="/dogs" component={DogsIndexContainer} />
-      <Route exact path={`/dogs/:dogId`} component={DogShowContainer} />
+      <Route exact path='/dogs/:dogId' component={DogShowContainer} />
 
       <Route exact path="/posts" component={PostsContainer} />
       <Route exact path="/profile" component={ProfileContainer} />
 
       <Route exact path="/posts/:id/edit" component={PostEditContainer} />
       <Route exact path="/profile/dogs/new" component={DogCreateFormContainer} />
-      <Route exact path={`/dogs/:dogId/edit`} component={DogEditFormContainer} />
+      <Route exact path='/dogs/:dogId/edit' component={DogEditFormContainer} />
       <Route exact path="/profile/dogs" component={DogListContainer} />
-
-      {/* <Redirect to="/" /> */}
     </Switch>
   </div>
 );
