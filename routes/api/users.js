@@ -53,7 +53,7 @@ router.post('/register', (req, res) => {
             newUser.password = hash;
             newUser.save()
               .then(user => {
-                const payload = { id: user.id, name: user.name };
+                const payload = { id: user.id, name: user.name};
                 jwt.sign(
                   payload,
                   keys.secretOrKey,
@@ -94,7 +94,10 @@ User.findOne({ username })
       bcrypt.compare(password, user.password)
         .then(isMatch => {
             if (isMatch) {
-            const payload = { id: user.id, username: user.username };
+              // .select('favoriteDogs')
+              // .populate('favoriteDogs')
+              // .exec()
+            const payload = { id: user.id, username: user.username, favoriteDogs: user.favoriteDogs };
             
             jwt.sign(
                 payload,
@@ -114,13 +117,15 @@ User.findOne({ username })
     })
 })
 
-// GET FAVORITE DOGS
+// GET USERS FAVORITE DOGS
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
     .select('favoriteDogs')
     .populate('favoriteDogs')
     .exec()
-    .then(dog => res.json(dog))
+    .then(dog => {
+      // console.log(dog);
+      res.json(dog)})
     .catch(err =>
       res.status(404).json({ nodogfound: 'No dog found with that ID' })
     );
@@ -129,8 +134,8 @@ router.get('/:id', (req, res) => {
 // ADD FAVORITE DOG
 router.post('/:id/favoriteDogs', passport.authenticate('jwt', { session: false }), (req, res) => {
   const user = req.user.id;
-  const dogId = req.body.id
-  console.log(dogId)
+  const dogId = req.params.id
+  // console.log(dogId)
   // console.log(friendId)
   Dog.findById(dogId)
   .then(dog => {
@@ -138,6 +143,7 @@ router.post('/:id/favoriteDogs', passport.authenticate('jwt', { session: false }
     .then(user => {
       user.favoriteDogs.push(dogId)
       user.save()
+      // console.log(user)
       res.json(user)
     })
     .catch(err =>
@@ -148,6 +154,29 @@ router.post('/:id/favoriteDogs', passport.authenticate('jwt', { session: false }
     res.status(404).json({nodogfound: 'No dog found with that ID'})
     );
 })
+
+// REMOVE FAVORITE DOG
+// router.post('/:id/unfavoriteDogs', passport.authenticate('jwt', { session: false }), (req, res) => {
+//   const user = req.user.id;
+//   const dogId = req.body.id
+//   console.log(dogId)
+//   // console.log(friendId)
+//   Dog.findById(dogId)
+//   .then(dog => {
+//     User.findById(user)
+//     .then(user => {
+//       user.favoriteDogs.push(dogId)
+//       user.save()
+//       res.json(user)
+//     })
+//     .catch(err =>
+//       res.status(404).json({nouserfound: 'No user found with that ID'})
+//       );
+//   })
+//   .catch(err =>
+//     res.status(404).json({nodogfound: 'No dog found with that ID'})
+//     );
+// })
 
 // this is the private auth route
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {

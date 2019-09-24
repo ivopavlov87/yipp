@@ -3,7 +3,7 @@ import * as UserAPIUtil from '../util/user_api_util';
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const UPDATE_USER = "UPDATE_USER";
-export const ADD_FAVORITE_DOGS = "ADD_FAVORITE_DOGS"
+export const ADD_FAVORITE_DOG = "ADD_FAVORITE_DOG"
 
 
 const receiveUsers = users => ({
@@ -21,9 +21,10 @@ const updateUser = user => ({
   user
 });
 
-// const addFavoriteDogs = id => ({
-//   type: ADD_FAVORITE_DOGS
-// }) 
+const addFavoriteDog = dog => ({
+  type: ADD_FAVORITE_DOG,
+  dog
+}) 
 
 export const fetchUsers = () => dispatch => {
   return UserAPIUtil.getUsers().then(users => dispatch(receiveUsers(users))).catch(err => console.log(err));
@@ -37,6 +38,9 @@ export const createUser = (formData) => dispatch => {
   return UserAPIUtil.createUser(formData).then(user => dispatch(updateUser(user))).catch(err => console.log(err));
 }
 
+export const createFavorite = (id) => dispatch => {
+ return UserAPIUtil.addFavorite(id).then(user => dispatch(addFavoriteDog(id))).catch(err => console.log(err));
+}
 
 // SEARCH USER ACTIONS
 

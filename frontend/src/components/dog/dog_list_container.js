@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchDogs } from '../../actions/dog_actions';
-import { selectDogsForUser } from '../../reducers/selectors'
+import { selectDogsForUser } from '../../reducers/selectors';
+import { fetchPosts } from '../../actions/post_actions';
 
 import DogIndex from './dog_index';
 import { fetchAllImages } from '../../actions/image_actions';
@@ -15,6 +16,7 @@ const mapStateToProps = state => {
     return {
         dogs: selectDogsForUser(state.entities.dogs, currentUser),
         images: state.entities.images,
+        posts: Object.values(state.entities.posts.all),
         currentUser
     }
 }
@@ -22,7 +24,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchDogs: () => dispatch(fetchDogs()),
-        fetchImages: () => dispatch(fetchAllImages())
+        fetchImages: () => dispatch(fetchAllImages()),
+        fetchPosts: () => dispatch(fetchPosts())
     }
 }
 

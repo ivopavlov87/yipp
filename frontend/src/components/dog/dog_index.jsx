@@ -1,6 +1,6 @@
 import React from 'react';
 import DogIndexItem from './dog_index_item';
-import { selectImagesForDog } from '../../reducers/selectors';
+import { selectImagesForDog, selectPostsForDog } from '../../reducers/selectors';
 
 import NavBarContainer from '../nav/navbar_container';
 
@@ -13,6 +13,7 @@ class DogIndex extends React.Component {
         // debugger
         this.props.fetchImages();
         this.props.fetchDogs();
+        this.props.fetchPosts();
     }
 
     render() {
@@ -27,13 +28,19 @@ class DogIndex extends React.Component {
             )
         } else {
             Alldogs = this.props.dogs.map(dog => {
-                
-                const images = selectImagesForDog(this.props.images, dog) 
+                // debugger;
+                const images = selectImagesForDog(this.props.images, dog)
+                // debugger;
+                // console.log(this.props.posts)
+                const posts = selectPostsForDog(this.props.posts, dog)
 
                 return (<DogIndexItem
                     key={dog.id}
                     dog={dog}
                     images={images}
+                    // fetchDogPosts={this.props.fetchDogPosts}
+                    posts={posts}
+                    firstPost={posts[0]}
                 // posts={this.props.posts} 
                 />)
             }

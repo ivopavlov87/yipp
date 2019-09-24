@@ -16,7 +16,7 @@ const PostSchema = new Schema({
   },
   dogName: {
     type: String,
-    // required: true
+    required: true
   },
   date: {
     type: Date,

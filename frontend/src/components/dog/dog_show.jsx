@@ -81,6 +81,7 @@ class DogShow extends React.Component {
         const dogAge = formatAge(this.props.dog.dob)
 
         let owner;
+        // debugger;
         Object.values(this.props.users).forEach(user => {
 
             if (user._id === this.props.dog.user_id) {
@@ -88,7 +89,14 @@ class DogShow extends React.Component {
             }
         })
 
-       
+        let favoriteButton = "";
+        if (this.props.currentUser) {
+            favoriteButton = <div>
+                <button onClick={() => this.props.createFavorite(this.props.dog.id)}>Add Favorite</button>
+            </div>
+        }
+
+
         let dogLink;
         if (this.props.currentUserId && owner._id === this.props.currentUserId) {
 
@@ -121,6 +129,13 @@ class DogShow extends React.Component {
         })
         
 
+        let dogRatingTotal = 0
+        this.props.posts.map(post => {
+            return dogRatingTotal += post.temperamentRating
+        })
+
+        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length)} paws`: "This dog has no reviews"
+
         return (
             <div>
                 <NavBarContainer />
@@ -131,8 +146,9 @@ class DogShow extends React.Component {
 
                     <div className="dog-show-details">
                         <div className="dog-show-details-stats">
-                            <p>Name: {this.props.dog.name}
-                                </p>
+                            <p>Name: {this.props.dog.name}</p>
+                            <p>Rating: {dogRatingAvg}</p>
+                            <p>{favoriteButton}</p>
                             <p>Gender: {this.props.dog.gender}
                                 </p>
                             <p>Owner: {owner.username}
