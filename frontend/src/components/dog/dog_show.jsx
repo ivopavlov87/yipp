@@ -89,6 +89,10 @@ class DogShow extends React.Component {
             }
         })
 
+        if (!owner){
+            return ""
+        }
+
         let favoriteButton = "";
         if (this.props.currentUser) {
             favoriteButton = <div>
@@ -98,7 +102,7 @@ class DogShow extends React.Component {
 
 
         let dogLink;
-        if (this.props.currentUserId && owner._id === this.props.currentUserId) {
+        if (owner && this.props.currentUserId && owner._id === this.props.currentUserId) {
 
             dogLink = <div className='dog-show-edit-links'>
                 <div className="dog-show-edit-title">
