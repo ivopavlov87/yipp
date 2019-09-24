@@ -108,9 +108,9 @@ class LoginForm extends React.Component {
             />
             <span className="modal-errors">{this.renderErrors()}</span>
             {/* <br /> */}
-            <input className="modal-button" type="submit" value="Submit" />
+            <input id="login-modal-button" type="submit" value="Submit" />
             <br />
-            <button className="modal-button" onClick={this.handleDemo}>
+            <button id="login-modal-button" onClick={this.handleDemo}>
               Demo Login
             </button>
             <br />

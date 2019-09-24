@@ -79,8 +79,8 @@ class SignupForm extends React.Component {
     return (
       <div className="modal-container">
         <form className="modal-form" onSubmit={this.handleSubmit}>
-            <div className="modal-form-logo">
-              <img src={logo} alt="logo" />
+            <div id="modal-form-logo">
+              <img id="modal-form-logo-icon" src={logo} alt="logo" />
             </div>
             <h1 className="modal-header">Welcome to Yipp</h1>
             <br />
