@@ -51,7 +51,7 @@ class Search extends React.Component {
                         value={this.state.searchValue}
                         placeholder='Search all dog friends...'
                         onChange={this.handleChange}
-                    />
+                    ></input>
                    
                     <select 
                         className="search-form-dropdown"

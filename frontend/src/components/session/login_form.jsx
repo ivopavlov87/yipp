@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import "../modal/modal.css";
-import favicon from "../nav/assets/yipp-favicon.png";
+import logo from './assets/icon.png';
 
 
 class LoginForm extends React.Component {
@@ -67,6 +67,7 @@ class LoginForm extends React.Component {
       // debugger;
       if (Object.keys(this.props.errors).length === 0) {
         this.props.closeModal()}});
+
   }
 
 
@@ -86,40 +87,40 @@ class LoginForm extends React.Component {
     return (
       <div className="modal-container">
         <form className="modal-form" onSubmit={this.handleSubmit}>
-          <h1 className="modal-header">Welcome Back</h1>
-          <div className="modal-logo-container">
-          <img className="modal-logo" src={favicon} alt="yipp logo" />
+          <div className="modal-form-logo">
+            <img src={logo} alt="logo" />
           </div>
-          <h3 className="modal-fields">Username</h3>
-          <input
-            className="modal-input"
-            type="text"
-            value={this.state.username}
-            onChange={this.update("username")}
-            placeholder="Username"
-          />
-          <h3 className="modal-fields">Password</h3>
-          <input
-            className="modal-input"
-            type="password"
-            value={this.state.password}
-            onChange={this.update("password")}
-            placeholder="Password"
-          />
-          <span className="modal-errors">{this.renderErrors()}</span>
-          {/* <br /> */}
-          <input className="modal-button" type="submit" value="Submit" />
-          <br />
-          <button className="modal-button" onClick={this.handleDemo}>
-            Demo Login
-          </button>
-          <br />
-          <button
-            className="modal-button"
-            onClick={() => this.props.openModal("signup")}
-          >
-            Signup Instead
-          </button>
+          <h1 className="modal-header">Welcome Back</h1>
+            <h3 className="modal-fields">Username</h3>
+            <input
+              className="modal-input"
+              type="text"
+              value={this.state.username}
+              onChange={this.update("username")}
+              placeholder="Username"
+            />
+            <h3 className="modal-fields">Password</h3>
+            <input
+              className="modal-input"
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+            />
+            <span className="modal-errors">{this.renderErrors()}</span>
+            {/* <br /> */}
+            <input id="login-modal-button" type="submit" value="Submit" />
+            <br />
+            <button id="login-modal-button" onClick={this.handleDemo}>
+              Demo Login
+            </button>
+            <br />
+            <button
+              className="modal-button"
+              onClick={() => this.props.openModal("signup")}
+            >
+              Go to Signup
+            </button>
         </form>
       </div>
     );

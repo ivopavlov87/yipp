@@ -27,16 +27,16 @@ class NavBarMain extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="nav-bar-main-logged-in">
-                        <div id='profile'><Link to={"/profile"}>Profile</Link></div>
-                        <button onClick={this.logoutUser}>Log Out</button>
+                    <div id='profile'><Link to={"/profile"}>Profile</Link></div>
+                    <button onClick={this.logoutUser}><p>Log Out</p></button>
                 </div>
             );
         } else {
             return (
                 <div className="nav-bar-main-logged-out">
                     <div>
-                        <button id="signup" onClick={() => this.props.openModal('signup')}>Sign Up</button>
-                        <button id="login" onClick={() => this.props.openModal('login')}>Log In</button>
+                        <button id="signup" onClick={() => this.props.openModal('signup')}><p>Sign Up</p></button>
+                        <button id="login" onClick={() => this.props.openModal('login')}><p>Log In</p></button>
                     </div>
                 </div>
             );

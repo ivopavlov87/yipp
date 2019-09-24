@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 import "../modal/modal.css";
-import favicon from "../nav/assets/yipp-favicon.png";
+import logo from './assets/icon.png';
+ 
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -77,10 +79,11 @@ class SignupForm extends React.Component {
     return (
       <div className="modal-container">
         <form className="modal-form" onSubmit={this.handleSubmit}>
-          <h1 className="modal-header">Welcome To Yippy</h1>
-          <div className="modal-logo-container">
-            <img className="modal-logo" src={favicon} alt="yipp logo"/>
-          </div>
+            <div id="modal-form-logo">
+              <img id="modal-form-logo-icon" src={logo} alt="logo" />
+            </div>
+            <h1 className="modal-header">Welcome to Yipp</h1>
+            <br />
             <h3 className="modal-fields">Email</h3>
             <input
               className="modal-input"
@@ -121,7 +124,7 @@ class SignupForm extends React.Component {
               className="modal-button"
               onClick={() => this.props.openModal("login")}
             >
-              Login Instead
+              Go to Login
             </button>
         </form>
       </div>
