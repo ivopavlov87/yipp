@@ -58,15 +58,16 @@
 }
 
 .info li:first-child {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;
 
 }
 
 .info li {
-    font-size: 17px;
-    line-height: 1.5
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight:700;
 }
 
 .info li a {
@@ -75,8 +76,9 @@
 }
 
 .location {
-    font-size: 17px;
+    font-size: 20px;
     font-weight:500;
+    
 }
 
 .details {
@@ -85,4 +87,5 @@
 
 .dog-review {
     list-style: none;
+    font-size: 17px;
 }

@@ -67,6 +67,7 @@ class LoginForm extends React.Component {
       // debugger;
       if (Object.keys(this.props.errors).length === 0) {
         this.props.closeModal()}});
+
   }
 
 

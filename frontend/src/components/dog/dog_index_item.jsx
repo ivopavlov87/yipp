@@ -34,10 +34,9 @@ class DogIndexItem extends React.Component {
         let latestReview;
         if (this.props.posts.length !== 0){
             latestReview = <li>
-                Latest Review:
                         <ul>
                     <li className='dog-review'>
-                        {firstPostText}
+                        " {firstPostText} "
                     </li>
                     {/* <li>
                         Rating: {firstPostRate}/10 paws
