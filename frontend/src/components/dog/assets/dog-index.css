@@ -7,9 +7,8 @@
 }
 
 .all-dogs {
-    
     padding-left:15px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
 }
 
@@ -66,7 +65,7 @@
 }
 
 .info li {
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.5
 }
 
@@ -76,9 +75,14 @@
 }
 
 .location {
-    font-size: 15px;
+    font-size: 17px;
+    font-weight:500;
 }
 
 .details {
     margin-bottom: 25px;
+}
+
+.dog-review {
+    list-style: none;
 }

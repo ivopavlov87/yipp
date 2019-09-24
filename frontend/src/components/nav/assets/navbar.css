@@ -22,16 +22,11 @@ time, mark, audio, video {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 
@@ -41,9 +36,7 @@ code {
 }
 
 .nav-bar-container {
-    /* background-color: #d32323;
-    height: 70px;
-    margin: 0 auto; */
+    align-items: center;
 }
 .nav-bar-logged-in {
     display: flex;
@@ -113,11 +106,11 @@ code {
 
 .nav-bar-main-logged-in button {
     margin-right: 10px;
-    padding: 10px;
+
     background: transparent;
     border:none;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     cursor: pointer;
     height: 40px;
@@ -132,7 +125,7 @@ code {
     background: transparent;
     border:none;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     height: 40px;
@@ -158,6 +151,12 @@ code {
     font-size: 15px;
     font-weight: 700;
     cursor: pointer
+}
+.navbutton {
+    height: 25px;
+    width: 80px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 8px;
 }
 
 #signup {
