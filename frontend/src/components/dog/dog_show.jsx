@@ -7,7 +7,7 @@ import DogSlider from './dog_slider';
 
 import { formatAge } from '../../util/time_util';
 import './assets/dog-show.css';
-import './assets/dog_slider.css';
+
 
 
 class DogShow extends React.Component {
@@ -92,11 +92,15 @@ class DogShow extends React.Component {
         let dogLink;
         if (this.props.currentUserId && owner._id === this.props.currentUserId) {
             dogLink = <div className='dog-show-edit-links'>
-                <button><Link to={`${this.props.dog.id}/edit`}>Edit</Link></button>
-                <button onClick={this.handleDelete.bind(this)}>Delete</button>
+                <div>Edit this dog's profile:
+                    <button><Link to={`${this.props.dog.id}/edit`}>Edit</Link></button>
+                    <button onClick={this.handleDelete.bind(this)}>Delete</button>
+                </div>
                 <br/>
-                <div>Upload a photo:</div>
-                <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
+                <div>
+                    <div>Upload a photo:</div>
+                    <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
+                </div>
             </div>
         } else {
             dogLink = <div className='dog-show-edit-links'></div>
@@ -134,6 +138,8 @@ class DogShow extends React.Component {
                                 </p>
                             <p>Breed: {this.props.dog.breed}
                                 </p>
+                        </div>
+                        <div className="dog-show-details-stats">
                             <p>Age: {dogAge}
                                 </p>
                             <p>{this.props.dog.weight}
@@ -150,6 +156,7 @@ class DogShow extends React.Component {
                     <div className="dog-show-edit-section">
                         {dogLink}
                         {postComposeForm}
+
                         {this.props.posts.map(post => (
                             <DogShowPost
                                 key={post.id}

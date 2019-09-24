@@ -1,10 +1,3 @@
-.dog-show-container {
-    display: flex;
-    flex-direction: column;
-   	position: relative;
-	overflow: hidden;
-}
-
 
 .dog-show-slideshow-container {
 	position: relative;
@@ -16,7 +9,7 @@
 	margin-bottom: 15px;
 	
 }
-
+/* 
 .slick-list {
 	height: 100%;
 }
@@ -112,15 +105,15 @@
 	margin-right: 15px;
 	float: left;
     height: 100%;
+} */
+
+
+.dog-show-container {
+    display: flex;
+    flex-direction: column;
+   	position: relative;
+	overflow: hidden;
 }
-
-
-
-
-
-
-
-
 
 .dog-show-details {
     display: flex;
@@ -167,5 +160,5 @@
     justify-content: center;
 }
 .dog-show-post-index-items {
-
+    padding: 20px;
 }

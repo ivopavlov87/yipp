@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-class SpotSlider extends React.Component {
+class DogSlider extends React.Component {
     render() {
         const settings = {
             infinite: true,
@@ -21,4 +21,4 @@ class SpotSlider extends React.Component {
     }
 }
 
-export default SpotSlider;
+export default DogSlider;
