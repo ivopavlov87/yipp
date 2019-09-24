@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
 const passport = require('passport');
+const path = require('path')
 
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
@@ -31,6 +32,8 @@ app.use("/api/posts", posts);
 app.use("/api/dogs", dogs);
 app.use("/api/images", images)
 app.use("/api/search", search)
+
+// app.use(express.static(path.join(__dirname, 'public')));
 
 const port = process.env.PORT || 5000;
 

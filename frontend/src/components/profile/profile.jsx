@@ -4,7 +4,7 @@ import ProfilePostBox from './profile_post_box';
 
 import { Link } from 'react-router-dom';
 
-
+import NavBarContainer from '../nav/navbar_container';
 
 
 class Profile extends React.Component {
@@ -44,19 +44,22 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
-          <Link to="/profile/dogs/new">Create a new dog</Link>
-          <br />
-          <Link to="/profile/dogs">All the dogs!</Link>
-          <h2>All of this user's posts</h2>
-          {this.props.posts.map(post => (
-            <ProfilePostBox
-              key={post.id}
-              post={post}
-              currentUser={this.props.currentUser}
-              destroyPost={this.props.destroyPost}
-            />
-          ))}
-        </div>
+          <NavBarContainer />
+          <div>
+            <Link to="/profile/dogs/new">Create a new dog</Link>
+            <br />
+            <Link to="/profile/dogs">All the dogs!</Link>
+            <h2>All of this user's posts</h2>
+            {this.props.posts.map(post => (
+              <ProfilePostBox
+                key={post.id}
+                post={post}
+                currentUser={this.props.currentUser}
+                destroyPost={this.props.destroyPost}
+              />
+            ))}
+          </div>
+      </div>
       );
     }
   }

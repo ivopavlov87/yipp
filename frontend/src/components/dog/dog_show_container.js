@@ -5,6 +5,8 @@ import { composePost, fetchDogPosts, destroyPost } from '../../actions/post_acti
 import { fetchAllImages, createImage } from '../../actions/image_actions';
 import { selectImagesForDog } from '../../reducers/selectors';
 
+import { openModal } from '../../actions/modal_actions';
+
 import DogShow from  './dog_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -53,7 +55,8 @@ const mapDispatchToProps = dispatch => {
         destroyPost: (postId) => dispatch(destroyPost(postId)),
         fetchImages: () => dispatch(fetchAllImages()),
         createImage: (imgObj) => dispatch(createImage(imgObj)),
-        createFavorite: (id) => dispatch(createFavorite(id))
+        createFavorite: (id) => dispatch(createFavorite(id)),
+        openModal: (modal) => dispatch(openModal(modal)) 
     };
 };
 
