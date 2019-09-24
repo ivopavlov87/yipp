@@ -36,7 +36,7 @@ class DogIndexItem extends React.Component {
             latestReview = <li>
                         <ul>
                     <li className='dog-review'>
-                        " {firstPostText} "
+                        "{firstPostText}"
                     </li>
                     {/* <li>
                         Rating: {firstPostRate}/10 paws

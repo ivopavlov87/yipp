@@ -138,11 +138,11 @@ body {
 .nav-bar-main-logged-out button {
 
     margin-right: 10px;
-    padding: 10px;
+  
     background: transparent;
     border:none;
     color: white;
-    font-size: 15px;
+    font-size: 19px;
     font-weight: 700;
     cursor: pointer
 }
