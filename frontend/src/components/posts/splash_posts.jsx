@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './assets/splash_posts_index.css';
+import logo from './assets/yipp-favicon.png';
 
 class SplashPosts extends React.Component {
     
@@ -17,21 +18,12 @@ class SplashPosts extends React.Component {
             return (
                 <div className="splash-posts-index-item">
                     <li>{post.authorName}</li>
-                    <li>says about <Link id='splash-dog-name'to={`/dogs/${post.dog}`}>{post.dogName}:</Link></li>
-                    <br />
+                    <li id='splash-post'>says about <Link id='splash-dog-name'to={`/dogs/${post.dog}`}>{post.dogName}:</Link></li>
                     <li id='splash-post-text'>{post.text}</li>
-                    <br />
-                    <li>{post.authorName} gives {post.dogName}</li>
-                    <li>a rating of {post.temperamentRating} Paws.</li>
+                    <li id='post-rating'>{post.authorName} gives {post.dogName} a rating of <span id='temper'>{post.temperamentRating} yipps.</span></li>
 
-                    <div>
-                        <img src=""></img>
-                        <img src=""></img>
-                        <img src=""></img>
-                    </div>
                 </div>
             )
-
         })
         return (
             <div className="splash-posts-index">

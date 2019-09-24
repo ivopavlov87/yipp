@@ -193,6 +193,7 @@
 
 .dog-show-post-form {
     display: flex;
-    justify-content: center;
+	justify-content: center;
+	font-size: 25px;
 }
 
