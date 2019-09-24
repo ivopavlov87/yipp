@@ -1,12 +1,14 @@
 import React from 'react';
 
-import SearchContainer from '../nav/search_container'
-import logo from '../nav/assets/logo.png'
+import SearchContainer from '../nav/search_container';
+import logo from '../nav/assets/logo.png';
 
 import NavMainContainer from './navbar_main_container';
 
-import './footer.css'
-import dogwalkers from '../nav/assets/dog-walkers.png'
+import './footer.css';
+import dogwalkers from '../nav/assets/dog-walkers.png';
+
+import SplashPostsContainer from '../posts/splash_posts_container';
 
 class MainPage extends React.Component {
 
@@ -21,6 +23,9 @@ class MainPage extends React.Component {
               <img src={logo} alt="logo" />
             </div>
             <SearchContainer />
+          </div>
+          <div className='splash-posts-index-container'>
+            <SplashPostsContainer />
           </div>
             <div className="footer">
               <div className='footer-container'>

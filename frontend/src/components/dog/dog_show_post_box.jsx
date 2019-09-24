@@ -23,7 +23,7 @@ class DogProfilePostBox extends React.Component {
             <div className="dog-show-review-index-item">
                 <p>{this.props.post.title}</p>
                 <p>{this.props.post.text}</p>
-                <p>{this.props.post.authorName} gives {this.props.post.dogName}'s temperament': {this.props.post.temperamentRating} Paws</p>
+                <p>{this.props.post.authorName} gives {this.props.post.dogName}'s temperament': {this.props.post.temperamentRating} Paws.</p>
                 <p>Reviewed by: {this.props.post.authorName}</p>
                 <p>At: {this.props.post.date}</p>
                 {postButtons}

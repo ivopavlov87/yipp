@@ -37,8 +37,8 @@ class NavBar extends React.Component {
           </div>
           <div>
             {/* <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp; */}
-            <button><Link to={"/profile"}>Profile</Link></button>&nbsp;&nbsp;
-            <button onClick={this.logoutUser}>Log Out</button>
+            <Link to={"/profile"}><button><p>Profile</p></button></Link>&nbsp;&nbsp;
+            <button onClick={this.logoutUser}><p>Log Out</p></button>
           </div>
         </div>
       );
@@ -55,8 +55,8 @@ class NavBar extends React.Component {
           <SearchContainer />
 
           <div>
-            <button className="navbutton" onClick={() => this.props.openModal('signup')}>Sign Up</button>
-            <button className="navbutton" onClick={() => this.props.openModal('login')}>Log In</button>
+            <button className="navbutton" onClick={() => this.props.openModal('signup')}><p>Sign Up</p></button>
+            <button className="navbutton" onClick={() => this.props.openModal('login')}><p>Log In</p></button>
           </div>
         </div>
       );
