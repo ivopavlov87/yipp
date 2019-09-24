@@ -10,11 +10,13 @@ class DogProfilePostBox extends React.Component {
                 <div>
                     <Link to={`/posts/${this.props.post.id}/edit`}>Edit this post</Link>
                     &nbsp;&nbsp;
-          <Link to={`/profile`} onClick={() =>
+                    <Link to={`/profile`} onClick={() =>
                         this.props.destroyPost(`${this.props.post.id}`)
                     }>Delete this post</Link>
                 </div>
             );
+        } else {
+            postButtons = <div></div>
         }
 
         return (
