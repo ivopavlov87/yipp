@@ -19,26 +19,29 @@ class PostCompose extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let post = {
-      text: this.state.text,
-      temperamentRating: this.state.temperamentRating,
-      user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username,
-      dogName: this.props.dog.name,
-      dogId: this.props.dog.id
-    };
-
-    this.props.composePost(post);
-    this.setState({
-      text: "",
-      temperamentRating: 0,
-      user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username,
-      dogName: this.props.dog.name,
-      dogId: this.props.dog.id
-    });
-    this.props.history.push(`/dogs/${this.props.dog.id}`);
-
+    if (!this.props.currentUser.id) {
+      this.props.openModal('login');
+    } else {
+      let post = {
+        text: this.state.text,
+        temperamentRating: this.state.temperamentRating,
+        user_id: this.props.currentUser.id,
+        authorName: this.props.currentUser.username,
+        dogName: this.props.dog.name,
+        dogId: this.props.dog.id
+      };
+  
+      this.props.composePost(post);
+      this.setState({
+        text: "",
+        temperamentRating: 0,
+        user_id: this.props.currentUser.id,
+        authorName: this.props.currentUser.username,
+        dogName: this.props.dog.name,
+        dogId: this.props.dog.id
+      });
+      this.props.history.push(`/dogs/${this.props.dog.id}`);
+    }
   }
 
   updateText() {
@@ -55,12 +58,12 @@ class PostCompose extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="dog-show-post-container">
+        <form onSubmit={this.handleSubmit} className="dog-show-post-form">
           <div>
-            Hello User-{this.props.currentUser.id}, also known as {this.props.currentUser.username}, what do you have to say?
+            Review this Dog:
             <br />
-            <input type="textarea"
+            <textarea rows="6" cols="60"
               value={this.state.text}
               onChange={this.updateText()}
               placeholder="Write your post..."

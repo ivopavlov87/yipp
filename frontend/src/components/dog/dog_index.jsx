@@ -2,6 +2,11 @@ import React from 'react';
 import DogIndexItem from './dog_index_item';
 import { selectImagesForDog } from '../../reducers/selectors';
 
+import NavBarContainer from '../nav/navbar_container';
+
+import './assets/dog-index.css';
+
+
 class DogIndex extends React.Component {
 
     componentDidMount() {
@@ -15,7 +20,10 @@ class DogIndex extends React.Component {
         
         if (this.props.dogs.length === 0) {
             return (
-                <p>There are no dogs</p>
+                <div>
+                    <NavBarContainer />
+                    <p>There are no dogs</p>
+                </div>
             )
         } else {
             Alldogs = this.props.dogs.map(dog => {
@@ -33,14 +41,16 @@ class DogIndex extends React.Component {
         }
 
         return (
-            <div className="dog-index-container">
-                <div className="filter-section">
-                </div>
-                <h3>My Dogs:</h3>
-                <div className="dog-index-item-list">
-                    {Alldogs}
+            <div>
+                <NavBarContainer />
+                <div className="dog-index">
+                    <div className='all-dogs'>All Dogs</div>
+                    <div className="dog-index-container">
+                        {Alldogs}
+                    </div>
                 </div>
             </div>
+
         )
     }
 }

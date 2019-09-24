@@ -1,31 +1,207 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
 .landing-page-container {
     width: 100%;
     height: 1200px;
 }
 
+.nav-bar-container {
+    /* background-color: #d32323;
+    height: 70px;
+    margin: 0 auto; */
+}
+.nav-bar-logged-in {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin:0 auto;
+    background-color: #d32323;
+    height: 70px;
+    margin: 0 auto;
+    align-items: center;
+}
+.nav-bar-logged-in img {
+    height: 60px;
+    width: 100px;
+}
+.nav-bar-logged-out {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin:0 auto;
+    background-color: #d32323;
+    height: 70px;
+    margin: 0 auto;
+    align-items: center;
+}
+#logged-out {
+
+}
+#logged-out img {
+    height: 60px;
+    width: 100px;
+}
+/* .nav-bar-logged-out {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+} */
+.nav-bar-logged-out button {
+    height: 25px;
+    width: 80px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 8px;
+
+}
+
+.nav-bar-main-logged-out {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.nav-bar-main-logged-in {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display:flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.nav-bar-main-logged-in button {
+    margin-right: 10px;
+    padding: 10px;
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.nav-bar-main-logged-in a {
+    margin-right: 20px;
+    padding: 10px;
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    color: white;
+    text-decoration: none;
+}
+
+
+.nav-bar-main-logged-in button:hover {
+    background: white;
+    color:black
+}
+
+
+.nav-bar-main-logged-out button {
+
+    margin-right: 10px;
+    padding: 10px;
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+#signup {
+    height: 40px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#signup:hover {
+    background: white;
+    color:black
+}
+
+#login {
+    height: 40px;
+    width: 70px;
+}
+
+#login:hover {
+    border-bottom: 2px solid white;
+}
+
 .nav-bar-items {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 .nav-bar-items a {
-    color: white;
+    color: black;
     padding: 6px;
 }
 
 .landing-page-logo-container {
-    height: 500px;
+    min-height: 700px;
     display:flex;
     flex-direction: column;
     background-image: url('./dog-poker.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 .landing-page-logo-items {
     display: flex;
     justify-content: center;
-    padding-top: 95px;
+    padding-top: 130px;
 }
 .landing-page-logo-items img {
     height: 80px;
@@ -38,41 +214,5 @@
     /* background:  */
 }
 
-.search-container {
-    display: flex;
-    justify-content: center;
-}
 
-.search-form {
-    display: flex;
-    flex-direction: row;
-}
-.search-form-textbox {
-    width: 480px;
-    height: 45px;
-    box-sizing: border-box;
-    font-size: 18px;
-    padding: 11px;
-    border-radius: 10px 10px 10px 10px; 
-}
-.search-form-dropdown {
-    height: 45px;
-    box-sizing: border-box;
-    font-size: 18px;
-    padding: 11px;
-    border-radius: 10px 10px 10px 10px; 
-}
-.search-form-submit {
-    height: 45px;
-    width: 50px;
-    background-color: #d32323;
-    box-sizing: border-box;
-    font-size: 18px;
-    padding: 11px;
-    border-radius: 10px 10px 10px 10px;
-    background-image: url('./magnifying-glass-icon.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
-/* #d32323 */

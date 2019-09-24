@@ -4,8 +4,14 @@ import { createDog } from '../../actions/dog_actions';
 import DogForm from './dog_create_form';
 
 const mapStateToProps = state => {
+    let currentUserId;
+    if (!state.session.user) {
+        currentUserId = undefined
+    } else {
+        currentUserId = state.session.user.id
+    }
     return {
-        currentUserId: state.session.user.id
+        currentUserId
     }
 }
 

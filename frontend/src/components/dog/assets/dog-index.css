@@ -1,0 +1,84 @@
+
+.dog-index {
+
+    width: 60%;
+    margin:20px auto;
+
+}
+
+.all-dogs {
+    
+    padding-left:15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.dog-index-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dog-index-item-container {
+    display: flex;
+    list-style: none;
+    padding:30px 0px;
+    border-bottom: 1px solid #e6e6e6
+}
+
+.dog-index-item-container:first-child {
+    margin-top:10px;
+}
+
+
+.dog-index-item-container img {
+    width: 270px;
+    height: 250px;
+    border-radius: 10px;
+    margin-right: 30px;
+    border:2px solid whitesmoke;
+    object-fit: cover;
+}
+
+
+.details {
+     display: flex;
+     justify-content: flex-start
+}
+
+.info {
+    width:70%
+}
+
+
+.dog-index-item-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info li:first-child {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+}
+
+.info li {
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.info li a {
+    text-decoration: none;
+    color: #0073bb
+}
+
+.location {
+    font-size: 15px;
+}
+
+.details {
+    margin-bottom: 25px;
+}
