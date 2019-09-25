@@ -15,8 +15,23 @@ class Profile extends React.Component {
     super(props);
 
     this.state = {
-      posts: []
-    }
+      posts: [],
+      addDog: false,
+      addFavorite: true,
+      addPost: true
+    };
+  }
+
+  toggleDog() {
+    this.setState({ addDog: !this.state.addDog });
+  }
+
+  toggleFavorite() {
+    this.setState({ addFavorite: !this.state.addFavorite });
+  }
+
+  togglePost() {
+    this.setState({ addPost: !this.state.addPost });
   }
 
   componentDidMount() {
@@ -31,38 +46,78 @@ class Profile extends React.Component {
     // makes a aray of dogs that the current user has liked
     // debugger
     // console.log(this.props.images)
-    const favoriteDogs = this.props.favoriteDogs.map((dog) => {
+
+    const favoriteDogs = this.props.favoriteDogs.map(dog => {
       const dogImage = selectOneImagesForDog(this.props.images, dog);
-      return <li key={dog._id}>
-        <Link to={`/dogs/${dog._id}`}>
-          {dog.name}
-        </Link>
-        <br />
-        <Link to={`/dogs/${dog._id}`}>
-          <img src={`/api/images/${dogImage[0].filename}`} alt={dog.name} />
-        </Link>
-      </li>
-    })
+      if (dogImage[0]) {
+        return (
+          <li className="user-dog-li" key={dog._id}>
+            <Link to={`/dogs/${dog._id}`}>
+              <p className="user-dog-name">{dog.name}</p>
+            </Link>
+            <br />
+            <Link to={`/dogs/${dog._id}`}>
+              <img
+                className="user-dog-img"
+                src={`/api/images/${dogImage[0].filename}`}
+                alt={dog.name}
+              />
+            </Link>
+          </li>
+        );
+      } else {
+        return "";
+      }
+    });
 
     // console.log(this.props.dogs)
-    const userDogs = this.props.dogs.filter((dog) => {
+    const userDogs = this.props.dogs.filter(dog => {
       return this.props.currentUser.id === dog.user_id;
-    })
-    
-    const userDogsDisplay = userDogs.map((dog) => {
+    });
+
+    const userDogsDisplay = userDogs.map(dog => {
       const dogImage = selectImagesForDog(this.props.images, dog);
-      return <li key={dog.id}>
-      <Link to={`/dogs/${dog.id}`}>
-        {dog.name}
-      </Link>
-      <br />
-      <Link to={`/dogs/${dog.id}`}>
-        <img src={`/api/images/${dogImage[0].filename}`} alt={dog.name} />
-      </Link>
-      </li>
-    })
+      if (dogImage[0]) {
+        return (
+          <li className="user-dog-li" key={dog.id}>
+            <Link to={`/dogs/${dog.id}`}>
+              <p className="user-dog-name">{dog.name}</p>
+            </Link>
+            <br />
+            <Link to={`/dogs/${dog.id}`}>
+              <img
+                className="user-dog-img"
+                src={`/api/images/${dogImage[0].filename}`}
+                alt={dog.name}
+              />
+            </Link>
+          </li>
+        );
+      } else {
+        return "";
+      }
+    });
 
+    let myDog = ["profile-my-dogs"];
+    let dogbtn = ["my-dogs"];
+    if (this.state.addDog) {
+      myDog.push("active");
+      dogbtn.push("active");
+    }
 
+    let myFavorite = ["profile-favorite-dogs"];
+    let favbtn = ["my-favorite"];
+    if (this.state.addFavorite) {
+      myFavorite.push("active");
+      favbtn.push("active");
+    }
+
+    let myPosts = ["profile-posts"];
+    let postbtn = ["my-reviews"];
+    if (this.state.addPost) {
+      myPosts.push("active");
+      postbtn.push("active");
+    }
 
     // let userPosts;
     // if (this.props.posts.length === 0) {
@@ -94,60 +149,162 @@ class Profile extends React.Component {
                 </div>
                 <div className="profile-btn-container">
                   <div className="profile-buttons">
-                    <Link to="/profile/dogs/new">Create a new dog</Link>
+                    <div className="profile-btn-top">
+                      <button className="dog-idx">
+                        <Link to="/dogs">All dogs!</Link>
+                      </button>
+                    </div>
                     <br />
-                    <Link to="/profile/dogs">All your dogs!</Link>
+                    <div className="profile-btn-upper">
+                      <button className="new-dog">
+                        <Link to="/profile/dogs/new">Create a new dog</Link>
+                      </button>
+                      <br />
+                      <button className="dog-details">
+                        <Link to="/profile/dogs">My Dogs Details</Link>
+                      </button>
+                    </div>
                     <br />
-                    <Link to="/dogs">All dogs!</Link>
+                    <div className="profile-btn-lower">
+                      <button
+                        className={dogbtn.join(" ")}
+                        onClick={this.toggleDog.bind(this)}
+                      >
+                        My Dogs
+                      </button>
+                      <br />
+                      <button
+                        className={favbtn.join(" ")}
+                        onClick={this.toggleFavorite.bind(this)}
+                      >
+                        My Favorite Dogs
+                      </button>
+                      <br />
+                      <button
+                        className={postbtn.join(" ")}
+                        onClick={this.togglePost.bind(this)}
+                      >
+                        My Reviews
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="profile-right-container">
               <div className="profile-right">
-                <div className="profile-right-header">
-                  <h2>Your Dogs:</h2>
+                <div className={myDog.join(" ")}>
+                  <div className="profile-right-header">
+                    <h2>Your Dogs:</h2>
+                  </div>
+                  <ul>{userDogsDisplay}</ul>
                 </div>
-                <ul>{userDogsDisplay}</ul>
-                <div className="profile-right-header"></div>
-                  <h2>Your Favorites:</h2>
+                <div className={myFavorite.join(" ")}>
+                  <div className="profile-right-header">
+                    <h2>Your Favorites:</h2>
+                  </div>
+                  <ul>{favoriteDogs}</ul>
                 </div>
-                <ul>{favoriteDogs}</ul>
                 {/* <h3>This user has no posts</h3> */}
                 {/* {userPosts} */}
-                <div className="profile-right-header">
-                  <h2>All of your posts</h2>
+                <div className={myPosts.join(" ")}>
+                  <div className="profile-right-header">
+                    <h2>All of your reviews:</h2>
+                  </div>
+                  <div className="profile-post-body">
+                    {this.props.posts.map(post => (
+                      <ProfilePostBox
+                        key={post.id}
+                        post={post}
+                        currentUser={this.props.currentUser}
+                        destroyPost={this.props.destroyPost}
+                      />
+                    ))}
+                  </div>
                 </div>
-                {this.props.posts.map(post => (
-                  <ProfilePostBox
-                    key={post.id}
-                    post={post}
-                    currentUser={this.props.currentUser}
-                    destroyPost={this.props.destroyPost}
-                  />
-                ))}
               </div>
             </div>
           </div>
-        // </div>
+        </div>
       );
     } else {
       return (
-      <div>
-        <NavBarContainer />
+        <div>
+          <NavBarContainer />
           {/* {DogListContainer} */}
-        <br />
-        <Link to="/profile/dogs/new">Create a new dog</Link>
-        <br />
-        <Link to="/profile/dogs">All your dogs!</Link>
-        <br />
-        <Link to="/dogs">All dogs!</Link>
-        <ul>
-          {favoriteDogs}
-        </ul>
-        <h3>You have no posts</h3>
-      </div>
-      )
+          <div className="profile-container">
+            <div className="profile-left-container">
+              <div className="profile-left">
+                <div className="default-image">
+                  <img src={noImage} alt="default-profile-pic" />
+                </div>
+                <div className="profile-btn-container">
+                  <div className="profile-buttons">
+                    <div className="profile-btn-top">
+                      <button className="all-dogs">
+                        <Link to="/dogs">All dogs!</Link>
+                      </button>
+                    </div>
+                    <br />
+                    <div className="profile-btn-upper">
+                      <button className="new-dog">
+                        <Link to="/profile/dogs/new">Create a new dog</Link>
+                      </button>
+                      <br />
+                      <button className="dog-details">
+                        <Link to="/profile/dogs">My Dogs Details</Link>
+                      </button>
+                    </div>
+                    <div className="profile-btn-lower">
+                      <button
+                        className={dogbtn.join(" ")}
+                        onClick={this.toggleDog.bind(this)}
+                      >
+                        My Dogs
+                      </button>
+                      <br />
+                      <button
+                        className={favbtn.join(" ")}
+                        onClick={this.toggleFavorite.bind(this)}
+                      >
+                        My Favorite Dogs
+                      </button>
+                      <br />
+                      <button
+                        className={postbtn.join(" ")}
+                        onClick={this.togglePost.bind(this)}
+                      >
+                        My Reviews
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="profile-right-container">
+              <div className="profile-right">
+                <div className={myDog.join(" ")}>
+                  <div className="profile-right-header">
+                    <h2>Your Dogs:</h2>
+                  </div>
+                  <ul>{userDogsDisplay}</ul>
+                </div>
+                <div className={myFavorite.join(" ")}>
+                  <div className="profile-right-header">
+                    <h2>Your Favorites:</h2>
+                  </div>
+                  <ul>{favoriteDogs}</ul>
+                </div>
+                <div className="profile-posts">
+                  <div className="profile-right-header">
+                    <h3>You have no reviews</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     }
   }
 }

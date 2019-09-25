@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './assets/splash_posts_index.css';
-import logo from './assets/yipp-favicon.png';
+// import logo from './assets/yipp-favicon.png';
 
 class SplashPosts extends React.Component {
     
