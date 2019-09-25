@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {formatDate} from '../../util/date_util';
 
 class ProfilePostBox extends React.Component {
 
@@ -20,13 +21,15 @@ class ProfilePostBox extends React.Component {
       );
     }
 
+    const formattedDate = formatDate(this.props.post.date)
+
     return (
       <div>
         <h2>Dog name: <Link to={`/dogs/${this.props.post.dog}`}>{this.props.post.dogName}</Link></h2>
         <h3>{this.props.post.text}</h3>
         <h4>Temperament rating: {this.props.post.temperamentRating}</h4>
         <div>AuthorName: {this.props.post.authorName}</div>
-        <div>Date posted: {this.props.post.date}</div>
+        <div>Date posted: {formattedDate}</div>
         {/* <div>PostId: {this.props.post.id}</div> */}
         {postButtons}
       </div>

@@ -40,7 +40,7 @@ class DogIndexItem extends React.Component {
                         "{firstPostText}"
                     </li>
                     {/* <li>
-                        Rating: {firstPostRate}/10 paws
+                        Rating: {firstPostRate}/10 yipps
                         </li>
                     <li>
                         Author: {firstPostAuthor}
@@ -56,7 +56,7 @@ class DogIndexItem extends React.Component {
         this.props.posts.map(post => {
             return dogRatingTotal += post.temperamentRating
         })
-        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} paws` : "This dog has no reviews"
+        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} yipps` : "This dog has no reviews"
 
         const dogAge = formatAge(this.props.dog.dob)
         
