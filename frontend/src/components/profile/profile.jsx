@@ -19,6 +19,7 @@ class Profile extends React.Component {
     }
   }
 
+
   componentDidMount() {
     // console.log(this.props.currentUser.id)
     this.props.fetchUser(this.props.currentUser.id);
@@ -33,7 +34,8 @@ class Profile extends React.Component {
     // console.log(this.props.images)
     const favoriteDogs = this.props.favoriteDogs.map((dog) => {
       const dogImage = selectOneImagesForDog(this.props.images, dog);
-      return <li key={dog._id}>
+      if (dogImage[0]){
+        return <li key={dog._id}>
         <Link to={`/dogs/${dog._id}`}>
           {dog.name}
         </Link>
@@ -41,7 +43,7 @@ class Profile extends React.Component {
         <Link to={`/dogs/${dog._id}`}>
           <img src={`/api/images/${dogImage[0].filename}`} alt={dog.name} />
         </Link>
-      </li>
+      </li>} else { return "" }
     })
 
     // console.log(this.props.dogs)
@@ -51,15 +53,20 @@ class Profile extends React.Component {
     
     const userDogsDisplay = userDogs.map((dog) => {
       const dogImage = selectImagesForDog(this.props.images, dog);
-      return <li key={dog.id}>
+      if (dogImage[0]) {
+        return <li className="user-dog-li" key={dog.id}>
+        
       <Link to={`/dogs/${dog.id}`}>
-        {dog.name}
+        <p className="user-dog-name">{dog.name}</p>
       </Link>
+        
       <br />
+      
       <Link to={`/dogs/${dog.id}`}>
-        <img src={`/api/images/${dogImage[0].filename}`} alt={dog.name} />
+        <img className="user-dog-img" src={`/api/images/${dogImage[0].filename}`} alt={dog.name} />
       </Link>
-      </li>
+        
+      </li>} else { return "" }
     })
 
 
@@ -109,7 +116,7 @@ class Profile extends React.Component {
                   <h2>Your Dogs:</h2>
                 </div>
                 <ul>{userDogsDisplay}</ul>
-                <div className="profile-right-header"></div>
+                <div className="profile-right-header">
                   <h2>Your Favorites:</h2>
                 </div>
                 <ul>{favoriteDogs}</ul>
@@ -129,23 +136,45 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
-        // </div>
+        </div>
       );
     } else {
       return (
       <div>
         <NavBarContainer />
           {/* {DogListContainer} */}
-        <br />
-        <Link to="/profile/dogs/new">Create a new dog</Link>
-        <br />
-        <Link to="/profile/dogs">All your dogs!</Link>
-        <br />
-        <Link to="/dogs">All dogs!</Link>
-        <ul>
-          {favoriteDogs}
-        </ul>
-        <h3>You have no posts</h3>
+          <div className="profile-container">
+            <div className="profile-left-container">
+              <div className="profile-left">
+                <div className="default-image">
+                  <img src={noImage} alt="default-profile-pic" />
+                </div>
+                <div className="profile-btn-container">
+                  <div className="profile-buttons">
+                    <Link to="/profile/dogs/new">Create a new dog</Link>
+                    <br />
+                    <Link to="/profile/dogs">All your dogs!</Link>
+                    <br />
+                    <Link to="/dogs">All dogs!</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="profile-right-container">
+              <div className="profile-right">
+                <div className="profile-right-header">
+                  <ul>{userDogsDisplay}</ul>
+                  <div className="profile-right-header">
+                    <h2>Your Favorites:</h2>
+                  </div>
+                  <ul>{favoriteDogs}</ul>
+                  <div className="profile-right-header"></div>
+                    <h3>You have no posts</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
       </div>
       )
     }

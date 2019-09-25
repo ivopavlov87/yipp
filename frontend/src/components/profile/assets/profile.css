@@ -32,9 +32,40 @@
 }
 
 .profile-right {
-
+    width: 75%;
 }
 
 .profile-right-header {
+    font-weight: bold;
+    font-size: 40px;
+}
 
+.user-dog-li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.user-dog-img {
+    width: 270px;
+    height: 250px;
+    border-radius: 10px;
+    margin-right: 30px;
+    border: 2px solid whitesmoke;
+    object-fit: cover;
+
+}
+
+.user-dog-name {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.user-dog-name-container {
+    align-content: flex-start;
+}
+
+.user-dog-img-container {
+    align-items: flex-start
 }
