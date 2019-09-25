@@ -138,7 +138,7 @@ class DogShow extends React.Component {
             return dogRatingTotal += post.temperamentRating
         })
 
-        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} paws`: "This dog has no reviews"
+        let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} yipps`: "This dog has no reviews"
 
         return (
             <div>

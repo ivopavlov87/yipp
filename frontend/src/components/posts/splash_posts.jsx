@@ -20,7 +20,7 @@ class SplashPosts extends React.Component {
                     <li>{post.authorName}</li>
                     <li id='splash-post'>says about <Link id='splash-dog-name'to={`/dogs/${post.dog}`}>{post.dogName}:</Link></li>
                     <li id='splash-post-text'>{post.text}</li>
-                    <li id='post-rating'>{post.authorName} gives {post.dogName} a rating of <span id='temper'>{post.temperamentRating} paws.</span></li>
+                    <li id='post-rating'>{post.authorName} gives {post.dogName} a rating of <span id='temper'>{post.temperamentRating} yipps.</span></li>
                 </div>
             )
         })

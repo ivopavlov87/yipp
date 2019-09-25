@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
 const passport = require('passport');
-const path = require('path')
+const path = require('path');
 
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
 const dogs = require("./routes/api/dogs");
 const images = require("./routes/api/images");
-const search = require("./routes/api/search")
+const search = require("./routes/api/search");
 
 const bodyParser = require('body-parser');
 // this is middleware for body-parser
@@ -38,3 +38,10 @@ app.use("/api/search", search)
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
