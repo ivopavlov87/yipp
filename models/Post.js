@@ -10,9 +10,27 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  authorName: {
+    type: String,
+    required: true
+  },
+  dogName: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
+  },
+  temperamentRating: {
+    type: Number,
+    min: 1, // 1 is very aggressive
+    max: 10, // 10 is super friendly
+    required: true
+  },
+  dog: {
+    type: Schema.Types.ObjectId,
+    ref: 'dogs'
   }
 });
 

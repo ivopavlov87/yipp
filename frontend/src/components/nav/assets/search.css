@@ -1,0 +1,46 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Indie Flower', cursive;
+
+}
+.search-form-textbox {
+    width: 480px;
+    height: 45px;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 11px;
+    border-radius: 10px 10px 10px 10px; 
+}
+.search-form-textbox::placeholder {
+    font-family: 'Indie Flower', cursive;
+}
+
+.search-form-dropdown {
+    height: 45px;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 11px;
+    border-radius: 10px 10px 10px 10px; 
+    font-family: 'Indie Flower', cursive;
+    font-weight: 700;
+}
+.search-form-submit {
+    height: 45px;
+    width: 50px;
+    background-color: #d32323;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 11px;
+    border-radius: 10px 10px 10px 10px;
+    background-image: url('./magnifying-glass-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}

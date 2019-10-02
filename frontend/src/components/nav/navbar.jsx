@@ -1,6 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-// import './navbar.css'
+import { Link, withRouter } from 'react-router-dom'
+
+import SearchContainer from './search_container'
+import logo from '../nav/assets/logo.png'
+import Modal from '../modal/modal';
+
+import './assets/navbar.css'
+// import './assets/navbar.css';
+// import SearchContainer from './search_container'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -12,24 +19,44 @@ class NavBar extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
+    this.props.history.push('/');
   }
 
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
-          <Link to={'/posts'}>All Posts</Link>
-          <Link to={'/profile'}>Profile</Link>
-          <Link to={'/new_post'}>Write a Post</Link>
-          <button onClick={this.logoutUser}>Logout</button>
+        <div className="nav-bar-logged-in">
+          <div>
+            <Link to="/profile">
+              <img src={logo} alt="logo" />
+            </Link>
+          </div>
+          <div>
+            <SearchContainer />
+          </div>
+          <div>
+            {/* <Link to={"/posts"}>All Posts</Link>&nbsp;&nbsp; */}
+            <Link to={"/profile"}><button className="navbutton"><p>Profile</p></button></Link>&nbsp;&nbsp;
+            <button className="navbutton" onClick={this.logoutUser}><p>Log Out</p></button>
+          </div>
         </div>
       );
     } else {
       return (
-        <div>
-          <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
+        <div className="nav-bar-logged-out">
+          <Modal />
+          <div className="modal-form-logo-icon">
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
+          </div>
+
+          <SearchContainer />
+          <div>
+            <button className="navbutton" onClick={() => this.props.openModal('signup')}><p>Sign Up</p></button>
+            <button className="navbutton" onClick={() => this.props.openModal('login')}><p>Log In</p></button>
+          </div>
         </div>
       );
     }
@@ -37,12 +64,14 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Yipp</h1>
-        {this.getLinks()}
+      <div className="nav-bar-container">
+        {/* <div className="nav-bar-items"> */}
+          {this.getLinks()}
+        {/* </div> */}
       </div>
     );
   }
+
 }
 
-export default NavBar;
+export default withRouter(NavBar);

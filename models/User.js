@@ -5,7 +5,9 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: true
+    required: true,
+    index: true,
+    unique: true
   },
   email: {
     type: String,
@@ -18,7 +20,9 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  favoriteDogs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'dog' }]
+  // followedAccounts: [],
 })
 
 module.exports = User = mongoose.model('users', UserSchema);

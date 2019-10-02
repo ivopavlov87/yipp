@@ -14,7 +14,7 @@ MVPs
 USER AUTH
 	Profiles
 		User Params
-		location, owner, dog info.
+		location, owner, dog- info.
 		Dog Params
 		breed, size, weight, temperament, motivation, alteredStatus (snipped), age, energy, location
 OTHER MVPs
@@ -46,7 +46,7 @@ SCHEMA
 users
 	username, password_digest, session_token, timestamps
 dogs (rating)
-	name, breed, age, weight, energy level, temperament, vaccinations, color, timestamps
+	name, breed, dob, weight, energy level, temperament, vaccinations, color, timestamps
 posts (reviews)
 	title, body, timestamps
 ratings
