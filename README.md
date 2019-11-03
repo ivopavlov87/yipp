@@ -75,7 +75,7 @@ module.exports = passport => {
 <div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-dogcreate.gif" alt="dog show page" /></div>
 <div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-dogshow.gif" alt="dog show page" /></div>
 
-Each user is able to create a page for each dog they have, along with a description and a carosel to display images of their dog.
+Each user is able to create a page for each dog they have, along with a description and a carousel to display images of their dog.
 
 ```javascript
 class DogSlider extends React.Component {
