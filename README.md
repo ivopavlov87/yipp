@@ -44,8 +44,9 @@ const UserSchema = new Schema({
 });
 ```
 
+## Feature Details
 
-## Authentication
+### Authentication
 
 User authentication was handled using Passport.js for it's unobtrustive integration into any Express-based web application and ease of returning the user to the frontend and allowing access to site features.
 
@@ -70,7 +71,7 @@ module.exports = passport => {
 };
 ```
 
-## Dog Creation
+### Dog Creation
 
 <div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-dogcreate.gif" alt="dog show page" /></div>
 <div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-dogshow.gif" alt="dog show page" /></div>
@@ -101,7 +102,7 @@ class DogSlider extends React.Component {
 export default DogSlider;
 ```
 
-## Reviews
+### Reviews
 
 Each dog's page shows all comments left with each review along with an aggregated average of each rating to detail how well the dog behaves.
 
@@ -116,3 +117,9 @@ let dogRatingAvg =
 		`${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} yipps`
 		: "This dog has no reviews"
 ```
+
+## Future Releases
+
+* Map integration and expansion to other cities
+* Inclusion of videos for dog show page
+* Owner information on user account profile
