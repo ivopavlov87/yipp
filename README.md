@@ -6,7 +6,7 @@ A Yelp-inspired app for dog-owners to leave reviews and ratings on user’s dogs
 
 ## Architecture and Technology
 
-<div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-login.gi" alt="Demo login" /></div>
+<div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-login.gif" alt="Demo login" /></div>
 
 ### Technologies used: 
 * [MongoDB](https://www.mongodb.com/)
