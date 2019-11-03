@@ -70,7 +70,41 @@ module.exports = passport => {
 };
 ```
 
+## Dog Creation
+
+<div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-dogcreate.gif" alt="dog show page" /></div>
+<div><img src="https://github.com/ivopavlov87/yipp/blob/master/yipp-dogshow.gif" alt="dog show page" /></div>
+
+Each user is able to create a page for each dog they have, along with a description and a carosel to display images of their dog.
+
+```javascript
+class DogSlider extends React.Component {
+    render() {
+        const settings = {
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            // variableWidth: true
+        }
+        const photos = this.props.imgUrls.map(url =>
+            <div className='image-slide'>
+                <img src={url} alt="" />
+            </div>)
+        return (
+            <Slider {...settings}>
+                {photos}
+            </Slider>
+        )
+    }
+}
+
+export default DogSlider;
+```
+
 ## Reviews
+
+Each dog's page shows all comments left with each review along with an aggregated average of each rating to detail how well the dog behaves.
 
 ```javascript
 let dogRatingTotal = 0
