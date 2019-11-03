@@ -1,90 +1,76 @@
-YIPP
-FB / Yelp clone
+# README
+
+ [Yipp live](https://yipp.herokuapp.com/)
+
+A Yelp-inspired app for dog-owners to leave reviews and ratings on user’s dogs based on social interactions.
+
+## Architecture and Technology
+
+The backend is a Node.js runtime and Express framework used for processing requests and querying the application database. Using the Express framework allowed for quick setup with well tested and established design patterns along with well documented troubleshooting whenever any bugs happened to appear. The database was setup on MongoDB for user, and review data, as well as image hosting. The frontend is tied together using React and Redux to allow for specific component re-rendering utilising the VirtualDOM and reusable React components kept the look and feel of the site to remain universal. Redux develtopment tools were used extensively during development as a convenient way to look at the current state. 
+
+```javascript
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const UserSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    index: true,
+    unique: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  favoriteDogs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'dog' }]
+});
+```
 
 
-• Background and Overview
-• Functionality and MVP
-• Technologies and Technical Challenges
-• Group Members and Work Breakdown
-	○ Proposal must have a day-by-day breakdown for each individual. See sample proposal for clarification.
-• Plan for getting users and reviews (if your app is a downloadable app)
+## Authentication
 
+User authentication was handled using Passport.js for it's unobtrustive integration into any Express-based web application and ease of returning the user to the frontend and allowing access to site features.
 
-MVPs
-USER AUTH
-	Profiles
-		User Params
-		location, owner, dog- info.
-		Dog Params
-		breed, size, weight, temperament, motivation, alteredStatus (snipped), age, energy, location
-OTHER MVPs
-	Friending: Friends List, Friends Show (Profile)
-	Posts (Review) CRUD, Rating Feature attached to Dogs
-	Comments
-	Searching
+```javascript
+const options = {};
+options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+options.secretOrKey = keys.secretOrKey;
 
-Bonus
-	News Feed
-	Rating Feature on dogs
-	Comment CRUD (with a 1-5 star rating?)
-	Favorites
-	Renting a dog
-	Book a puppy playdate
+module.exports = passport => {
+  passport.use(new JwtStrategy(options, (jwt_payload, done) => {
+    User.findById(jwt_payload.id)
+      .then(user => {
+        if (user) {
+          // return the user to the frontend
+          return done(null, user);
+        }
+        // return false since there is no user
+        return done(null, false);
+      })
+      .catch(err => console.log(err));
+  }));
+};
+```
 
+## Reviews
 
-STRUCTURE
- Splash
-	login, signup
- DogIndex
-	dog show pages
-		dog info., posts, 
- UserIndex
-	user profile info.
+```javascript
+let dogRatingTotal = 0
+this.props.posts.map(post => {
+		return dogRatingTotal += post.temperamentRating
+})
 
-
-SCHEMA
-users
-	username, password_digest, session_token, timestamps
-dogs (rating)
-	name, breed, dob, weight, energy level, temperament, vaccinations, color, timestamps
-posts (reviews)
-	title, body, timestamps
-ratings
-	score, timestamps
-	
-BONUS
-comments
-	body, timestamps
-	foreign key: post_comments
-event
-	title, location, start_time, length, activity, # of participants
-	
-	
-GROUP BREAKDOWN
-Frontend: Anis, Ivo
-Backend: Long, Kyle
-NOT ABSOLUTE
-	
-	
-ANDY/TREVOR NOTES
-Pattern for FSP
-	build MVPs in slices, one MVP in progress at every point in process
-Delegate people to front or back, pair up on features
-	start testing integrating slowly
-Communication is key
-	keep the group together
-	pairs can keep people on the same page, by feature or section
-	don't want people doing the same work
-	integrate frequently
-	delegate tasks to ensure no pieces are missing, and to ensure responsibility
-Work together through User Auth
-	once on the same page, we can move to different places
-	
-
-WORKFLOW DEMO
-	Protect master branch in github settings (disable push to master branch)
-	Check out to the staging area, not to the master branch
-	merge into master branch from staging via pull request
-	FOR TODAY, just work from staging
-	PULL BEFORE YOU PUSH, RESOLVE GIT CONFLICTS LOCALLY BEFORE YOU PUSH
-
+let dogRatingAvg = 
+	(dogRatingTotal / (this.props.posts).length) ? 
+		`${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} yipps`
+		: "This dog has no reviews"
+```
