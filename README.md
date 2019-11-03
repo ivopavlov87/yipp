@@ -6,6 +6,13 @@ A Yelp-inspired app for dog-owners to leave reviews and ratings on user’s dogs
 
 ## Architecture and Technology
 
+### Technologies used: 
+⋅⋅* MongoDB
+⋅⋅* Express
+⋅⋅* React
+⋅⋅* Redux
+⋅⋅* Node.js
+
 The backend is a Node.js runtime and Express framework used for processing requests and querying the application database. Using the Express framework allowed for quick setup with well tested and established design patterns along with well documented troubleshooting whenever any bugs happened to appear. The database was setup on MongoDB for user, and review data, as well as image hosting. The frontend is tied together using React and Redux to allow for specific component re-rendering utilising the VirtualDOM and reusable React components kept the look and feel of the site to remain universal. Redux develtopment tools were used extensively during development as a convenient way to look at the current state. 
 
 ```javascript
