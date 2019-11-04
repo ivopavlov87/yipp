@@ -118,6 +118,65 @@ let dogRatingAvg =
 		: "This dog has no reviews"
 ```
 
+### User Profile
+
+<div><img src="https://github.com/ivopavlov87/yipp/blob/master/dynamic-profile.gif" alt="dynamic profile" /></div>
+
+* Through the use of a toggle, users are able to dynamically view their dogs, their favorite dogs, and all ratings they have left.
+
+```javascript
+	let myDog = ["profile-my-dogs"];
+	let dogbtn = ["my-dogs"];
+	if (this.state.addDog) {
+		myDog.push("active");
+		dogbtn.push("active");
+	}
+
+	let myFavorite = ["profile-favorite-dogs"];
+	let favbtn = ["my-favorite"];
+	if (this.state.addFavorite) {
+		myFavorite.push("active");
+		favbtn.push("active");
+	}
+
+	let myPosts = ["profile-posts"];
+	let postbtn = ["my-reviews"];
+	if (this.state.addPost) {
+		myPosts.push("active");
+		postbtn.push("active");
+	}
+```
+
+```javascript
+	<div className={myDog.join(" ")}>
+		<div className="profile-right-header">
+			<h2>Your Dogs:</h2>
+		</div>
+		<ul>{userDogsDisplay}</ul>
+	</div>
+	<div className={myFavorite.join(" ")}>
+		<div className="profile-right-header">
+			<h2>Your Favorites:</h2>
+		</div>
+		<ul>{favoriteDogs}</ul>
+	</div>
+	<div className={myPosts.join(" ")}>
+		<div className="profile-right-header">
+			<h2>All of your reviews:</h2>
+		</div>
+		<div className="profile-post-body">
+			{this.props.posts.map(post => (
+				<ProfilePostBox
+					key={post.id}
+					post={post}
+					currentUser={this.props.currentUser}
+					destroyPost={this.props.destroyPost}
+				/>
+			))}
+		</div>
+	</div>
+```
+
 ## Future Releases
 
 * Map integration and expansion to other cities
