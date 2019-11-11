@@ -70,7 +70,8 @@ class DogForm extends React.Component {
                         Add a new dog:
                     </div>
                     <form onSubmit={this.handleSubmit} className="dog-form-fields">
-                        <div>Name: 
+                        <div>
+                            <p>Name:</p>
                             <input
                                 type="text"
                                 value={this.state.name}
@@ -78,14 +79,16 @@ class DogForm extends React.Component {
                             />
                         </div>
                         <br/>
-                        <div>Gender:
+                        <div>
+                            <p>Gender:</p>
                             <select value={this.state.gender} onChange={this.update('gender')}>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
                         </div>
                         <br />
-                        <div>Location:
+                        <div>
+                            <p>Location:</p>
                             <select value={this.state.location} onChange={this.update('location')}>
                                 <option value="New York">New York</option>
                                 <option value="San Francisco">San Francisco</option>
@@ -94,7 +97,8 @@ class DogForm extends React.Component {
                             </select>
                         </div>
                         <br />
-                        <div>Breed:
+                        <div>
+                            <p>Breed:</p>
                             <input
                                 type="text"
                                 value={this.state.breed}
@@ -102,7 +106,8 @@ class DogForm extends React.Component {
                             />
                         </div>
                         <br />
-                        <div>Date of Birth:
+                        <div>
+                            <p>Date of Birth:</p>
                             <DayPickerInput
                                 placeholder='Select date'
                                 inputProps={{ readOnly: true }} 
@@ -116,7 +121,8 @@ class DogForm extends React.Component {
                             />
                         </div>
                         <br />
-                        <div>Size:
+                        <div>
+                            <p>Size:</p>
                             <select value={this.state.size} onChange={this.update('size')}>
                                 <option value="Small">Small</option>
                                 <option value="Medium">Medium</option>
@@ -125,7 +131,8 @@ class DogForm extends React.Component {
                             </select>
                         </div>
                         <br />
-                        <div>Weight:
+                        <div>
+                            <p>Weight:</p>
                             <input
                                 type="text"
                                 value={this.state.weight}
@@ -134,7 +141,8 @@ class DogForm extends React.Component {
                         </div>
                         <br />
 
-                        <div>Energy Level:
+                        <div>
+                            <p>Energy Level:</p>
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="1" checked={this.state.energy === '1'} />1
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="2" checked={this.state.energy === '2'} />2
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="3" checked={this.state.energy === '3'} />3
@@ -147,7 +155,8 @@ class DogForm extends React.Component {
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="10" checked={this.state.energy === '10'}/>10
                         </div>
                         <br />
-                        <div>Vaccinated? 
+                        <div>
+                            <p>Vaccinated? </p>
                             <input 
                                 type="checkbox" 
                                 name="vaccinations" 
@@ -155,8 +164,7 @@ class DogForm extends React.Component {
                                 onChange={this.handleCheckBox}/>
                         </div>
                         <br/>
-                        <input type='submit' value='Submit'/>
-                        
+                        <input className="post-compose-sumit-btn" type='submit' value='Submit'/>
 
                     </form>
                 </div>
