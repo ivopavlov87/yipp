@@ -282,6 +282,7 @@
 }
 
 .post-compose-sumit-btn {
+	width: 100%;
 	background: #d32323;
 	border: 2px solid white;
 	border-radius: 10px;
@@ -302,6 +303,9 @@
 
 
 .temperament-rating-radio {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 	font-size: 18px;
 	font-weight: 700;
 	padding:10px 0px;
