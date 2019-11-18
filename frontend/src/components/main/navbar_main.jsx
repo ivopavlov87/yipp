@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 // import SearchContainer from '../nav/search_container'
 // import logo from '../nav/assets/logo.png'
 // import Modal from '../modal/modal';
+// this line is to be deleted
 
 import '../nav/assets/navbar.css'
 // import './assets/navbar.css';
