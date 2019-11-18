@@ -1,4 +1,4 @@
-# README
+# Yipp
 
  [Yipp live](https://yipp.herokuapp.com/)
 
