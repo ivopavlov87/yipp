@@ -71,21 +71,24 @@ class DogForm extends React.Component {
                     </div>
                     <form onSubmit={this.handleSubmit} className="dog-form-fields">
                         <div>Name: 
+                            <br />
                             <input
                                 type="text"
                                 value={this.state.name}
                                 onChange={this.update('name')}
                             />
                         </div>
-                        <br/>
+                        {/* <br/> */}
                         <div>Gender:
+                            <br />
                             <select value={this.state.gender} onChange={this.update('gender')}>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
                         </div>
-                        <br />
+                        {/* <br /> */}
                         <div>Location:
+                            <br />
                             <select value={this.state.location} onChange={this.update('location')}>
                                 <option value="New York">New York</option>
                                 <option value="San Francisco">San Francisco</option>
@@ -93,16 +96,18 @@ class DogForm extends React.Component {
                                 <option value="Washington D.C.">Washington D.C.</option>
                             </select>
                         </div>
-                        <br />
+                        {/* <br /> */}
                         <div>Breed:
+                            <br />
                             <input
                                 type="text"
                                 value={this.state.breed}
                                 onChange={this.update('breed')}
                             />
                         </div>
-                        <br />
+                        {/* <br /> */}
                         <div>Date of Birth:
+                            <br />
                             <DayPickerInput
                                 placeholder='Select date'
                                 inputProps={{ readOnly: true }} 
@@ -115,8 +120,9 @@ class DogForm extends React.Component {
                                 }}
                             />
                         </div>
-                        <br />
+                        {/* <br /> */}
                         <div>Size:
+                            <br />
                             <select value={this.state.size} onChange={this.update('size')}>
                                 <option value="Small">Small</option>
                                 <option value="Medium">Medium</option>
@@ -124,30 +130,32 @@ class DogForm extends React.Component {
                                 <option value="Wumbo">Wumbo</option>
                             </select>
                         </div>
-                        <br />
+                        {/* <br /> */}
                         <div>Weight:
+                            <br />
                             <input
                                 type="text"
                                 value={this.state.weight}
                                 onChange={this.update('weight')}
                             />
                         </div>
-                        <br />
+                        {/* <br /> */}
 
                         <div>Energy Level:
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="1" checked={this.state.energy === '1'} />1
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="2" checked={this.state.energy === '2'} />2
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="3" checked={this.state.energy === '3'} />3
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="4" checked={this.state.energy === '4'} />4
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="5" checked={this.state.energy === '5'} />5
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="6" checked={this.state.energy === '6'} />6
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="7" checked={this.state.energy === '7'} />7
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="8" checked={this.state.energy === '8'} />8
-                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="9" checked={this.state.energy === '9'} />9
+                            <br />
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="1" checked={this.state.energy === '1'} />1 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="2" checked={this.state.energy === '2'} />2 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="3" checked={this.state.energy === '3'} />3 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="4" checked={this.state.energy === '4'} />4 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="5" checked={this.state.energy === '5'} />5 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="6" checked={this.state.energy === '6'} />6 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="7" checked={this.state.energy === '7'} />7 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="8" checked={this.state.energy === '8'} />8 &nbsp;
+                            <input type="radio" name="energyLevel" onChange={this.update('energy')} value="9" checked={this.state.energy === '9'} />9 &nbsp;
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="10" checked={this.state.energy === '10'}/>10
                         </div>
-                        <br />
-                        <div>Vaccinated? 
+                        {/* <br /> */}
+                            <div>Vaccinated? &nbsp;
                             <input 
                                 type="checkbox" 
                                 name="vaccinations" 

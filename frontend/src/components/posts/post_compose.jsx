@@ -68,17 +68,20 @@ class PostCompose extends React.Component {
               onChange={this.updateText()}
               placeholder="Write your post..."
             />
+            <br />
+            Temperament Rating:
+            <br />
             <div className="temperament-rating-radio">
-              <input type="radio" value="1" name="temperamentRating" onChange={this.updateRating()} />1
-              <input type="radio" value="2" name="temperamentRating" onChange={this.updateRating()} />2
-              <input type="radio" value="3" name="temperamentRating" onChange={this.updateRating()} />3
-              <input type="radio" value="4" name="temperamentRating" onChange={this.updateRating()} />4
-              <input type="radio" value="5" name="temperamentRating" onChange={this.updateRating()} />5
-              <input type="radio" value="6" name="temperamentRating" onChange={this.updateRating()} />6
-              <input type="radio" value="7" name="temperamentRating" onChange={this.updateRating()} />7
-              <input type="radio" value="8" name="temperamentRating" onChange={this.updateRating()} />8
-              <input type="radio" value="9" name="temperamentRating" onChange={this.updateRating()} />9
-              <input type="radio" value="10" name="temperamentRating" onChange={this.updateRating()} />10
+              <input type="radio" value="1" name="temperamentRating" onChange={this.updateRating()} />1&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="2" name="temperamentRating" onChange={this.updateRating()} />2&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="3" name="temperamentRating" onChange={this.updateRating()} />3&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="4" name="temperamentRating" onChange={this.updateRating()} />4&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="5" name="temperamentRating" onChange={this.updateRating()} />5&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="6" name="temperamentRating" onChange={this.updateRating()} />6&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="7" name="temperamentRating" onChange={this.updateRating()} />7&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="8" name="temperamentRating" onChange={this.updateRating()} />8&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="9" name="temperamentRating" onChange={this.updateRating()} />9&nbsp;&nbsp;&nbsp;
+              <input type="radio" value="10" name="temperamentRating" onChange={this.updateRating()} />10&nbsp;
             </div>
             <input className='post-compose-sumit-btn' type="submit" value="Submit" />
           </div>

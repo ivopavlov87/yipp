@@ -28,7 +28,7 @@ class NavBar extends React.Component {
       return (
         <div className="nav-bar-logged-in">
           <div>
-            <Link to="/profile">
+            <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
           </div>

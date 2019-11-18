@@ -13,7 +13,7 @@ class PostEdit extends React.Component {
       authorName: this.props.currentUser.username
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.postId = this.props.match.params.id
+    this.postId = this.props.match.params.id;
   }
 
   // componentDidUpdate(){
@@ -29,7 +29,7 @@ class PostEdit extends React.Component {
       authorName: this.props.currentUser.username
     };
     // debugger;
-    this.props.updatePost(post) // .then(this.props.history.goBack());
+    this.props.updatePost(post); // .then(this.props.history.goBack());
     this.setState({ text: '', temperamentRating: 0 });
     this.props.history.push(`/posts`);
   }
@@ -50,25 +50,30 @@ class PostEdit extends React.Component {
     // console.log("the props")
     // console.log(this.props)
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="dog-show-post-container">
+        <form onSubmit={this.handleSubmit} className="dog-show-post-form">
           <div>
-
-            <input type="text"
+            <br/>
+            Edit this Review:
+            <br/>
+            <textarea rows="6" cols="60"
               value={this.state.text}
               onChange={this.updateText()}
               placeholder="Write your post..."
             />
+            <br/>
+            Temperament Rating:
+            <br/>
             <div className="temperament-rating-radio">
-              <input type="radio" value="1" name="temperamentRating" onChange={this.updateRating()} />1
-              <input type="radio" value="2" name="temperamentRating" onChange={this.updateRating()} />2
-              <input type="radio" value="3" name="temperamentRating" onChange={this.updateRating()} />3
-              <input type="radio" value="4" name="temperamentRating" onChange={this.updateRating()} />4
-              <input type="radio" value="5" name="temperamentRating" onChange={this.updateRating()} />5
-              <input type="radio" value="6" name="temperamentRating" onChange={this.updateRating()} />6
-              <input type="radio" value="7" name="temperamentRating" onChange={this.updateRating()} />7
-              <input type="radio" value="8" name="temperamentRating" onChange={this.updateRating()} />8
-              <input type="radio" value="9" name="temperamentRating" onChange={this.updateRating()} />9
+              <input type="radio" value="1" name="temperamentRating" onChange={this.updateRating()} />1&nbsp;&nbsp;
+              <input type="radio" value="2" name="temperamentRating" onChange={this.updateRating()} />2&nbsp;&nbsp;
+              <input type="radio" value="3" name="temperamentRating" onChange={this.updateRating()} />3&nbsp;&nbsp;
+              <input type="radio" value="4" name="temperamentRating" onChange={this.updateRating()} />4&nbsp;&nbsp;
+              <input type="radio" value="5" name="temperamentRating" onChange={this.updateRating()} />5&nbsp;&nbsp;
+              <input type="radio" value="6" name="temperamentRating" onChange={this.updateRating()} />6&nbsp;&nbsp;
+              <input type="radio" value="7" name="temperamentRating" onChange={this.updateRating()} />7&nbsp;&nbsp;
+              <input type="radio" value="8" name="temperamentRating" onChange={this.updateRating()} />8&nbsp;&nbsp;
+              <input type="radio" value="9" name="temperamentRating" onChange={this.updateRating()} />9&nbsp;&nbsp;
               <input type="radio" value="10" name="temperamentRating" onChange={this.updateRating()} />10
             </div>
             <input type="submit" value="Submit" />
