@@ -21,18 +21,18 @@ class Social extends React.Component {
                     <a href="https://github.com/ivopavlov87" className="social-github" target="_blank"></a>
                 </div>
                 <div className="social-list">
-                    <a className="social-name" href="https://www.jonathanjohnson.com" target="_blank">Jonathan Johnson</a>
+                    <a className="social-name" href="https://" target="_blank">Kyle Moon-Wright</a>
                     <br />
-                    <a href="https://www.linkedin.com/in/jonathan-johnson-070807195/" className="social-linkedin" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/kyle-moon-wright/" className="social-linkedin" target="_blank"></a>
                     <br />
-                    <a href="https://github.com/JonathanJohnson23" className="social-github" target="_blank"></a>
+                    <a href="https://github.com/kmoonwright" className="social-github" target="_blank"></a>
                 </div>
                 <div className="social-list">
-                    <a className="social-name" href="https://donaldbatryn.me" target="_blank">Donald Batryn</a>
+                    <a className="social-name" href="https://" target="_blank">Long McFarlin</a>
                     <br />
-                    <a href="https://www.linkedin.com/in/donald-batryn-a81522187/" className="social-linkedin" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/long-mcfarlin-7bb60994/" className="social-linkedin" target="_blank"></a>
                     <br />
-                    <a href="https://github.com/DonaldBatryn/" className="social-github" target="_blank"></a>
+                    <a href="https://github.com/uwgnol1612" className="social-github" target="_blank"></a>
                 </div>
             </div>
         );
