@@ -19,7 +19,8 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;
         case 'creators':
-            component = <CreatorsContainer />
+            component = <CreatorsContainer />;
+            break;
         default:
             return null;
     }
