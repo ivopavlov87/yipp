@@ -4,9 +4,8 @@ import { Link, withRouter } from 'react-router-dom'
 // import SearchContainer from '../nav/search_container'
 // import logo from '../nav/assets/logo.png'
 // import Modal from '../modal/modal';
-// comments for change, this line can be deleted at any time
 
-import '../nav/assets/navbar.css'
+import '../nav/assets/navbar.css';
 // import './assets/navbar.css';
 // import SearchContainer from './search_container'
 
@@ -28,6 +27,7 @@ class NavBarMain extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="nav-bar-main-logged-in">
+                    <button id='profile' onClick={() => this.props.openModal('creators')}><p>Creators</p></button>
                     <div id='profile'><Link to={"/profile"}>Profile</Link></div>
                     <button onClick={this.logoutUser}><p>Log Out</p></button>
                 </div>
@@ -36,6 +36,7 @@ class NavBarMain extends React.Component {
             return (
                 <div className="nav-bar-main-logged-out">
                     <div>
+                        <button id="signup" onClick={() => this.props.openModal('creators')}><p>Creators</p></button>
                         <button id="signup" onClick={() => this.props.openModal('signup')}><p>Sign Up</p></button>
                         <button id="login" onClick={() => this.props.openModal('login')}><p>Log In</p></button>
                     </div>
