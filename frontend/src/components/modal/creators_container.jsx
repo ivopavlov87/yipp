@@ -28,7 +28,7 @@ class Social extends React.Component {
                     <a href="https://github.com/kmoonwright" className="social-github" target="_blank"></a>
                 </div>
                 <div className="social-list">
-                    <a className="social-name" href="https://" target="_blank">Long McFarlin</a>
+                    <a className="social-name" href="https://longmcfarlin.me/" target="_blank">Long McFarlin</a>
                     <br />
                     <a href="https://www.linkedin.com/in/long-mcfarlin-7bb60994/" className="social-linkedin" target="_blank"></a>
                     <br />
