@@ -55,6 +55,7 @@ class Profile extends React.Component {
             <Link to={`/dogs/${dog._id}`}>
               <p className="user-dog-name">{dog.name}</p>
             </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <Link to={`/dogs/${dog._id}`}>
               <img
@@ -83,6 +84,7 @@ class Profile extends React.Component {
             <Link to={`/dogs/${dog.id}`}>
               <p className="user-dog-name">{dog.name}</p>
             </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <Link to={`/dogs/${dog.id}`}>
               <img
