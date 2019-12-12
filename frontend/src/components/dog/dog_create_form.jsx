@@ -78,6 +78,7 @@ class DogForm extends React.Component {
                                 onChange={this.update('name')}
                             />
                         </div>
+
                         {/* <br/> */}
                         <div>Gender:
                             <br />
@@ -163,8 +164,7 @@ class DogForm extends React.Component {
                                 onChange={this.handleCheckBox}/>
                         </div>
                         <br/>
-                        <input type='submit' value='Submit'/>
-                        
+                        <input className="post-compose-sumit-btn" type='submit' value='Submit'/>
 
                     </form>
                 </div>
