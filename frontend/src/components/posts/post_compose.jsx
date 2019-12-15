@@ -8,8 +8,8 @@ class PostCompose extends React.Component {
     this.state = {
       text: "",
       temperamentRating: 0,
-      user_id: this.props.currentUser.id,
-      authorName: this.props.currentUser.username,
+      user_id: "",
+      authorName: "",
       dogName: this.props.dog.name,
       dogId: this.props.dog.id
     }
@@ -19,7 +19,7 @@ class PostCompose extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.props.currentUser.id) {
+    if (!this.props.currentUser) {
       this.props.openModal('login');
     } else {
       let post = {
@@ -40,7 +40,6 @@ class PostCompose extends React.Component {
         dogName: this.props.dog.name,
         dogId: this.props.dog.id
       });
-      this.props.history.push(`/dogs/${this.props.dog.id}`);
     }
   }
 

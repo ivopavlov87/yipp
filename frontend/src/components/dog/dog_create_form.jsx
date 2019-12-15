@@ -59,6 +59,13 @@ class DogForm extends React.Component {
             })
         }
     }
+    uploadImage(e) {
+        e.preventDefault();
+        const imageObj = new FormData();
+        imageObj.append('image', e.target.files[0]);
+        imageObj.append('dogId', this.props.dog.id)
+        this.props.createImage(imageObj)
+    }
 
     render() {
         return (
@@ -154,15 +161,18 @@ class DogForm extends React.Component {
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="9" checked={this.state.energy === '9'} />9 &nbsp;
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="10" checked={this.state.energy === '10'}/>10
                         </div>
-                        {/* <br /> */}
                             <div>Vaccinated? &nbsp;
-                            <input 
-                                type="checkbox" 
-                                name="vaccinations" 
-                                checked={this.state.vaccinations} 
-                                onChange={this.handleCheckBox}/>
-                        </div>
+                                <input 
+                                    type="checkbox" 
+                                    name="vaccinations" 
+                                    checked={this.state.vaccinations} 
+                                    onChange={this.handleCheckBox}/>
+                            </div>
                         <br/>
+                            {/* <div className="dog-show-edit-links-2">
+                                <div>Upload a photo:</div>
+                                <input type="file" name="image" onChange={this.uploadImage.bind(this)} />
+                            </div> */}
                         <input type='submit' value='Submit'/>
                         
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PostCompose from '../posts/post_compose';
-import DogShowPost from './dog_show_post_box';
+import ReviewIndexItem from './dog_show_review_index_item'
 import NavBarContainer from '../nav/navbar_container';
 import DogSlider from './dog_slider';
 
@@ -21,29 +21,17 @@ class DogShow extends React.Component {
     componentDidMount() {
         this.props.fetchUsers();
         this.props.fetchDog(this.props.match.params.dogId);
-        this.props.fetchDogPosts(this.props.match.params.dogId);
         this.props.fetchImages();
+        this.props.fetchPosts();
     }
-    
-    // componentDidUpdate() {
-    //     this.props.fetchDogPosts(this.props.match.params.dogId)
-    // }
 
     componentDidUpdate(nextProps) {
-        // debugger
-
-        if (this.props.images.length !== nextProps.images.length) {
-            this.props.fetchImages();
+   
+        if (this.props.posts.length !== nextProps.posts.length) {
+            this.props.fetchPosts();
         }
     }
 
-    uploadImage(e) {
-        e.preventDefault();
-        const imageObj = new FormData();
-        imageObj.append('image', e.target.files[0]);
-        imageObj.append('dogId', this.props.dog.id)
-        this.props.createImage(imageObj)
-    }
 
     handleDelete(e) {
         e.preventDefault();
@@ -54,10 +42,11 @@ class DogShow extends React.Component {
     render() {
         
         let postComposeForm;
-        if (this.props.currentUser && this.props.dog) {
+        let currentUser = this.props.currentUser ? this.props.currentUser : null
+        if (this.props.dog) {
             postComposeForm = (
                 <PostCompose
-                    currentUser={this.props.currentUser}
+                    currentUser={currentUser}
                     dog={this.props.dog}
                     dogId={this.props.dog.id}
                     dogName={this.props.dog.name}
@@ -104,21 +93,20 @@ class DogShow extends React.Component {
         let dogLink;
         if (owner && this.props.currentUserId && owner._id === this.props.currentUserId) {
 
-            dogLink = <div className='dog-show-edit-links'>
+            dogLink = <div className='dog-show-edit-section'>
                 <div className="dog-show-edit-title">
                     <p>You are {this.props.dog.name}'s owner</p>
                 </div>
-                <div className="dog-show-edit-links-1">Edit this dog's profile:
-                    <button><Link to={`${this.props.dog.id}/edit`}>Edit</Link></button>
+                <div className="dog-show-edit-buttons">
+                    <p>You can</p>
+                    <Link to={`${this.props.dog.id}/edit`}>Edit</Link>
+                    <p>Or</p>
                     <button onClick={this.handleDelete.bind(this)}>Delete</button>
-                </div>
-                <div className="dog-show-edit-links-2">
-                    <div>Upload a photo:</div>
-                    <input type="file" name="image" onChange={this.uploadImage.bind(this)}/>
+                    <p>this dog profile</p>
                 </div>
             </div>
         } else {
-            dogLink = <div className='dog-show-edit-links'></div>
+            dogLink = <div></div>
         }
 
         // const dogImages = this.props.images.map(image => {
@@ -139,6 +127,8 @@ class DogShow extends React.Component {
         })
 
         let dogRatingAvg = (dogRatingTotal / (this.props.posts).length) ? `${(dogRatingTotal / (this.props.posts).length).toPrecision(2)} yipps`: "This dog has no reviews"
+
+        let reviewTitle = this.props.posts.length === 0 ? <p>This dog has no reviews.</p> : <p>Reviews:</p>
 
         return (
             <div>
@@ -168,7 +158,7 @@ class DogShow extends React.Component {
                                 <div className="dog-show-details-stats">
                                     <p>Age: {dogAge}
                                         </p>
-                                    <p>Weight: {this.props.dog.weight}
+                                    <p>Weight: {this.props.dog.weight} lbs
                                         </p>
                                     <p>Size: {this.props.dog.size}
                                         </p>
@@ -179,26 +169,21 @@ class DogShow extends React.Component {
                                 </div>
                             </div>
                     </div>
+                    {dogLink}
+                    <div className="dog-show-review-section">
+                        {postComposeForm}
+                        <h1>{reviewTitle}</h1>
+                        <div className="dog-show-review-index">
+                            {this.props.posts.map(post => (
+                                <ReviewIndexItem
+                                    key={post.id}
+                                    post={post}
+                                />
+                            ))}
 
-                    <div className="dog-show-edit-section">
-                        {dogLink}
-                        <div className="dog-show-review-section-title">
-                            <p>All reviews:</p>
-                        </div>
-                        <div className="dog-show-review-section">
-                            <div className="dog-show-review-index">
-                                {this.props.posts.map(post => (
-                                    <DogShowPost
-                                        key={post.id}
-                                        post={post}
-                                        currentUser={this.props.currentUser}
-                                        destroyPost={this.props.destroyPost}
-                                    />
-                                ))}
-                            {postComposeForm}
-                            </div>
-                        </div>
+                        </div> 
                     </div>
+                    
 
                 </div>
             </div>

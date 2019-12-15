@@ -14,9 +14,9 @@ class SplashPosts extends React.Component {
 
     render() {
 
-        const posts = this.props.posts.map(post => {
+        const posts = this.props.posts.map((post, idx) => {
             return (
-                <div className="splash-posts-index-item">
+                <div className="splash-posts-index-item" key={`post-${idx}`}>
                     <li>{post.authorName}</li>
                     <li id='splash-post'>says about <Link id='splash-dog-name'to={`/dogs/${post.dog}`}>{post.dogName}:</Link></li>
                     <li id='splash-post-text'>{post.text}</li>

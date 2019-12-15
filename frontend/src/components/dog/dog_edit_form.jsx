@@ -26,7 +26,8 @@ class DogEditForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateDog(this.state);
-        this.props.history.push('/profile/dogs');
+        const dogId = this.props.match.params.dogId
+        this.props.history.push(`/dogs/${dogId}`);
     }
 
     handleCheckBox(e) {

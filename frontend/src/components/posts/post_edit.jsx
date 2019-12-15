@@ -31,7 +31,7 @@ class PostEdit extends React.Component {
     // debugger;
     this.props.updatePost(post); // .then(this.props.history.goBack());
     this.setState({ text: '', temperamentRating: 0 });
-    this.props.history.push(`/posts`);
+    this.props.history.push(`/profile`);
   }
 // `/dogs/${this.props.dogId}`
   updateText() {
