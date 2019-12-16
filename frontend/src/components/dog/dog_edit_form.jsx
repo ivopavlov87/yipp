@@ -168,7 +168,7 @@ class DogEditForm extends React.Component {
                                     onChange={this.handleCheckBox} />
                             </div>
             
-                            <input type='submit' value='Submit' />
+                            <input className='dog-form-submit-btn' type='submit' value='Submit' />
 
                         </form>
 
