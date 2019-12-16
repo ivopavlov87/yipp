@@ -22,7 +22,8 @@ class DogForm extends React.Component {
             energy: 5,
             vaccinations: false,
             location: "New York",
-            gender: "Male"
+            gender: "Male",
+            images: []
         }
 
         this.handleDOB = this.handleDOB.bind(this);
@@ -59,13 +60,6 @@ class DogForm extends React.Component {
             })
         }
     }
-    uploadImage(e) {
-        e.preventDefault();
-        const imageObj = new FormData();
-        imageObj.append('image', e.target.files[0]);
-        imageObj.append('dogId', this.props.dog.id)
-        this.props.createImage(imageObj)
-    }
 
     render() {
         return (
@@ -74,28 +68,28 @@ class DogForm extends React.Component {
             <div className="dog-form-container">
                 <div className="dog-form">
                     <div className="dog-form-title">
-                        Add a new dog:
+                        Add a new dog
                     </div>
-                    <form onSubmit={this.handleSubmit} className="dog-form-fields">
-                        <div>Name: 
-                            <br />
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="dog-form-fields">
+                            <h1>Name</h1> 
                             <input
                                 type="text"
                                 value={this.state.name}
                                 onChange={this.update('name')}
                             />
                         </div>
-                        {/* <br/> */}
-                        <div>Gender:
-                            <br />
+                     
+                        <div className="dog-form-fields">
+                            <h1>Gender</h1>
                             <select value={this.state.gender} onChange={this.update('gender')}>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
                         </div>
-                        {/* <br /> */}
-                        <div>Location:
-                            <br />
+    
+                        <div className="dog-form-fields">
+                            <h1>Location</h1>
                             <select value={this.state.location} onChange={this.update('location')}>
                                 <option value="New York">New York</option>
                                 <option value="San Francisco">San Francisco</option>
@@ -103,18 +97,18 @@ class DogForm extends React.Component {
                                 <option value="Washington D.C.">Washington D.C.</option>
                             </select>
                         </div>
-                        {/* <br /> */}
-                        <div>Breed:
-                            <br />
+                      
+                        <div className="dog-form-fields">
+                            <h1>Breed</h1>
                             <input
                                 type="text"
                                 value={this.state.breed}
                                 onChange={this.update('breed')}
                             />
                         </div>
-                        {/* <br /> */}
-                        <div>Date of Birth:
-                            <br />
+                       
+                        <div className="dog-form-fields">
+                            <h1>Date of Birth</h1>
                             <DayPickerInput
                                 placeholder='Select date'
                                 inputProps={{ readOnly: true }} 
@@ -127,9 +121,9 @@ class DogForm extends React.Component {
                                 }}
                             />
                         </div>
-                        {/* <br /> */}
-                        <div>Size:
-                            <br />
+
+                        <div className="dog-form-fields">
+                            <h1>Size</h1>
                             <select value={this.state.size} onChange={this.update('size')}>
                                 <option value="Small">Small</option>
                                 <option value="Medium">Medium</option>
@@ -137,19 +131,18 @@ class DogForm extends React.Component {
                                 <option value="Wumbo">Wumbo</option>
                             </select>
                         </div>
-                        {/* <br /> */}
-                        <div>Weight:
-                            <br />
+
+                        <div className="dog-form-fields">
+                            <h1>Weight</h1>
                             <input
                                 type="text"
                                 value={this.state.weight}
                                 onChange={this.update('weight')}
                             />
                         </div>
-                        {/* <br /> */}
-
-                        <div>Energy Level:
-                            <br />
+                
+                        <div className="dog-form-fields">
+                            <h1>Energy Level</h1>
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="1" checked={this.state.energy === '1'} />1 &nbsp;
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="2" checked={this.state.energy === '2'} />2 &nbsp;
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="3" checked={this.state.energy === '3'} />3 &nbsp;
@@ -161,21 +154,17 @@ class DogForm extends React.Component {
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="9" checked={this.state.energy === '9'} />9 &nbsp;
                             <input type="radio" name="energyLevel" onChange={this.update('energy')} value="10" checked={this.state.energy === '10'}/>10
                         </div>
-                            <div>Vaccinated? &nbsp;
-                                <input 
-                                    type="checkbox" 
-                                    name="vaccinations" 
-                                    checked={this.state.vaccinations} 
-                                    onChange={this.handleCheckBox}/>
-                            </div>
-                        <br/>
-                            {/* <div className="dog-show-edit-links-2">
-                                <div>Upload a photo:</div>
-                                <input type="file" name="image" onChange={this.uploadImage.bind(this)} />
-                            </div> */}
-                        <input type='submit' value='Submit'/>
-                        
 
+                        <div className="dog-form-fields">
+                            <h1>Vaccinated?</h1>
+                            <input 
+                                type="checkbox" 
+                                name="vaccinations" 
+                                checked={this.state.vaccinations} 
+                                onChange={this.handleCheckBox}/>
+                        </div>
+                        
+                        <input type='submit' value='Submit'/>
                     </form>
                 </div>
             </div>

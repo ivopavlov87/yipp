@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchOneDog, deleteDog } from '../../actions/dog_actions';
 import { fetchUsers, createFavorite } from '../../actions/user_actions';
 import { composePost, destroyPost, fetchPosts } from '../../actions/post_actions';
-import { fetchAllImages } from '../../actions/image_actions';
+import { fetchAllImages, createImage } from '../../actions/image_actions';
 import { selectImagesForDog } from '../../reducers/selectors';
 import { selectPostsForDog } from '../../reducers/selectors'
 
@@ -53,7 +53,7 @@ const mapDispatchToProps = dispatch => {
         composePost: data => dispatch(composePost(data)),
         destroyPost: (postId) => dispatch(destroyPost(postId)),
         fetchImages: () => dispatch(fetchAllImages()),
-        
+        createImage: (imgObj) => dispatch(createImage(imgObj)),
         createFavorite: (id) => dispatch(createFavorite(id)),
         openModal: (modal) => dispatch(openModal(modal)) 
     };

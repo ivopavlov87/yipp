@@ -26,10 +26,17 @@ class DogShow extends React.Component {
     }
 
     componentDidUpdate(nextProps) {
-   
         if (this.props.posts.length !== nextProps.posts.length) {
             this.props.fetchPosts();
         }
+    }
+
+    uploadImage(e) {
+        e.preventDefault();
+        const imageObj = new FormData();
+        imageObj.append('image', e.target.files[0]);
+        imageObj.append('dogId', this.props.dog.id)
+        this.props.createImage(imageObj)
     }
 
 
@@ -52,7 +59,6 @@ class DogShow extends React.Component {
                     dogName={this.props.dog.name}
                     composePost={this.props.composePost}
                     history={this.props.history}
-                    // match={this.props.match}
                     openModal={this.props.openModal}
                 />
             )
@@ -103,17 +109,19 @@ class DogShow extends React.Component {
                     <button onClick={this.handleDelete.bind(this)}>Delete</button>
                     <p>this dog profile</p>
                 </div>
+                <div className="dog-show-upload-photos">   
+                    <input className='photo-upload-btn' type="file" name="image" id="image" onChange={this.uploadImage.bind(this)}/>
+                    <p>You can</p>
+                    <label for="image">Upload</label>
+                    <p>a photo</p>
+                </div>
             </div>
         } else {
             dogLink = <div></div>
         }
 
-        // const dogImages = this.props.images.map(image => {
-        //     return <img key={image._id} src={`/api/images/${image.filename}`} alt=""/>
-        // })
 
         const dogImgUrls = [];
-        // eslint-disable-next-line
         this.props.images.map(image => {
             const url = `/api/images/${image.filename}`
             dogImgUrls.push(url)

@@ -34,7 +34,7 @@
 	position: absolute;
 	left: 10px;
 	padding: 0;
-	z-index: 15
+	z-index: 5
 }
 
 .slick-next {
@@ -54,7 +54,7 @@
 	position: absolute;
 	right: -15px;
 	padding: 0;
-	z-index:15
+	z-index:5
  
 }
 
@@ -77,7 +77,7 @@
 	position: absolute;
 	left: 0px;
 	padding: 0;
-	z-index:100
+	z-index:5
 
 }
 
@@ -99,7 +99,7 @@
 	position: absolute;
 	right: 30px;
 	padding: 0;
-	z-index:100
+	z-index:5
 }
 
 .slick-slide {
@@ -127,13 +127,15 @@
     display: flex;
 	flex-direction: column;
 	padding: 20px;
-	width:70%;
+	width:60%;
 	margin:0 auto;
+	margin-bottom: 15px;
 }
 
 .dog-show-info {
 	padding: 20px;
-    margin-left: 40px;
+	margin-left: 40px;
+	text-align: center;
 }
 
 
@@ -170,7 +172,7 @@
 
 .dog-show-details-section {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly
 }
 
 .dog-show-details-stats {
@@ -188,14 +190,19 @@
 }
 
 .dog-show-edit-section {
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	width:50%;
+
+	width:60%;
 	padding:15px;
 	margin:auto;
 	border: 2px solid #d32323;
 	border-radius: 5px;
 	margin-bottom: 20px;
 }
+
+
 .dog-show-edit-title p {
     display: flex;
 	justify-content: center;
@@ -203,19 +210,18 @@
     font-weight: 700;
     padding-bottom: 10px;
 }
-.dog-show-edit-buttons{
+
+.dog-show-edit-buttons {
 	display: flex;
 	justify-content: space-evenly;
 	font-size: 20px;
 	font-weight: 700;
-	width: 50%;
-	margin: auto;
-	display: flex;
+	width: 45%;
+	margin-bottom: 10px;
 }
 
 .dog-show-edit-buttons button {
-
-	display: inline-block;
+	
 	background: #d32323;
 	border: 2px solid white;
 	border-radius: 10px;
@@ -225,11 +231,18 @@
 	font-size: 16px;
 	font-weight: 700;
 	font-family: inherit;
-	vertical-align: middle;
 }
 
+.dog-show-edit-buttons button:hover{
+	border: 2px solid #d32323;
+	background: white;
+	color:#d32323;
+}
+
+
+
 .dog-show-edit-buttons a {
-	display: inline-block;
+
 	background: #d32323;
 	border: 2px solid white;
 	border-radius: 10px;
@@ -239,12 +252,64 @@
 	font-size: 16px;
 	font-weight: 700;
 	font-family: inherit;
-	text-align: center;
 	text-decoration: none;
-	vertical-align: middle;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
+.dog-show-edit-buttons a:hover {
+	border: 2px solid #d32323;
+	background: white;
+	color:#d32323;
+
+}
+
+.dog-show-upload-photos {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 20px;
+	font-weight: 700;
+	width: 30%;
+
+}
+
+.photo-upload-btn {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.dog-show-upload-photos label {
+
+	background: #d32323;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 5px 10px; 
+	color: white;
+	cursor:pointer;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: inherit;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+
+
+.dog-show-upload-photos label:hover {
+	border: 2px solid #d32323;
+	background: white;
+	color:#d32323;
+
+}
 
 .dog-show-review-section {
 	width:60%;
@@ -259,7 +324,7 @@
 
 .dog-show-review-index {
     display: flex;
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .dog-show-review-index-item {
