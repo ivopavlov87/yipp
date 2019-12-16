@@ -70,7 +70,6 @@ class DogShow extends React.Component {
         const dogAge = formatAge(this.props.dog.dob)
 
         let owner;
-        // debugger;
         Object.values(this.props.users).forEach(user => {
 
             if (user._id === this.props.dog.user_id) {

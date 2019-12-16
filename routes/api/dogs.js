@@ -11,10 +11,21 @@ const { formatDogs, formatDog } = require('../../util/responseHelpers');
 
 
 router.get('/', (req, res) => {
-    Dog.find()
+
+    if (typeof req.query.dogname != 'undefined') {
+        Dog.find({ name: { '$regex': `.*${req.query.dogname}.*`, '$options': 'i' } }).then(dogs => res.json(formatDogs(dogs)))
+    } else if (typeof req.query.location != 'undefined') {
+        Dog.find({ location: { '$regex': `.*${req.query.location}.*`, '$options': 'i' } }).then(dogs => res.json(formatDogs(dogs)))
+    } else if (typeof req.query.breed != 'undefined') {
+        Dog.find({ breed: { '$regex': `.*${req.query.breed}.*`, '$options': 'i' } }).then(dogs => res.json(formatDogs(dogs)))
+    } else {
+        Dog.find()
         .sort({ date: -1 })
         .then(dogs => res.json(formatDogs(dogs)))
         .catch(err => res.status(404).json({ nodogsfound: 'No dogs found' }));
+    }
+    
+    
 });
 
 router.get('/:id', (req, res) => {

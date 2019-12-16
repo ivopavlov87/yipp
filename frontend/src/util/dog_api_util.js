@@ -24,17 +24,13 @@ export const deleteDog = id => {
 // SEARCH AXIOS REQS
 
 export const getDogsByDogname = (dogname) => {
-    return axios.get(`/api/search/dognames/${dogname}`);
+    return axios.get(`/api/dogs?dogname=${dogname}`);
 };
 
 export const getDogsByLocation = (location) => {
-    return axios.get(`/api/search/locations/${location}`);
+    return axios.get(`/api/dogs?location=${location}`);
 };
 
 export const getDogsByBreed = (breed) => {
-    return axios.get(`/api/search/breeds/${breed}`);
+    return axios.get(`/api/dogs?breed=${breed}`);
 };
-
-// export const getDogsByUsername = (username) => {
-//     return axios.get(`/api/dogs/${username}`)
-// };

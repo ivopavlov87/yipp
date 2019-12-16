@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { 
+    fetchDogs,
     fetchDogsByDogname, 
     fetchDogsByLocation, 
     fetchDogsByBreed 
@@ -7,12 +8,9 @@ import {
 
 import Search from './search'
 
-// const mapStateToProps = state => {
-
-// };
-
 const mapDispatchToProps = dispatch => {
     return {
+        fetchDogs: () => dispatch(fetchDogs()),
         searchByDogname: (dogname) => dispatch(fetchDogsByDogname(dogname)),
         searchByLocation: (location) => dispatch(fetchDogsByLocation(location)),
         searchByBreed: (breed) => dispatch(fetchDogsByBreed(breed))

@@ -7,7 +7,6 @@ import { fetchDogPosts, fetchPosts } from '../../actions/post_actions';
 import DogIndex from './dog_index'
 
 const mapStateToProps = (state) => {
-    // debugger;
     return {
         dogs: Object.values(state.entities.dogs),
         images: state.entities.images,

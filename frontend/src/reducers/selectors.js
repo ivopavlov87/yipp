@@ -1,23 +1,3 @@
-
-// export const selectPostsForDog = (props, dog) => {
-//     if (!dog) return [];
-
-//     let res = [];
-//     // props = this.entities.posts
-//     // if ((Object.keys(props).length === 0)) {
-//     //     // debugger;
-//     //     return res;
-//     // }
-    
-//     props.forEach(post => {
-//         // debugger;
-//         if (post.dog === dog.id) {
-//             res.push(post);
-//         }
-//     })
-//     return res;
-// }
-
 export const selectPostsForDog = (posts, dogId) => {
     let res = [];
     if (!dogId) return res;
@@ -28,10 +8,6 @@ export const selectPostsForDog = (posts, dogId) => {
     })
     return res;
 }
-
-
-
-
 
 export const selectDogsForUser = (props, user) => {
     let res = [];

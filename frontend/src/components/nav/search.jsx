@@ -17,16 +17,19 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
-        if (this.state.searchType === 'dogname') {
-            this.props.searchByDogname(this.state.searchValue);
-        } else if (this.state.searchType === 'location') {
-            this.props.searchByLocation(this.state.searchValue);
-        } else if (this.state.searchType === 'breed') {
-            this.props.searchByBreed(this.state.searchValue);
+        if (!this.state.searchValue) {
+            this.props.fetchDogs();
         }
-
+        if (this.state.searchValue && this.state.searchType === "dogname") {
+            this.props.searchByDogname(this.state.searchValue)
+        } else if (this.state.searchValue && this.state.searchType === "location") {
+            this.props.searchByLocation(this.state.searchValue)
+        } else if (this.state.searchValue && this.state.searchType === "breed") {
+            this.props.searchByBreed(this.state.searchValue)
+        }
         this.props.history.push('/dogs')
+        
+        
     }
 
     handleChange(e) {
