@@ -216,7 +216,7 @@
 	justify-content: space-evenly;
 	font-size: 20px;
 	font-weight: 700;
-	width: 45%;
+	width: 50%;
 	margin-bottom: 10px;
 }
 
@@ -225,7 +225,7 @@
 	background: #d32323;
 	border: 2px solid white;
 	border-radius: 10px;
-	padding: 5px 10px; 
+	padding: 5px 15px; 
 	color: white;
 	cursor:pointer;
 	font-size: 16px;
@@ -246,7 +246,7 @@
 	background: #d32323;
 	border: 2px solid white;
 	border-radius: 10px;
-	padding: 5px 15px; 
+	padding: 5px 20px; 
 	color: white;
 	cursor:pointer;
 	font-size: 16px;
@@ -289,7 +289,7 @@
 	background: #d32323;
 	border: 2px solid white;
 	border-radius: 10px;
-	padding: 5px 10px; 
+	padding: 5px 15px; 
 	color: white;
 	cursor:pointer;
 	font-size: 16px;

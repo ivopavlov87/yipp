@@ -40,6 +40,7 @@ class Profile extends React.Component {
     this.props.fetchUserPosts(this.props.currentUser.id);
     this.props.fetchImages();
     this.props.fetchDogs();
+    this.props.fetchPosts();
   }
 
   render() {

@@ -49,11 +49,10 @@ class DogShow extends React.Component {
     render() {
         
         let postComposeForm;
-        let currentUser = this.props.currentUser ? this.props.currentUser : null
         if (this.props.dog) {
             postComposeForm = (
                 <PostCompose
-                    currentUser={currentUser}
+                    currentUser={this.props.currentUser}
                     dog={this.props.dog}
                     dogId={this.props.dog.id}
                     dogName={this.props.dog.name}
@@ -122,7 +121,7 @@ class DogShow extends React.Component {
 
 
         const dogImgUrls = [];
-        this.props.images.map(image => {
+        this.props.images.forEach(image => {
             const url = `/api/images/${image.filename}`
             dogImgUrls.push(url)
         })
