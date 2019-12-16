@@ -6,7 +6,7 @@
     background: #fff;
 	height: 300px;
 	overflow: hidden;
-	margin-bottom: 15px;	
+	
 }
 .image-slide img {
 	height: 300px;
@@ -216,8 +216,9 @@
 	justify-content: space-evenly;
 	font-size: 20px;
 	font-weight: 700;
-	width: 40%;
+	min-width: 40%;
 	margin-bottom: 10px;
+	align-items: center;
 }
 
 .dog-show-edit-buttons button {
@@ -270,7 +271,8 @@
 	justify-content: space-evenly;
 	font-size: 20px;
 	font-weight: 700;
-	width: 25%;
+	min-width: 25%;
+	align-items: center;
 
 }
 
@@ -410,5 +412,15 @@
 	font-style: italic;
 	margin-top: 10px;
 	font-size:17px;
+}
+
+.no-image-display {
+	display:flex;
+	justify-content: center;
+}
+
+.no-image-display img {
+	width: 30%;
+	height: 30%;
 }
 
