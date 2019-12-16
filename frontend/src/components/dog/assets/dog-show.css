@@ -216,7 +216,7 @@
 	justify-content: space-evenly;
 	font-size: 20px;
 	font-weight: 700;
-	width: 50%;
+	width: 40%;
 	margin-bottom: 10px;
 }
 
@@ -263,7 +263,6 @@
 	border: 2px solid #d32323;
 	background: white;
 	color:#d32323;
-
 }
 
 .dog-show-upload-photos {
@@ -271,7 +270,7 @@
 	justify-content: space-evenly;
 	font-size: 20px;
 	font-weight: 700;
-	width: 30%;
+	width: 25%;
 
 }
 
@@ -301,9 +300,6 @@
 
 }
 
-
-
-
 .dog-show-upload-photos label:hover {
 	border: 2px solid #d32323;
 	background: white;
@@ -318,13 +314,18 @@
 }
 
 .dog-show-review-section h1 {
+	width: 80%;
 	font-size:25px;
 	font-weight: bold;
+	margin:auto;
+	margin-top:15px;
 }
 
 .dog-show-review-index {
+	margin: auto;
     display: flex;
 	flex-direction: column;
+	width: 80%
 }
 
 .dog-show-review-index-item {
