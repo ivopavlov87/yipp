@@ -23,9 +23,9 @@ export const removeOneDog = (res) => ({
     res
 })
 
-export const receiveDogErrors = (err) => ({
+export const receiveDogErrors = (errors) => ({
     type: RECEIVE_DOG_ERRORS,
-    err
+    errors
 })
 
 // export const receiveUserDogs = dogs => ({
@@ -58,14 +58,14 @@ export const fetchOneDog = (id) => dispatch => (
 export const createDog = (dog) => dispatch => (
     DogApiUtil.createDog(dog)
         .then(dog => dispatch(receiveOneDog(dog)))
-        .catch(err => dispatch(receiveDogErrors(err)))
+        .catch(err => dispatch(receiveDogErrors(err.response.data)))
 )
 
 
 export const updateDog = (dog) => dispatch => (
     DogApiUtil.updateDog(dog)
         .then(dog => dispatch(receiveOneDog(dog)))
-        .catch(err => dispatch(receiveDogErrors(err)))
+        .catch(err => dispatch(receiveDogErrors(err.response.data)))
 )
 
 export const deleteDog = (id) => dispatch => {

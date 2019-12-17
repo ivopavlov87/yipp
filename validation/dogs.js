@@ -18,23 +18,24 @@ module.exports = function validateDogInput(data) {
 
     // CHECK FOR EMPTY FIELDS
     if (Validator.isEmpty(data.name)) {
-        errors.text = 'Name field is required';
+        errors.name = 'Dog name is required';
     }
     if (Validator.isEmpty(data.breed)) {
-        errors.text = 'Breed field is required';
+        errors.breed = 'Dog breed is required';
     }
     if (Validator.isEmpty(data.dob)) {
-        errors.text = 'Date of birth field is required';
+        errors.dob = 'Dog date of birth is required';
     }
     if (Validator.isEmpty(data.weight)) {
-        errors.text = 'Weight field is required';
+        errors.weight = 'Dog weight is required';
     }
 
 
     // VALIDATE BETWEENS
     if (!Validator.isLength(data.name, { min: 1, max: 20})) {
-        errors.text = 'Dog name must be between 1 and 20 characters';
+        errors.name = 'Dog name must be between 1 and 20 characters';
     }
+
     return {
         errors,
         isValid: Object.keys(errors).length === 0

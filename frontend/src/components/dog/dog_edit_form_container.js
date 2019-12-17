@@ -5,6 +5,7 @@ import DogEditForm from './dog_edit_form';
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        errors: state.errors.dog,
         dog: state.entities.dogs[ownProps.match.params.dogId]
     }
 }

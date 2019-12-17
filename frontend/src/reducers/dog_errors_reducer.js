@@ -1,12 +1,14 @@
 import { RECEIVE_DOG_ERRORS, RECEIVE_ONE_DOG } from '../actions/dog_actions'
 
-const DogErrorsReducer = (state = [], action) => {
+const _nullErrors = {};
+
+const DogErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state)
     switch (action.type) {
         case RECEIVE_DOG_ERRORS:
-            return action.err;
+            return action.errors;
         case RECEIVE_ONE_DOG:
-            return [];
+            return _nullErrors;
         default:
             return state
     }

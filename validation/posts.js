@@ -19,7 +19,7 @@ module.exports = function validatePostInput(data) {
   }
 
   if (Validator.isEmpty(data.temperamentRating.toString())) {
-    errors.text = 'Temperament rating is required';
+    errors.temperamentRating = 'Temperament rating is required';
   }
 
   return {

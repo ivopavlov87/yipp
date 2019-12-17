@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class PostBox extends React.Component {
 
   render() {
-  // debugger;
   let postButtons;
     if (this.props.currentUser.id === this.props.post.user) {
       postButtons = (

@@ -6,7 +6,7 @@
     background: #fff;
 	height: 300px;
 	overflow: hidden;
-	margin-bottom: 15px;	
+	
 }
 .image-slide img {
 	height: 300px;
@@ -34,7 +34,7 @@
 	position: absolute;
 	left: 10px;
 	padding: 0;
-	z-index: 15
+	z-index: 5
 }
 
 .slick-next {
@@ -54,7 +54,7 @@
 	position: absolute;
 	right: -15px;
 	padding: 0;
-	z-index:15
+	z-index:5
  
 }
 
@@ -77,7 +77,7 @@
 	position: absolute;
 	left: 0px;
 	padding: 0;
-	z-index:100
+	z-index:5
 
 }
 
@@ -99,7 +99,7 @@
 	position: absolute;
 	right: 30px;
 	padding: 0;
-	z-index:100
+	z-index:5
 }
 
 .slick-slide {
@@ -127,13 +127,15 @@
     display: flex;
 	flex-direction: column;
 	padding: 20px;
-	width:70%;
+	width:60%;
 	margin:0 auto;
+	margin-bottom: 15px;
 }
 
 .dog-show-info {
 	padding: 20px;
-    margin-left: 40px;
+	margin-left: 40px;
+	text-align: center;
 }
 
 
@@ -170,7 +172,7 @@
 
 .dog-show-details-section {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly
 }
 
 .dog-show-details-stats {
@@ -188,63 +190,150 @@
 }
 
 .dog-show-edit-section {
-    display: flex;
-    flex-direction: column;
-	justify-content: center;
-	width:80%;
-	padding:20px;
-	margin:0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width:60%;
+	padding:15px;
+	margin:auto;
+	border: 2px solid #d32323;
+	border-radius: 5px;
+	margin-bottom: 20px;
 }
+
+
 .dog-show-edit-title p {
     display: flex;
-    justify-content: center;
+	justify-content: center;
+	font-size: 20px;
     font-weight: 700;
     padding-bottom: 10px;
 }
-.dog-show-edit-links {
-    display: flex;
+
+.dog-show-edit-buttons {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 20px;
+	font-weight: 700;
+	min-width: 40%;
+	margin-bottom: 10px;
+	align-items: center;
+}
+
+.dog-show-edit-buttons button {
+	
+	background: #d32323;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 8px 20px; 
+	color: white;
+	cursor:pointer;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: inherit;
+}
+
+.dog-show-edit-buttons button:hover{
+	border: 2px solid #d32323;
+	background: white;
+	color:#d32323;
+}
+
+
+
+.dog-show-edit-buttons a {
+
+	background: #d32323;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 8px 25px; 
+	color: white;
+	cursor:pointer;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: inherit;
+	text-decoration: none;
+	display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
+
 }
-.dog-show-edit-links-1 {
-    display: flex;
+
+.dog-show-edit-buttons a:hover {
+	border: 2px solid #d32323;
+	background: white;
+	color:#d32323;
+}
+
+.dog-show-upload-photos {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 20px;
+	font-weight: 700;
+	min-width: 25%;
+	align-items: center;
+
+}
+
+.photo-upload-btn {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.dog-show-upload-photos label {
+
+	background: #d32323;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 8px 20px; 
+	color: white;
+	cursor:pointer;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: inherit;
+	display: flex;
+    flex-direction: column;
     justify-content: center;
+
 }
-.dog-show-edit-links-2 {
-    display: flex;
-    justify-content: center;
-}
-.dog-show-edit-links-2 input {
-    width: 160px;
+
+.dog-show-upload-photos label:hover {
+	border: 2px solid #d32323;
+	background: white;
+	color:#d32323;
+
 }
 
 .dog-show-review-section {
-    display: flex;
-	justify-content: center;
-	width:100%;
-	margin: 0 auto;
+	width:60%;
+	margin: auto;
+	margin-top: 20px;
 }
 
-
-.dog-show-review-section-title {
-	display:flex;
-	justify-content: center;
-    font-size: 25px;
+.dog-show-review-section h1 {
+	width: 80%;
+	font-size:25px;
+	font-weight: bold;
+	margin:auto;
+	margin-top:15px;
 }
 
 .dog-show-review-index {
+	margin: auto;
     display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-	padding-left: 20px;
-	max-width: 80%;
+	flex-direction: column;
+	width: 80%
 }
 
 .dog-show-review-index-item {
 	display: flex;
 	flex-direction: column;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 .dog-show-review-index-item-text {
 	font-size: 20px;
@@ -254,6 +343,7 @@
 	width: 60px;
 	padding-right: 35px;
 	font-weight: 700;
+	font-size: 18px;
 }
 .dog-show-review-index-item-details-text {
 	display: flex;
@@ -279,6 +369,7 @@
 	font-size:16px;
 	border:1px solid #e6e6e6;
 	border-radius: 10px;
+	padding:10px
 }
 
 .post-compose-sumit-btn {
@@ -314,10 +405,29 @@
 .dog-show-review-item-date {
 	text-align: right;
 	margin-bottom: 10px;
+	font-size:18px
 }
 
 #dog-show-review-index-item-detail-rating {
 	font-style: italic;
 	margin-top: 10px;
+	font-size:17px;
+}
+
+.no-image-display {
+	display:flex;
+	justify-content: center;
+}
+
+.no-image-display img {
+	width: 30%;
+	height: 30%;
+}
+
+.post-form-errors {
+	margin-bottom: 10px;
+	list-style: none;
+	color: #d32323;
+	font-size: 18px;
 }
 

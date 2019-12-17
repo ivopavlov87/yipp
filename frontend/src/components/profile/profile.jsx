@@ -40,6 +40,7 @@ class Profile extends React.Component {
     this.props.fetchUserPosts(this.props.currentUser.id);
     this.props.fetchImages();
     this.props.fetchDogs();
+    this.props.fetchPosts();
   }
 
   render() {
@@ -78,7 +79,9 @@ class Profile extends React.Component {
 
     const userDogsDisplay = userDogs.map(dog => {
       const dogImage = selectImagesForDog(this.props.images, dog);
-      if (dogImage[0]) {
+      
+      let imgUrl = dogImage[0] ? `/api/images/${dogImage[0].filename}` : "https://we-camp-seeds.s3.us-east-2.amazonaws.com/no-image.png"
+      
         return (
           <li className="user-dog-li" key={dog.id}>
             <Link to={`/dogs/${dog.id}`}>
@@ -89,15 +92,12 @@ class Profile extends React.Component {
             <Link to={`/dogs/${dog.id}`}>
               <img
                 className="user-dog-img"
-                src={`/api/images/${dogImage[0].filename}`}
+                src={imgUrl}
                 alt={dog.name}
               />
             </Link>
           </li>
         );
-      } else {
-        return "";
-      }
     });
 
     let myDog = ["profile-my-dogs"];

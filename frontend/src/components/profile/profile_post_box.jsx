@@ -25,7 +25,7 @@ class ProfilePostBox extends React.Component {
     const boldText = {fontWeight: 'bold'}
 
     return (
-      <div>
+      <div className="profile-post-item">
         <h2 style={boldText}>Dog name: <Link to={`/dogs/${this.props.post.dog}`}>{this.props.post.dogName}</Link></h2>
         <h3>{this.props.post.text}</h3>
         <h4>Temperament rating: {this.props.post.temperamentRating}</h4>

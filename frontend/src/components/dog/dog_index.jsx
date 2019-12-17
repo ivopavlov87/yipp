@@ -10,9 +10,7 @@ import './assets/dog-index.css';
 class DogIndex extends React.Component {
 
     componentDidMount() {
-        // debugger
         this.props.fetchImages();
-        this.props.fetchDogs();
         this.props.fetchPosts();
     }
 
@@ -28,20 +26,16 @@ class DogIndex extends React.Component {
             )
         } else {
             Alldogs = this.props.dogs.map(dog => {
-                // debugger;
+              
                 const images = selectImagesForDog(this.props.images, dog)
-                // debugger;
-                // console.log(this.props.posts)
                 const posts = selectPostsForDog(this.props.posts, dog)
 
                 return (<DogIndexItem
                     key={dog.id}
                     dog={dog}
                     images={images}
-                    // fetchDogPosts={this.props.fetchDogPosts}
                     posts={posts}
                     firstPost={posts[0]}
-                // posts={this.props.posts} 
                 />)
             }
             )

@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
-import { fetchUserPosts, destroyPost } from '../../actions/post_actions';
+import { fetchUserPosts, destroyPost, fetchPosts } from '../../actions/post_actions';
 import { fetchUser } from "../../actions/user_actions";
 import { fetchDogs } from "../../actions/dog_actions";
 import { fetchAllImages } from '../../actions/image_actions';
 import Profile from './profile';
+import { selectPostsForUser } from '../../reducers/selectors';
+
 
 const mapStateToProps = (state) => {
   let favs;
@@ -16,8 +18,9 @@ const mapStateToProps = (state) => {
 
   // debugger;
   return {
-    posts: Object.values(state.entities.posts.user),
+    // posts: Object.values(state.entities.posts.user),
     currentUser: state.session.user,
+    posts: selectPostsForUser(state.entities.posts.all, state.session.user),
     favoriteDogs: favs,
     images: state.entities.images,
     dogs: Object.values(state.entities.dogs),
@@ -32,6 +35,7 @@ const mapDispatchToProps = dispatch => {
     destroyPost: postId => dispatch(destroyPost(postId)),
     fetchImages: () => dispatch(fetchAllImages()),
     fetchDogs: () => dispatch(fetchDogs()),
+    fetchPosts: () => dispatch(fetchPosts())
   };
 };
 

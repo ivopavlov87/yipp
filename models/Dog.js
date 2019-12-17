@@ -27,7 +27,7 @@ const DogSchema = new Schema({
     required: true
   },
   energy: {
-    type: Number,
+    type: String,
     required: true
   },
   vaccinations: {
