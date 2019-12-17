@@ -424,3 +424,10 @@
 	height: 30%;
 }
 
+.post-form-errors {
+	margin-bottom: 10px;
+	list-style: none;
+	color: #d32323;
+	font-size: 18px;
+}
+

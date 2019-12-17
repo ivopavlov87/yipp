@@ -52,6 +52,7 @@ class DogShow extends React.Component {
         if (this.props.dog) {
             postComposeForm = (
                 <PostCompose
+                    errors={this.props.errors}
                     currentUser={this.props.currentUser}
                     dog={this.props.dog}
                     dogId={this.props.dog.id}
@@ -109,9 +110,9 @@ class DogShow extends React.Component {
                     <p>this dog profile</p>
                 </div>
                 <div className="dog-show-upload-photos">   
-                    <input className='photo-upload-btn' type="file" name="image" id="image" onChange={this.uploadImage.bind(this)}/>
                     <p>You can</p>
                     <label for="image">Upload</label>
+                    <input className='photo-upload-btn' type="file" name="image" id="image" onChange={this.uploadImage.bind(this)}/>
                     <p>a photo</p>
                 </div>
             </div>

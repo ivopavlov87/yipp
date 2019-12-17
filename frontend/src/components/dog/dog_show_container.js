@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
         const currentUser = state.session.user
         const posts = selectPostsForDog(state.entities.posts.all, dogId)
         const images = selectImagesForDog(state.entities.images, dog)
+        const errors = state.errors.post
 
         return {
             dog: dog,
@@ -26,7 +27,8 @@ const mapStateToProps = (state, ownProps) => {
             currentUserId: currentUserId,
             currentUser: currentUser,
             posts: posts,
-            images: images
+            images: images,
+            errors
         }
     } else {
         const dogId = ownProps.match.params.dogId
@@ -35,13 +37,15 @@ const mapStateToProps = (state, ownProps) => {
         const posts = selectPostsForDog(state.entities.posts.all, dogId)
         const images = selectImagesForDog(state.entities.images, dog)
         const currentUser = null
+        const errors = state.errors.post
 
         return {
             currentUser: currentUser,
             dog: dog,
             users: users,
             posts: posts,
-            images: images
+            images: images,
+            errors
         }
     }
 }

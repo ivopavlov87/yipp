@@ -7,7 +7,7 @@ class PostCompose extends React.Component {
 
     this.state = {
       text: "",
-      temperamentRating: 0,
+      temperamentRating: "",
       user_id: "",
       authorName: "",
       dogName: this.props.dog.name,
@@ -31,7 +31,11 @@ class PostCompose extends React.Component {
         dogId: this.props.dog.id
       };
   
-      this.props.composePost(post);
+      this.props.composePost(post).then(() => {
+        if (Object.keys(this.props.errors).length === 0) {
+              this.props.history.push(`/dogs/${this.props.dog.id}`);
+            } 
+      });
       this.setState({
         text: "",
         temperamentRating: 0,
@@ -53,6 +57,16 @@ class PostCompose extends React.Component {
     return e => this.setState({
       temperamentRating: e.currentTarget.value
     });
+  }
+
+  renderErrors() {
+    const errors = Object.values(this.props.errors)
+    const postErrors = errors.map((error, i) => {
+        return <li key={`error-${i}`}>
+            {error}
+          </li>
+    })
+    return postErrors
   }
 
   render() {
@@ -82,6 +96,7 @@ class PostCompose extends React.Component {
               <input type="radio" value="9" name="temperamentRating" onChange={this.updateRating()} />9&nbsp;&nbsp;&nbsp;
               <input type="radio" value="10" name="temperamentRating" onChange={this.updateRating()} />10&nbsp;
             </div>
+            <div className="post-form-errors">{this.renderErrors()}</div>
             <input className='post-compose-sumit-btn' type="submit" value="Submit" />
           </div>
         </form>
