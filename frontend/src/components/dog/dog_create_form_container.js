@@ -11,7 +11,10 @@ const mapStateToProps = state => {
     } else {
         currentUserId = state.session.user.id
     }
+
+    let errors = state.errors.dog
     return {
+        errors,
         currentUserId
     }
 }

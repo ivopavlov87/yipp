@@ -19,7 +19,7 @@ class DogForm extends React.Component {
             dob: "",
             size: "Small",
             weight: "",
-            energy: 5,
+            energy: '5',
             vaccinations: false,
             location: "New York",
             gender: "Male",
@@ -33,12 +33,15 @@ class DogForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-   
         const userId = this.props.currentUserId
         const newState = Object.assign({}, this.state)
         newState['user'] = userId
-        this.props.createDog(newState);
-        this.props.history.push('/profile/dogs');
+        this.props.createDog(newState).then(() => {
+            if (Object.keys(this.props.errors).length === 0) {
+                this.props.history.push('/profile/dogs');
+            }
+        });
+       
     }
 
     handleCheckBox(e) {
@@ -60,6 +63,16 @@ class DogForm extends React.Component {
             })
         }
     }
+
+    renderErrors() {
+    const errors = Object.values(this.props.errors)
+    const dogErrors = errors.map((error, i) => {
+        return <li key={`error-${i}`}>
+            {error}
+          </li>
+    })
+    return dogErrors
+  }
 
     render() {
         return (
@@ -185,7 +198,9 @@ class DogForm extends React.Component {
                                 checked={this.state.vaccinations} 
                                 onChange={this.handleCheckBox}/>
                         </div>
-                        
+
+                        <div className="dog-form-errors">{this.renderErrors()}</div>
+
                         <input className='dog-form-submit-btn' type='submit' value='Submit'/>
                     </form>
                 </div>

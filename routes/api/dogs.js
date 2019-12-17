@@ -42,7 +42,8 @@ router.post('/',
         const { errors, isValid } = validateDogInput(req.body);
 
         if (!isValid) {
-            return res.status(400).json(errors);
+            res.status(400)
+            res.send(errors);
         }
 
         const newDog = new Dog({

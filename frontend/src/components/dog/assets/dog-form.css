@@ -107,3 +107,11 @@
 	color:#d32323;
 }
 
+.dog-form-errors {
+    list-style: none;
+    font-size: 18px;
+    color:#d32323;
+    margin-top: 10px
+
+}
+

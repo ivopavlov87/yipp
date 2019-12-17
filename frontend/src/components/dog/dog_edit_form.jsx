@@ -12,7 +12,6 @@ class DogEditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.dog;
-
         this.handleDOB = this.handleDOB.bind(this);
         this.handleCheckBox = this.handleCheckBox.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,10 +24,14 @@ class DogEditForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateDog(this.state);
         const dogId = this.props.match.params.dogId
-        this.props.history.push(`/dogs/${dogId}`);
+        this.props.updateDog(this.state).then(() => {
+            if (Object.keys(this.props.errors).length === 0) {
+                this.props.history.push(`/dogs/${dogId}`);
+            }
+        });        
     }
+
 
     handleCheckBox(e) {
         this.setState({
@@ -49,6 +52,16 @@ class DogEditForm extends React.Component {
             });
         };
     }
+
+    renderErrors() {
+    const errors = Object.values(this.props.errors)
+    const dogErrors = errors.map((error, i) => {
+        return <li key={`error-${i}`}>
+            {error}
+          </li>
+    })
+    return dogErrors
+  }
 
     render() {
         return (
@@ -167,6 +180,8 @@ class DogEditForm extends React.Component {
                                     checked={this.state.vaccinations}
                                     onChange={this.handleCheckBox} />
                             </div>
+
+                            <div className="dog-form-errors">{this.renderErrors()}</div>
             
                             <input className='dog-form-submit-btn' type='submit' value='Submit' />
 
